@@ -22,6 +22,7 @@ namespace BandD.Serwis.Klient
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
     }
 }
