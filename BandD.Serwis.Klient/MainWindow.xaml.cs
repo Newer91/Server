@@ -23,9 +23,6 @@ namespace BandD.Serwis.Klient
         {
             InitializeComponent();
             this.DataContext = this;
-
-
-            //a ja dam tu cos
         }
     }
 }
