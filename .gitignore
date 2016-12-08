@@ -240,3 +240,4 @@ _Pvt_Extensions
 # APP Config
 App.config
 BandD.Serwis.Server/App.config
+*.config
