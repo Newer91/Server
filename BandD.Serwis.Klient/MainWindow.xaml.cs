@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BandD.Serwis.Klient
@@ -18,23 +17,11 @@ namespace BandD.Serwis.Klient
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class MainWindow : Window
     {
-        public LoginWindow()
+        public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void buttonLogin_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mw = new MainWindow();
-            this.Close();
-            mw.ShowDialog();
-        }
-
-        private void buttonExit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
