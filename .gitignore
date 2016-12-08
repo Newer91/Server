@@ -237,3 +237,7 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
+# APP Config
+App.config
+BandD.Serwis.Server/App.config
+*.config

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BandD.Serwis.Class")]
+[assembly: AssemblyTitle("BandD.Serwis.ViewModel")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BandD.Serwis.Class")]
+[assembly: AssemblyProduct("BandD.Serwis.ViewModel")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fc1cf220-84dd-42a4-9100-def0963289fa")]
+[assembly: Guid("7d81d2b9-dd86-47d8-8858-6ac41661dec6")]
 
 // Version information for an assembly consists of the following four values:
 //
