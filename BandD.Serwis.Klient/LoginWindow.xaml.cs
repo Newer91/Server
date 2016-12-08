@@ -18,21 +18,21 @@ namespace BandD.Serwis.Klient
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }
 
-        private void buttonLogin_Click(object sender, RoutedEventArgs e)
-        {
+        //private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void buttonExit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        //private void buttonExit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.Close();
+        //}
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandD.Serwis.Server", "Band
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandD.Serwis.Klient", "BandD.Serwis.Klient\BandD.Serwis.Klient.csproj", "{CAF77429-B65E-4254-8288-5907BC0D2F68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandD.Serwis.ViewModel", "BandD.Serwis.ViewModel\BandD.Serwis.ViewModel.csproj", "{B7003163-6BEB-4185-8028-F7DAA6EB584A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CAF77429-B65E-4254-8288-5907BC0D2F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAF77429-B65E-4254-8288-5907BC0D2F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAF77429-B65E-4254-8288-5907BC0D2F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7003163-6BEB-4185-8028-F7DAA6EB584A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7003163-6BEB-4185-8028-F7DAA6EB584A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7003163-6BEB-4185-8028-F7DAA6EB584A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7003163-6BEB-4185-8028-F7DAA6EB584A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
