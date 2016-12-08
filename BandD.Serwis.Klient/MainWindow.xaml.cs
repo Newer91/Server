@@ -24,5 +24,7 @@ namespace BandD.Serwis.Klient
             InitializeComponent();
             this.DataContext = this;
         }
+
+        //coś
     }
 }
