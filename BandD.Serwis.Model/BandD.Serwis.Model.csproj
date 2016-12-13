@@ -41,9 +41,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BandD.Serwis.Class\BandD.Serwis.Class.csproj">
       <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>

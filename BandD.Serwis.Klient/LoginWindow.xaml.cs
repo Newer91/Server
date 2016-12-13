@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BandD.Serwis.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace BandD.Serwis.Klient
         public LoginWindow()
         {
             InitializeComponent();
+            this.DataContext = new LoginWindowView();
         }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)

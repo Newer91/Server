@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BandD.Serwis.Class
 {
-    public class Login
+    public class Login: BaseClass
     {
         public Guid LoginId { get; set; }
         public string UserName { get; set; }

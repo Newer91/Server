@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,8 +55,10 @@
     <Compile Include="EntityClassConfiguration\LoginEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlStatsEntityConfiguration.cs" />
     <Compile Include="EntityContexClass\SerwisContex.cs" />
+    <Compile Include="Interface\ILogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\LoginService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
