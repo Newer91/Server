@@ -25,6 +25,14 @@ namespace BandD.Serwis.Client
             this.DataContext = this;
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void pnlMainGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
+        }
         //cos
     }
 }
