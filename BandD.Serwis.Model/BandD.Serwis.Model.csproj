@@ -53,12 +53,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BandD.Serwis.Class\BandD.Serwis.Domain.csproj">
-      <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
-      <Name>BandD.Serwis.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Service References\LoginService\service.wsdl" />
     <None Include="Service References\LoginService\service.xsd">

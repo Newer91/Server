@@ -47,8 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BandD.Serwis.Class\BandD.Serwis.Domain.csproj">
-      <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
+    <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
+      <Project>{E0F63FBA-812A-447B-B9DB-7B9D185802FE}</Project>
       <Name>BandD.Serwis.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Model\BandD.Serwis.Model.csproj">
