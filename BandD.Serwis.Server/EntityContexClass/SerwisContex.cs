@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace BandD.Serwis.Server.EntityContexClass
 {
-    public class SerwisContex : DbContext  
+    public class ServisContex : DbContext  
     {
-        public SerwisContex():
+        public ServisContex():
             base("SerwisConnectionString")
         {
-            Database.SetInitializer<SerwisContex>(new DropCreateDatabaseAlways<SerwisContex>());
+            Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
         }
 
         public DbSet<Login> Logins { get; set; }
-        public DbSet<SlStats> SlStat { get; set; }
+        public DbSet<SlStat> SlStats { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
