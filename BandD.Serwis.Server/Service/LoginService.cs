@@ -1,27 +1,14 @@
-﻿using BandD.Serwis.Class;
-using BandD.Serwis.Server.EntityContexClass;
-using BandD.Serwis.Server.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BandD.Serwis.Server.Interface;
+using System.Security;
 
 namespace BandD.Serwis.Server.Service
 {
-    public class LoginService : ILogin
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "LoginService" in both code and config file together.
+    public class LoginService : ILoginService
     {
-        private SerwisContex ctx;
-
-        public LoginService()
+        public bool Autorauthorization(SecureString password)
         {
-            ctx = new SerwisContex();
-        }
-
-        public List<Login> login()
-        {
-            List<Login> list = ctx.Logins.ToList();
-            return list;
+            return true;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace BandD.Serwis.ViewModel.Class
 {
     public class RelayCommand : ICommand
     {
-        private readonly Func<Boolean> _canExecute;
+        private readonly Func<bool> _canExecute;
         private readonly Action _execute;
 
         public RelayCommand(Action execute)
@@ -13,7 +13,7 @@ namespace BandD.Serwis.ViewModel.Class
         {
         }
 
-        public RelayCommand(Action execute, Func<Boolean> canExecute)
+        public RelayCommand(Action execute, Func<bool> canExecute)
         {
             if (execute == null)
                 throw new ArgumentNullException("execute");
@@ -35,12 +35,12 @@ namespace BandD.Serwis.ViewModel.Class
             }
         }
 
-        public Boolean CanExecute(Object parameter)
+        public bool CanExecute(object parameter)
         {
             return _canExecute == null ? true : _canExecute();
         }
 
-        public void Execute(Object parameter)
+        public void Execute(object parameter)
         {
             _execute();
         }

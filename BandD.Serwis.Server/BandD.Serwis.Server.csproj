@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,10 +57,10 @@
     <Compile Include="EntityClassConfiguration\LoginEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlStatsEntityConfiguration.cs" />
     <Compile Include="EntityContexClass\SerwisContex.cs" />
-    <Compile Include="Interface\ILogin.cs" />
+    <Compile Include="Interface\ILoginService.cs" />
+    <Compile Include="Service\LoginService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\LoginService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -67,11 +69,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BandD.Serwis.Class\BandD.Serwis.Class.csproj">
+    <ProjectReference Include="..\BandD.Serwis.Class\BandD.Serwis.Domain.csproj">
       <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
-      <Name>BandD.Serwis.Class</Name>
+      <Name>BandD.Serwis.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

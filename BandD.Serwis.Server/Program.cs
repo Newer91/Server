@@ -14,7 +14,7 @@ namespace BandD.Serwis.Server
     {
         static void Main(string[] args)
         {
-            using (var ctx = new SerwisContex())
+            using (var ctx = new ServisContex())
             {
                 var login = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = 'A', Password = "dedra" };
                 ctx.Logins.Add(login);
@@ -31,9 +31,9 @@ namespace BandD.Serwis.Server
                 Console.WriteLine("Press <ENTER> to terminate Host");
                 Console.ReadLine();
             }
-            catch
+            catch(Exception ex)
             {
-
+                Console.WriteLine(ex);
             }
             finally
             {

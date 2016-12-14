@@ -43,13 +43,13 @@
   <ItemGroup>
     <Compile Include="Class\BaseViewClass.cs" />
     <Compile Include="Class\RelayCommand.cs" />
-    <Compile Include="LoginWindowView.cs" />
+    <Compile Include="LoginWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BandD.Serwis.Class\BandD.Serwis.Class.csproj">
+    <ProjectReference Include="..\BandD.Serwis.Class\BandD.Serwis.Domain.csproj">
       <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
-      <Name>BandD.Serwis.Class</Name>
+      <Name>BandD.Serwis.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Model\BandD.Serwis.Model.csproj">
       <Project>{a66f0c99-dfa1-4924-b559-65c8c1d1bf77}</Project>
