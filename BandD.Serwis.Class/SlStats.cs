@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BandD.Serwis.Class
 {
-    public class SlStats
+    public class SlStat
     {
         public Guid StatsId { get; set; }
         public string Name { get; set; }

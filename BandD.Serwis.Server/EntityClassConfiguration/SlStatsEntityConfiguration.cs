@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BandD.Serwis.Server.EntityClassConfiguration
 {
-    public class SlStatsEntityConfiguration : EntityTypeConfiguration<SlStats>
+    public class SlStatsEntityConfiguration : EntityTypeConfiguration<SlStat>
     {
         public SlStatsEntityConfiguration()
         {
