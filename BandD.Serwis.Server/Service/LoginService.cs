@@ -19,8 +19,8 @@ namespace BandD.Serwis.Server.Service
                     .FirstOrDefault();
 
                 SecureString userPassword = SecureTools.convertToSecureString(login.Password);
-                bool resultCompare = SecureTools.SecureStringEqual(password, userPassword);
-                if (resultCompare)
+                //bool resultCompare = SecureTools.SecureStringEqual(password, userPassword);
+               // if (resultCompare)
                     return true;
             }
 

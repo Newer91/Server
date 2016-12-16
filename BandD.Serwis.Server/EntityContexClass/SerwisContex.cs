@@ -12,6 +12,12 @@ namespace BandD.Serwis.Server.EntityContexClass
             Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
         }
 
+        public ServisContex(string connectionStringName) :
+    base(connectionStringName)
+        {
+            Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
+        }
+
         public DbSet<Login> Logins { get; set; }
         public DbSet<SlStat> SlStats { get; set; }
 

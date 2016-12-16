@@ -12,9 +12,21 @@ namespace BandD.Serwis.Server
 {
     class Program
     {
+        private static string computerName = System.Environment.MachineName;
         static void Main(string[] args)
         {
-            using (var ctx = new ServisContex())
+            string connectionString = string.Empty;
+            switch (computerName)
+            {
+                case "BANDD":
+                    connectionString = "SerwisConnectionStringBL";
+                    break;
+                default:
+                    connectionString = "SerwisConnectionStringAS";
+                    break;
+            }
+            
+            using (var ctx = new ServisContex(connectionString))
             {
                 var login = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = 'A', Password = "dedra" };
                 var login2 = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = 'A', Password = "12345" };
