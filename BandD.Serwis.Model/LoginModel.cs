@@ -16,7 +16,8 @@ namespace BandD.Serwis.Model
         
         public bool Autorauthorization(SecureString password, string userName)
         {
-            return service.Autorauthorization(SecureTools.convertToUNSecureString(password), userName);
+            string pass = SecureTools.CalculateMD5Hash(SecureTools.convertToUNSecureString(password));
+            return service.Autorauthorization(pass, userName);
         }
     }
 }
