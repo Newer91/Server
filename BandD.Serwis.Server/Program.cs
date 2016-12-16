@@ -1,6 +1,8 @@
 ﻿using BandD.Serwis.Class;
 using BandD.Serwis.Server.EntityContexClass;
+using BandD.Serwis.Server.FTP;
 using BandD.Serwis.Server.Service;
+using BandD.Serwis.Tools.ServerTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +15,15 @@ namespace BandD.Serwis.Server
     class Program
     {
         private static string computerName = System.Environment.MachineName;
+        private static FTPClass ftp = new FTPClass(computerName);
+
         static void Main(string[] args)
         {
+            //if (computerName == "BANDD")
+            //    ftp.ftpUploadDev();
+            //else
+            //    ftp.ftpUpload();
+
             string connectionString = string.Empty;
             switch (computerName)
             {
@@ -25,11 +34,11 @@ namespace BandD.Serwis.Server
                     connectionString = "SerwisConnectionStringAS";
                     break;
             }
-            
+
             using (var ctx = new ServisContex(connectionString))
             {
-                var login = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = 'A', Password = "dedra" };
-                var login2 = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = 'A', Password = "12345" };
+                var login = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = "Admin", Password = SecureTools.CalculateMD5Hash("dedra") };
+                var login2 = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = "Admin", Password = SecureTools.CalculateMD5Hash("12345") };
                 ctx.Logins.Add(login);
                 ctx.Logins.Add(login2);
                 ctx.SaveChanges();

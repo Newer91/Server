@@ -13,6 +13,6 @@ namespace BandD.Serwis.Server.Interface
     public interface ILoginService
     {
         [OperationContract]
-        bool Autorauthorization(SecureString password, string userName);
+        bool Autorauthorization(string password, string userName);
     }
 }

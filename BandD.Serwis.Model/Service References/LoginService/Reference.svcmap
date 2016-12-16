@@ -25,7 +25,6 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e220cce9-876c-410f-b33e-82553acd838d" SourceId="1" SourceUrl="http://localhost:9999/LoginServiceMex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="48214ed1-54ec-435e-9345-e4b90414c2c4" SourceId="1" SourceUrl="http://localhost:9999/LoginServiceMex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b90dcd2a-7ffd-46a7-8672-1c00c003f2df" SourceId="1" SourceUrl="http://localhost:9999/LoginServiceMex" />
-    <MetadataFile FileName="System.Security.xsd" MetadataType="Schema" ID="7fe6a2ec-15e3-401e-9bf6-2c25af800758" SourceId="1" SourceUrl="http://localhost:9999/LoginServiceMex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

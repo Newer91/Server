@@ -57,7 +57,8 @@
     <Compile Include="EntityClassConfiguration\LoginEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlStatsEntityConfiguration.cs" />
     <Compile Include="EntityContexClass\SerwisContex.cs" />
-    <Compile Include="FTPClass.cs" />
+    <Compile Include="FTP\ConfigurationClass.cs" />
+    <Compile Include="FTP\FTPClass.cs" />
     <Compile Include="Interface\ILoginService.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Program.cs" />

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BandD.Serwis.Tools.ServerTools
 {
@@ -71,6 +73,18 @@ namespace BandD.Serwis.Tools.ServerTools
                     Marshal.ZeroFreeBSTR(ss_bstr2_ptr);
                 }
             }
+        }
+
+        public static string CalculateMD5Hash(string inputString)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(inputString);
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+                sb.Append(hash[i].ToString("X2"));
+            return sb.ToString();
         }
     }
 }

@@ -61,9 +61,6 @@
     <None Include="Service References\LoginService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\LoginService\System.Security.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\LoginService\" />
@@ -79,6 +76,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
+      <Project>{A3B36418-88F1-4E65-9FF0-E93113198747}</Project>
+      <Name>BandD.Serwis.Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
