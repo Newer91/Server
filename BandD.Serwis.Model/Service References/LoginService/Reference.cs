@@ -16,10 +16,10 @@ namespace BandD.Serwis.Model.LoginService {
     public interface ILoginService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Autorauthorization", ReplyAction="http://tempuri.org/ILoginService/AutorauthorizationResponse")]
-        bool Autorauthorization(System.Security.SecureString password);
+        bool Autorauthorization(System.Security.SecureString password, string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Autorauthorization", ReplyAction="http://tempuri.org/ILoginService/AutorauthorizationResponse")]
-        System.Threading.Tasks.Task<bool> AutorauthorizationAsync(System.Security.SecureString password);
+        System.Threading.Tasks.Task<bool> AutorauthorizationAsync(System.Security.SecureString password, string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +49,12 @@ namespace BandD.Serwis.Model.LoginService {
                 base(binding, remoteAddress) {
         }
         
-        public bool Autorauthorization(System.Security.SecureString password) {
-            return base.Channel.Autorauthorization(password);
+        public bool Autorauthorization(System.Security.SecureString password, string userName) {
+            return base.Channel.Autorauthorization(password, userName);
         }
         
-        public System.Threading.Tasks.Task<bool> AutorauthorizationAsync(System.Security.SecureString password) {
-            return base.Channel.AutorauthorizationAsync(password);
+        public System.Threading.Tasks.Task<bool> AutorauthorizationAsync(System.Security.SecureString password, string userName) {
+            return base.Channel.AutorauthorizationAsync(password, userName);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace BandD.Serwis.ViewModel
         private Login login;
         private string ipServer;
         private SecureString securePassword;
-        private string name;
+        private string name = "blisowski";
 
         public Login Login
         {
@@ -42,7 +42,7 @@ namespace BandD.Serwis.ViewModel
 
         public bool Authorization()
         {
-            return model.Autorauthorization(securePassword);
+            return model.Autorauthorization(securePassword,name);
         }
 
     }

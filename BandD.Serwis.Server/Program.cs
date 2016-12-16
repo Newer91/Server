@@ -17,7 +17,9 @@ namespace BandD.Serwis.Server
             using (var ctx = new ServisContex())
             {
                 var login = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = 'A', Password = "dedra" };
+                var login2 = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = 'A', Password = "12345" };
                 ctx.Logins.Add(login);
+                ctx.Logins.Add(login2);
                 ctx.SaveChanges();
             }
 
@@ -31,7 +33,7 @@ namespace BandD.Serwis.Server
                 Console.WriteLine("Press <ENTER> to terminate Host");
                 Console.ReadLine();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }

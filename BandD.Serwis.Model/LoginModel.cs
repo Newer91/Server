@@ -13,9 +13,9 @@ namespace BandD.Serwis.Model
     {
         private LoginServiceClient service = new LoginServiceClient();
         
-        public bool Autorauthorization(SecureString password)
+        public bool Autorauthorization(SecureString password, string userName)
         {
-            return service.Autorauthorization(password);
+            return service.Autorauthorization(password, userName);
         }
     }
 }

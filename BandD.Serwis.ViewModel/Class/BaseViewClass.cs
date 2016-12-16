@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace BandD.Serwis.ViewModel.Class
 {
-    public abstract class BaseViewClass:INotifyPropertyChanged
+    public abstract class BaseViewClass : INotifyPropertyChanged
     {
         [Conditional("DEBUG")]
         [DebuggerStepThrough]

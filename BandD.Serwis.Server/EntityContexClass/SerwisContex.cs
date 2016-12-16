@@ -12,7 +12,7 @@ namespace BandD.Serwis.Server.EntityContexClass
     public class ServisContex : DbContext  
     {
         public ServisContex():
-            base("SerwisConnectionString")
+            base("SerwisConnectionStringBL")
         {
             Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
         }
