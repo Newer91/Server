@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BandD.Serwis.ViewModel;
 
 namespace BandD.Serwis.Client
 {
@@ -19,6 +20,7 @@ namespace BandD.Serwis.Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainWindowViewModel mainWindows = new MainWindowViewModel();
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +34,16 @@ namespace BandD.Serwis.Client
         private void pnlMainGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+
+        }
+        private void buttonAddOrder_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindows.mail = txtMail.Text;
         }
         //cos
     }

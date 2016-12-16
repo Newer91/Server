@@ -27,11 +27,13 @@ namespace BandD.Serwis.Server
             string connectionString = string.Empty;
             switch (computerName)
             {
-                case "BANDD":
+                case "BANDD":                
                     connectionString = "SerwisConnectionStringBL";
                     break;
-                default:
+                case "DESKTOP-H4L3EG5":
                     connectionString = "SerwisConnectionStringAS";
+                    break;
+                default:
                     break;
             }
 
