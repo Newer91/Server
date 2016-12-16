@@ -1,11 +1,6 @@
 ﻿using BandD.Serwis.Class;
 using BandD.Serwis.Server.EntityClassConfiguration;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BandD.Serwis.Server.EntityContexClass
 {
