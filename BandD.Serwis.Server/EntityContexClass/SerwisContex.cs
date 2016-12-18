@@ -4,16 +4,10 @@ using System.Data.Entity;
 
 namespace BandD.Serwis.Server.EntityContexClass
 {
-    public class ServisContex : DbContext  
+    public class ServisContex : DbContext
     {
-        public ServisContex():
-            base("SerwisConnectionStringBL")
-        {
-            Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
-        }
-
-        public ServisContex(string connectionStringName) :
-    base(connectionStringName)
+        public ServisContex(string connectionStringName)
+            : base(connectionStringName)
         {
             Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
         }

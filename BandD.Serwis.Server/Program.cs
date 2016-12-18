@@ -14,61 +14,49 @@ namespace BandD.Serwis.Server
 {
     class Program
     {
-        private static string computerName = System.Environment.MachineName;
+        private static string computerName = Environment.MachineName;
         private static FTPClass ftp = new FTPClass(computerName);
 
         static void Main(string[] args)
         {
-            //if (computerName == "BANDD")
-            //    ftp.ftpUploadDev();
+            ///TODO!
+            //if (computerName == "BANDD" || computerName == "DESKTOP-H4L3EG5")
+            //    ftp.ftpUploadDev(computerName);
             //else
-            //    ftp.ftpUpload();
+            //    ftp.ftpUpload(computerName);
 
-            string connectionString = string.Empty;
-            switch (computerName)
-            {
-                case "BANDD":                
-                    connectionString = "SerwisConnectionStringBL";
-                    break;
-                case "DESKTOP-H4L3EG5":
-                    connectionString = "SerwisConnectionStringAS";
-                    break;
-                default:
-                    break;
-            }
-
-            using (var ctx = new ServisContex(connectionString))
+            using (var ctx = new ServisContex(Extension.GetConnectionString(computerName)))
             {
                 var login = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = "Admin", Password = SecureTools.CalculateMD5Hash("dedra") };
                 var login2 = new Login() { LoginId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = "Admin", Password = SecureTools.CalculateMD5Hash("12345") };
                 ctx.Logins.Add(login);
                 ctx.Logins.Add(login2);
                 ctx.SaveChanges();
-            }
 
-            ServiceHost hostLogin = null;
-            try
-            {
-                hostLogin = new ServiceHost(typeof(LoginService));
-                hostLogin.Open();
+                ServiceHost hostLogin = null;
+                try
+                {
+                    var instance = new LoginService(ctx);
+                    hostLogin = new ServiceHost(instance);
+                    hostLogin.Open();
 
-                Console.WriteLine();
-                Console.WriteLine("Press <ENTER> to terminate Host");
+                    Console.WriteLine("Press <ENTER> to terminate Host");
+                    Console.ReadLine();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                finally
+                {
+                    if (hostLogin.State == CommunicationState.Faulted)
+                        hostLogin.Abort();
+                    else
+                        hostLogin.Close();
+                }
+                Console.WriteLine("Server stopped");
                 Console.ReadLine();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            finally
-            {
-                if (hostLogin.State == CommunicationState.Faulted)
-                    hostLogin.Abort();
-                else
-                    hostLogin.Close();
-            }
-            Console.WriteLine("Server stopped");
-            Console.ReadLine();
         }
     }
 }
