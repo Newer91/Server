@@ -30,30 +30,39 @@ namespace BandD.Serwis.Server.FTP
             webClientDowload.Credentials = networkCredential;
         }
 
-        internal void ftpUploadDev()
+        public void ftpUploadDev(string computerName)
         {
             configClass.CreateConfigFile();
-            FtpWebRequest webClientUpload;
-            webClientUpload = (FtpWebRequest)WebRequest.Create(StaticResource.ftpAddresConfigDev + "/" + "config.txt");
+            Upload(ftpAcces.Dev);           
         }
 
-        public void ftpUpload()
+        public void ftpUpload(string computerName)
+        {
+            configClass.CreateConfigFile();
+            Upload(ftpAcces.Normal);
+        }
+
+        private void Upload(ftpAcces acces)
         {
             FtpWebRequest webClientUpload;
-            ///TODO:::::
-            webClientUpload = (FtpWebRequest)WebRequest.Create(StaticResource.ftpAddresConfig + "/" + "config.txt");
+            if (acces == ftpAcces.Dev)
+                webClientUpload = (FtpWebRequest)WebRequest.Create(StaticResource.ftpAddresConfigDev + "/" + (computerName + "Configuration.txt"));
+            else
+                webClientUpload = (FtpWebRequest)WebRequest.Create(StaticResource.ftpAddresConfig + "/" + (computerName + "Configuration.txt"));
+
             webClientUpload.Method = WebRequestMethods.Ftp.UploadFile;
             webClientUpload.Credentials = networkCredential;
 
             webClientUpload.KeepAlive = true;
             webClientUpload.UseBinary = true;
 
-            FileInfo fileInfo = new FileInfo("test.txt");
+            FileInfo fileInfo = new FileInfo(computerName + "Configuration.txt");
             webClientUpload.ContentLength = fileInfo.Length;
 
             byte[] buffer = new byte[4097];
             int bytes = 0;
             int total_bytes = (int)fileInfo.Length;
+
 
             FileStream filseStream = fileInfo.OpenRead();
             Stream rs = webClientUpload.GetRequestStream();
@@ -67,5 +76,11 @@ namespace BandD.Serwis.Server.FTP
             filseStream.Close();
             rs.Close();
         }
+    }
+
+    public enum ftpAcces
+    {
+        Dev,
+        Normal
     }
 }
