@@ -2,8 +2,6 @@
 using BandD.Serwis.Model;
 using BandD.Serwis.ViewModel.Class;
 using System.Security;
-using System.Windows;
-using System.Windows.Input;
 
 namespace BandD.Serwis.ViewModel
 {

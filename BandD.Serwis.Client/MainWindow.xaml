@@ -5,67 +5,68 @@
     <Grid x:Name="LayoutRoot" Background="#355555" Width="300" Height="300">
         <Grid x:Name="FormLayoutGrid" Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
-                
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*" />
-               <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Zlecenia">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-            <MenuItem Header="_Edycja">
-                <MenuItem Header="_Kopiuj" />
-                <MenuItem Header="_Wklej" />
-                <MenuItem Header="_Cofnij" />
-                <MenuItem Header="_Do przodu" />
-            </MenuItem>
-            <MenuItem Header="_Konfiguracja">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-            <MenuItem Header="_Słowniki">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-        </Menu>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
+            <DockPanel>
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="_Zlecenia">
+                        <MenuItem Header="_New" />
+                        <MenuItem Header="_Open" />
+                        <MenuItem Header="_Save" />
+                        <MenuItem Header="_Exit" />
+                    </MenuItem>
+                    <MenuItem Header="_Edycja">
+                        <MenuItem Header="_Kopiuj" />
+                        <MenuItem Header="_Wklej" />
+                        <MenuItem Header="_Cofnij" />
+                        <MenuItem Header="_Do przodu" />
+                    </MenuItem>
+                    <MenuItem Header="_Konfiguracja">
+                        <MenuItem Header="_New" />
+                        <MenuItem Header="_Open" />
+                        <MenuItem Header="_Save" />
+                        <Separator />
+                        <MenuItem Header="_Exit" />
+                    </MenuItem>
+                    <MenuItem Header="_Słowniki">
+                        <MenuItem Header="_New" />
+                        <MenuItem Header="_Open" />
+                        <MenuItem Header="_Save" />
+                        <MenuItem Header="_Exit" />
+                        <MenuItem Header="_Statusy zleceń" />
+                    </MenuItem>
+                </Menu>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
                         Tło
-            </TextBlock>
-        </DockPanel>
-        <StackPanel Margin="20">
-        <Label Target="{Binding ElementName=txtMail}">
-            <StackPanel Orientation="Horizontal">
+                </TextBlock>
+            </DockPanel>
+            <StackPanel Margin="20">
+                <Label Target="{Binding ElementName=txtMail}">
+                    <StackPanel Orientation="Horizontal">
                         <AccessText Text="_Mail:" />
+                    </StackPanel>
+                </Label>
+                <TextBox Name="txtMail" />
             </StackPanel>
-        </Label>
-        <TextBox Name="txtMail" />
-        </StackPanel>
-        <Label Grid.Row="1" Margin ="2,-2,0,0">
+            <Label Grid.Row="1" Margin ="2,-2,0,0">
                 Serwer:
-         </Label>
-         <Label Grid.Row="1" FontSize="7" Margin ="5,10,0,0" Target="{Binding ElementName=txtSerwer}">
-             192.168.16.8
-         </Label>
-         <Border Grid.Row ="0" BorderBrush="Black" BorderThickness="1">
-         </Border>
-         <Label Grid.Row="1"  Margin ="200,0,0,0" Target="{Binding ElementName=uzytkownik}">
+            </Label>
+            <Label Grid.Row="1" FontSize="7" Margin ="5,10,0,0" Target="{Binding ElementName=txtSerwer}">
+                192.168.16.8
+            </Label>
+            <Border Grid.Row ="0" BorderBrush="Black" BorderThickness="1">
+            </Border>
+            <Label Grid.Row="1"  Margin ="200,0,0,0" Target="{Binding ElementName=uzytkownik}">
                 Użytkownik
-         </Label>
-         
+            </Label>
+
         </Grid>
     </Grid>
-    
-    
-    
+
+
+
 </Window>

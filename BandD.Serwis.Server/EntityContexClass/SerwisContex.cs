@@ -4,27 +4,21 @@ using System.Data.Entity;
 
 namespace BandD.Serwis.Server.EntityContexClass
 {
-    public class ServisContex : DbContext  
+    public class ServisContex : DbContext
     {
-        public ServisContex():
-            base("SerwisConnectionStringBL")
-        {
-            Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
-        }
-
-        public ServisContex(string connectionStringName) :
-    base(connectionStringName)
+        public ServisContex(string connectionStringName)
+            : base(connectionStringName)
         {
             Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
         }
 
         public DbSet<Login> Logins { get; set; }
-        public DbSet<SlStat> SlStats { get; set; }
+        public DbSet<SlOrderStat> SlOrdersStats { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new LoginEntityConfiguration());
-            modelBuilder.Configurations.Add(new SlStatsEntityConfiguration());
+            modelBuilder.Configurations.Add(new SlOrdersStatsEntityConfiguration());
         }
     }
 }
