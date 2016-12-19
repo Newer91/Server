@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionaries\OrderStatusModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="MailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,14 +80,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
+      <Project>{E0F63FBA-812A-447B-B9DB-7B9D185802FE}</Project>
+      <Name>BandD.Serwis.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
       <Project>{A3B36418-88F1-4E65-9FF0-E93113198747}</Project>
       <Name>BandD.Serwis.Tools</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dictionaries\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
