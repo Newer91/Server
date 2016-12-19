@@ -1,18 +1,6 @@
 ﻿using BandD.Serwis.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BandD.Serwis.Client
 {
@@ -21,11 +9,11 @@ namespace BandD.Serwis.Client
     /// </summary>
     public partial class LoginWindow : Window
     {
-        LoginWindowViewModel vm = new LoginWindowViewModel();
+        LoginWindowViewModel loginViewModel = new LoginWindowViewModel();
         public LoginWindow()
         {
             InitializeComponent();
-            this.DataContext = vm;
+            this.DataContext = loginViewModel;
         }
 
         private void passwordBoxkHaslo_PasswordChanged(object sender, RoutedEventArgs e)
@@ -38,7 +26,7 @@ namespace BandD.Serwis.Client
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (vm.Authorization())
+            if (loginViewModel.Authorization())
             {
                 MainWindow mw = new MainWindow();
                 this.Close();

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BandD.Serwis.Tools.ServerTools
+﻿namespace BandD.Serwis.Tools.ServerTools
 {
     public static class Extension
     {
