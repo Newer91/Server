@@ -19,7 +19,12 @@ namespace BandD.Serwis.Server.Service
 
         public List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity)
         {
-            throw new NotImplementedException();
+            List<SlOrderStat> result = new List<SlOrderStat>();
+
+            var sl1 = new SlOrderStat() {Active=true, Name="jakis", OrderStatusId = Guid.NewGuid(), Description="cos" };
+
+            result.Add(sl1);
+            return result;
         }
     }
 }

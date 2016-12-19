@@ -18,8 +18,8 @@ namespace BandD.Serwis.Server
 
         private void InitOrderDictionaryTable()
         {
-            var stat = new SlOrderStat() { StatsId = Guid.NewGuid(), Name = "W trakcie realizacji", Active = true, Description = "Zlecenie w trakcie realizacji" };
-            var stat2 = new SlOrderStat() { StatsId = Guid.NewGuid(), Name = "Anulowane" ,Active =true,Description="Zlecenie anulowane przez klienta"};
+            var stat = new SlOrderStat() { OrderStatusId = Guid.NewGuid(), Name = "W trakcie realizacji", Active = true, Description = "Zlecenie w trakcie realizacji" };
+            var stat2 = new SlOrderStat() { OrderStatusId = Guid.NewGuid(), Name = "Anulowane" ,Active =true,Description="Zlecenie anulowane przez klienta"};
             ctx.SlOrdersStats.Add(stat);
             ctx.SlOrdersStats.Add(stat2);
             ctx.SaveChanges();

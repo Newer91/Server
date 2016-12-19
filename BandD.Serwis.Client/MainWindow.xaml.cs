@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using BandD.Serwis.ViewModel;
+using BandD.Serwis.Client.Dictionaries;
 
 namespace BandD.Serwis.Client
 {
@@ -35,6 +36,12 @@ namespace BandD.Serwis.Client
         {
             mainWindows.mail = txtMail.Text;
         }
-        //cos
+
+        private void OrderStatus_Click(object sender, RoutedEventArgs e)
+        {
+            OrderStatus window = new OrderStatus();
+            window.ShowDialog();
+        }
+
     }
 }
