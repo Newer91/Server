@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/BandD.Serwis.Class" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.Class" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfSlOrderStat">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SlOrderStat" nillable="true" type="tns:SlOrderStat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSlOrderStat" nillable="true" type="tns:ArrayOfSlOrderStat" />
+  <xs:complexType name="SlOrderStat">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatsId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SlOrderStat" nillable="true" type="tns:SlOrderStat" />
+</xs:schema>
