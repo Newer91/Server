@@ -9,7 +9,6 @@ namespace BandD.Serwis.Server.FTP
 {
     public class ConfigurationClass
     {
-        private string fileName = "configuration.txt";
         private string computerName;
         private List<string> configList = new List<string>();
 
@@ -21,6 +20,8 @@ namespace BandD.Serwis.Server.FTP
 
         public void CreateConfigFile()
         {
+            string fileName = computerName + "Configuration.txt";
+
             if (File.Exists(fileName))
             {
                 File.Delete(fileName);
