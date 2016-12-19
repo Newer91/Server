@@ -11,11 +11,18 @@ namespace BandD.Serwis.ViewModel.Dictionaries
         public List<SlOrderStat> OrderStatusList { get; set; }
 
         private string name;
+        private bool activity;
 
         public string Name
         {
             get { return name; }
             set { name = value; OnPropertyChanged(); }
+        }
+
+        public bool Activity
+        {
+            get { return activity; }
+            set { activity = value;OnPropertyChanged(); }
         }
 
         public ICommand Search { get { return new RelayCommand(SearchExecute, null); } }
