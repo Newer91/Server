@@ -1,12 +1,25 @@
-﻿using BandD.Serwis.Server.Interface;
+﻿using BandD.Serwis.Server.EntityContexClass;
+using BandD.Serwis.Server.Interface;
+using System.ServiceModel;
+using BandD.Serwis.Class;
+using System;
+using System.Collections.Generic;
 
 namespace BandD.Serwis.Server.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DictionariesService" in both code and config file together.
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class DictionariesService : IDictionariesService
     {
-        public void DoWork()
+        private ServisContex ctx;
+
+        public DictionariesService(ServisContex ctx)
         {
+            this.ctx = ctx;
+        }
+
+        public List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

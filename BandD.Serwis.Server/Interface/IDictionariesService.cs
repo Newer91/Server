@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BandD.Serwis.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,6 +13,6 @@ namespace BandD.Serwis.Server.Interface
     public interface IDictionariesService
     {
         [OperationContract]
-        void DoWork();
+        List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity);
     }
 }

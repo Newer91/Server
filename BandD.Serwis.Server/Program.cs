@@ -15,11 +15,16 @@ namespace BandD.Serwis.Server
             {
                 InitClass defoultItems = new InitClass(ctx);
                 ServiceHost hostLogin = null;
+                ServiceHost hostDictionary = null;
                 try
                 {
-                    var instance = new LoginService(ctx);
-                    hostLogin = new ServiceHost(instance);
+                    var LoginInstance = new LoginService(ctx);
+                    hostLogin = new ServiceHost(LoginInstance);
                     hostLogin.Open();
+
+                    var DictionariesInstance = new DictionariesService(ctx);
+                    hostDictionary = new ServiceHost(DictionariesInstance);
+                    hostDictionary.Open();
 
                     Console.WriteLine("Press <ENTER> to terminate Host");
                     Console.ReadLine();
@@ -34,6 +39,11 @@ namespace BandD.Serwis.Server
                         hostLogin.Abort();
                     else
                         hostLogin.Close();
+
+                    if (hostDictionary.State == CommunicationState.Faulted)
+                        hostDictionary.Abort();
+                    else
+                        hostDictionary.Close();
                 }
                 Console.WriteLine("Server stopped");
                 Console.ReadLine();

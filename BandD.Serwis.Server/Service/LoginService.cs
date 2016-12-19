@@ -7,22 +7,14 @@ using System.ServiceModel;
 
 namespace BandD.Serwis.Server.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "LoginService" in both code and config file together.
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class LoginService : ILoginService
     {
-        private readonly string connectionString;
         private ServisContex ctx;
-
-        public LoginService()
-        {
-            connectionString = Extension.GetConnectionString(Environment.MachineName);
-        }
 
         public LoginService(ServisContex ctx)
         {
             this.ctx = ctx;
-            connectionString = Extension.GetConnectionString(Environment.MachineName);
         }
 
         public bool Autorauthorization(string password, string userName)
