@@ -54,9 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service\DictionariesService.cs" />
     <Compile Include="EntityClassConfiguration\LoginEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlOrdersStatsEntityConfiguration.cs" />
     <Compile Include="EntityContexClass\SerwisContex.cs" />
+    <Compile Include="Interface\IDictionariesService.cs" />
     <Compile Include="InitClass.cs" />
     <Compile Include="Interface\ILoginService.cs" />
     <Compile Include="Service\LoginService.cs" />
