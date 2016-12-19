@@ -13,12 +13,12 @@ namespace BandD.Serwis.Server.EntityContexClass
         }
 
         public DbSet<Login> Logins { get; set; }
-        public DbSet<SlStat> SlStats { get; set; }
+        public DbSet<SlOrderStat> SlOrdersStats { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new LoginEntityConfiguration());
-            modelBuilder.Configurations.Add(new SlStatsEntityConfiguration());
+            modelBuilder.Configurations.Add(new SlOrdersStatsEntityConfiguration());
         }
     }
 }
