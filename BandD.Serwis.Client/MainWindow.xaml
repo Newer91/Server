@@ -37,7 +37,7 @@
                         <MenuItem Header="_Open" Click="MenuItem_Click" />
                         <MenuItem Header="_Save" Click="MenuItem_Click" />
                         <MenuItem Header="_Exit" />
-                        <MenuItem Header="_Statusy zleceń" Click="MenuItem_Click_2" />
+                        <MenuItem Header="_Statusy zleceń" Name="OrderStatus" Click="OrderStatus_Click"/>
                     </MenuItem>
                 </Menu>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">

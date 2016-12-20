@@ -8,7 +8,7 @@ namespace BandD.Serwis.Server.EntityClassConfiguration
     {
         public SlOrdersStatsEntityConfiguration()
         {
-            this.HasKey<Guid>(k => k.StatsId);
+            this.HasKey<Guid>(k => k.OrderStatusId);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BandD.Serwis.Class;
+using BandD.Serwis.Model.DictionariesService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace BandD.Serwis.Model.Dictionaries
 {
     public class DictionariesModel
     {
+        private DictionariesServiceClient service = new DictionariesServiceClient();
+
         public List<SlOrderStat> getDataFromSlOrderStat(string name,bool activity)
         {
-            List<SlOrderStat> result = new List<SlOrderStat>();
-
-            return result;
+            return service.getDataFromSlOrderStat(name,activity).ToList();
         }
     }
 }

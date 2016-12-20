@@ -12,7 +12,7 @@
       <xs:element minOccurs="0" name="Active" type="xs:boolean" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StatsId" type="ser:guid" />
+      <xs:element minOccurs="0" name="OrderStatusId" type="ser:guid" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SlOrderStat" nillable="true" type="tns:SlOrderStat" />
