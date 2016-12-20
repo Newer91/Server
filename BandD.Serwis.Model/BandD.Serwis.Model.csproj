@@ -30,7 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BandD.Serwis.Class, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -51,19 +50,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\LoginService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="BandD.Serwis.Domain.SlOrderStat.datasource" />
     <None Include="DTO\BandD.Serwis.Class.SlOrderStat.datasource" />
-    <None Include="Service References\DictionariesService\BandD.Serwis.Class.xsd">
+    <None Include="Service References\DictionariesService\BandD.Serwis.Domain.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DictionariesService\service.wsdl" />
@@ -73,29 +68,9 @@
     <None Include="Service References\DictionariesService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\LoginService\service.wsdl" />
-    <None Include="Service References\LoginService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\LoginService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\DictionariesService\" />
-    <WCFMetadataStorage Include="Service References\LoginService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\LoginService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\LoginService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\LoginService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">

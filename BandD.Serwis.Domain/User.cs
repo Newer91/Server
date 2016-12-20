@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace BandD.Serwis.Class
+namespace BandD.Serwis.Domain
 {
-    public class Login: BaseClass
+    public class User: BaseClass
     {
-        public Guid LoginId { get; set; }
+        public Guid UserId { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool Active { get; set; }

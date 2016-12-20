@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BandD.Serwis.Class
+namespace BandD.Serwis.Domain
 {
     public class SlOrderStat
     {
