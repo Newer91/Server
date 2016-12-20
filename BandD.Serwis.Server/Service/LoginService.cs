@@ -3,30 +3,26 @@ using BandD.Serwis.Server.Interface;
 using System.Linq;
 using System;
 using BandD.Serwis.Tools.ServerTools;
-using System.ServiceModel;
 
 namespace BandD.Serwis.Server.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class LoginService : ILoginService
     {
-        private ServisContex ctx;
-
-        public LoginService(ServisContex ctx)
-        {
-            this.ctx = ctx;
-        }
+        private string conectionString = Extension.GetConnectionString(Environment.MachineName);
 
         public bool Autorauthorization(string password, string userName)
         {
-            bool result = false;
-            var login = ctx.Logins
-                .Where(l => l.UserName == userName)
-                .FirstOrDefault();
+            using (var ctx = new ServisContex(conectionString))
+            {
+                bool result = false;
+                var login = ctx.Users
+                    .Where(l => l.UserName == userName)
+                    .FirstOrDefault();
 
-            if (login.Password == password)
-                return true;
-            return result;
+                if (login.Password == password)
+                    return true;
+                return result;
+            }
         }
     }
 }

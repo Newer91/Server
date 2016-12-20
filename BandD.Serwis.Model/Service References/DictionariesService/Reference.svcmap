@@ -25,7 +25,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8a563ab6-876b-4348-8caa-ea3c3d8e837d" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7693f1fa-7519-4660-83dc-8a2fde200505" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7e18159d-d83c-4e96-8917-f843d0a41aa7" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
-    <MetadataFile FileName="BandD.Serwis.Class.xsd" MetadataType="Schema" ID="95bd5ac3-b16c-4fdb-aaba-a0c34dfb4d76" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
+    <MetadataFile FileName="BandD.Serwis.Domain.xsd" MetadataType="Schema" ID="2329827e-494c-4135-90c6-ce659e548b4b" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

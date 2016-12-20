@@ -1,4 +1,4 @@
-﻿using BandD.Serwis.Class;
+﻿using BandD.Serwis.Domain;
 using System;
 using System.Data.Entity.ModelConfiguration;
 

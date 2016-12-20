@@ -73,7 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
-      <Project>{E0F63FBA-812A-447B-B9DB-7B9D185802FE}</Project>
+      <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
       <Name>BandD.Serwis.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">

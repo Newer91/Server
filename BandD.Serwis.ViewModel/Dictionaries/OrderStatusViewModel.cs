@@ -1,9 +1,9 @@
-﻿using BandD.Serwis.Class;
-using BandD.Serwis.ViewModel.Class;
+﻿using BandD.Serwis.ViewModel.Class;
 using System.Collections.Generic;
 using System.Windows.Input;
 using System;
 using BandD.Serwis.Model.Dictionaries;
+using BandD.Serwis.Domain;
 
 namespace BandD.Serwis.ViewModel.Dictionaries
 {
@@ -50,6 +50,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries
         private void SearchExecute()
         {
             OrderStatusList = model.getDataFromSlOrderStat(name, activity);
+//            OrderStatusList = model.getDataFromSlOrderStat(name, activity);
         }
     }
 }
