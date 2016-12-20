@@ -1,10 +1,6 @@
-﻿using BandD.Serwis.Class;
-using System;
+﻿using BandD.Serwis.Domain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
 
 namespace BandD.Serwis.Server.Interface
 {
@@ -14,5 +10,8 @@ namespace BandD.Serwis.Server.Interface
     {
         [OperationContract]
         List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity);
+
+        [OperationContract]
+        bool Autorauthorization(string password, string userName);
     }
 }

@@ -1,4 +1,4 @@
-﻿using BandD.Serwis.Class;
+﻿using BandD.Serwis.Domain;
 using BandD.Serwis.Server.EntityClassConfiguration;
 using System.Data.Entity;
 
@@ -9,10 +9,10 @@ namespace BandD.Serwis.Server.EntityContexClass
         public ServisContex(string connectionStringName)
             : base(connectionStringName)
         {
-            Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
+           // Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
         }
 
-        public DbSet<Login> Logins { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<SlOrderStat> SlOrdersStats { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -1,4 +1,4 @@
-﻿using BandD.Serwis.Class;
+﻿using BandD.Serwis.Domain;
 using BandD.Serwis.Model;
 using BandD.Serwis.ViewModel.Class;
 using System.Security;
@@ -9,12 +9,12 @@ namespace BandD.Serwis.ViewModel
     {
 
         private LoginModel model = new LoginModel();
-        private Login login;
+        private User login;
         private string ipServer;
         private SecureString securePassword;
         private string name = "blisowski";
 
-        public Login Login
+        public User Login
         {
             get { return login; }
             set { login = value; OnPropertyChanged(); }

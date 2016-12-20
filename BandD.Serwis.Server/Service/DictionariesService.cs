@@ -1,30 +1,42 @@
 ﻿using BandD.Serwis.Server.EntityContexClass;
 using BandD.Serwis.Server.Interface;
-using System.ServiceModel;
-using BandD.Serwis.Class;
 using System;
 using System.Collections.Generic;
+using BandD.Serwis.Tools.ServerTools;
+using BandD.Serwis.Domain;
+using System.Linq;
 
 namespace BandD.Serwis.Server.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class DictionariesService : IDictionariesService
     {
-        private ServisContex ctx;
-
-        public DictionariesService(ServisContex ctx)
-        {
-            this.ctx = ctx;
-        }
+        private string conectionString = Extension.GetConnectionString(Environment.MachineName);
 
         public List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity)
         {
-            List<SlOrderStat> result = new List<SlOrderStat>();
+            using (var ctx = new ServisContex(conectionString))
+            {
+                List<SlOrderStat> result = new List<SlOrderStat>();
+                var sl1 = new SlOrderStat() { Active = true, Name = "jakis", OrderStatusId = Guid.NewGuid(), Description = "cos" };
 
-            var sl1 = new SlOrderStat() {Active=true, Name="jakis", OrderStatusId = Guid.NewGuid(), Description="cos" };
+                result.Add(sl1);
+                return result;
+            }
+        }
 
-            result.Add(sl1);
-            return result;
+        public bool Autorauthorization(string password, string userName)
+        {
+            using (var ctx = new ServisContex(conectionString))
+            {
+                bool result = false;
+                var login = ctx.Users
+                    .Where(l => l.UserName == userName)
+                    .FirstOrDefault();
+
+                if (login.Password == password)
+                    return true;
+                return result;
+            }
         }
     }
 }
