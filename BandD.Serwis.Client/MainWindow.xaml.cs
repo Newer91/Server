@@ -35,6 +35,7 @@ namespace BandD.Serwis.Client
         {
             mainWindows.mail = txtMail.Text;
         }
+
         //cos
     }
 }

@@ -33,11 +33,11 @@
                         <MenuItem Header="_Exit" />
                     </MenuItem>
                     <MenuItem Header="_Słowniki">
-                        <MenuItem Header="_New" />
-                        <MenuItem Header="_Open" />
-                        <MenuItem Header="_Save" />
+                        <MenuItem Header="_New" Click="MenuItem_Click" />
+                        <MenuItem Header="_Open" Click="MenuItem_Click" />
+                        <MenuItem Header="_Save" Click="MenuItem_Click" />
                         <MenuItem Header="_Exit" />
-                        <MenuItem Header="_Statusy zleceń" />
+                        <MenuItem Header="_Statusy zleceń" Click="MenuItem_Click_2" />
                     </MenuItem>
                 </Menu>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
