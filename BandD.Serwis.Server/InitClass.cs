@@ -2,6 +2,7 @@
 using BandD.Serwis.Server.EntityContexClass;
 using BandD.Serwis.Tools.ServerTools;
 using System;
+using System.Linq;
 
 namespace BandD.Serwis.Server
 {
@@ -24,7 +25,11 @@ namespace BandD.Serwis.Server
             bool result = false;
             using (var ctx = new ServisContex(conectionString))
             {
-
+                var adminInBase = ctx.Users
+                    .Where(l => l.UserName == "Admin")
+                    .FirstOrDefault();
+                if (adminInBase != null)
+                    return true;
             }
             return result;
         }

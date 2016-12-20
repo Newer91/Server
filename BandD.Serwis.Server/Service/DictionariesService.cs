@@ -16,17 +16,17 @@ namespace BandD.Serwis.Server.Service
 
         public bool Autorauthorization(string password, string userName)
         {
+            bool result = false;
             using (var ctx = new ServisContex(conectionString))
             {
-                bool result = false;
                 var login = ctx.Users
                     .Where(l => l.UserName == userName)
                     .FirstOrDefault();
 
                 if (login.Password == password)
                     return true;
-                return result;
             }
+            return result;
         }
 
         public List<User> getDataFromUser(string name, bool status)
@@ -48,14 +48,21 @@ namespace BandD.Serwis.Server.Service
 
         public List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity)
         {
+            List<SlOrderStat> result = new List<SlOrderStat>();
             using (var ctx = new ServisContex(conectionString))
             {
-                List<SlOrderStat> result = new List<SlOrderStat>();
-                var sl1 = new SlOrderStat() { Active = true, Name = "jakis", OrderStatusId = Guid.NewGuid(), Description = "cos" };
+                var list = ctx.SlOrdersStats.ToList();
 
-                result.Add(sl1);
-                return result;
+                if (name != null && name != string.Empty)
+                    list = list.Where(n => n.Name == name).ToList();
+
+                if (activity)
+                    list = list.Where(a => Convert.ToByte(a.Active) == Convert.ToByte(activity)).ToList();
+
+                result = list;                
             }
+
+            return result;
         }
 
         #endregion
