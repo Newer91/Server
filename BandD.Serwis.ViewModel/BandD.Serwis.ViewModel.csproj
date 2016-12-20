@@ -44,7 +44,7 @@
     <Compile Include="Class\BaseViewClass.cs" />
     <Compile Include="Class\RelayCommand.cs" />
     <Compile Include="Dictionaries\OrderStatusViewModel.cs" />
-    <Compile Include="Dictionaries\UserStatusViewModel.cs" />
+    <Compile Include="Dictionaries\UserViewModel.cs" />
     <Compile Include="LoginWindowViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

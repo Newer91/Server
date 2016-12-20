@@ -1,4 +1,4 @@
-﻿using BandD.Serwis.Class;
+﻿using BandD.Serwis.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BandD.Serwis.ViewModel.Dictionaries
 {
-    public class UserStatusViewModel : BaseClass
+    public class UserViewModel : BaseClass
     {
         
     }

@@ -11,9 +11,24 @@ namespace BandD.Serwis.Server
 
         public InitClass()
         {
-            InitLoginTable();
-            InitOrderDictionaryTable();
+            if(!ChechDefoultRecord())
+            {
+                InitLoginTable();
+                InitOrderDictionaryTable();
+            }
+
         }
+
+        private bool ChechDefoultRecord()
+        {
+            bool result = false;
+            using (var ctx = new ServisContex(conectionString))
+            {
+
+            }
+            return result;
+        }
+
 
         private void InitOrderDictionaryTable()
         {
@@ -33,8 +48,10 @@ namespace BandD.Serwis.Server
             {
                 var user = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = "Admin", Password = SecureTools.CalculateMD5Hash("dedra") };
                 var user2 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = "Admin", Password = SecureTools.CalculateMD5Hash("12345") };
+                var user3 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "Admin", Role = "Admin", Password = SecureTools.CalculateMD5Hash("admin") };
                 ctx.Users.Add(user);
                 ctx.Users.Add(user2);
+                ctx.Users.Add(user3);
                 ctx.SaveChanges();
             }
         }

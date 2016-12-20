@@ -8,10 +8,21 @@ namespace BandD.Serwis.Server.Interface
     [ServiceContract]
     public interface IDictionariesService
     {
-        [OperationContract]
-        List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity);
+        #region Users
 
         [OperationContract]
         bool Autorauthorization(string password, string userName);
+
+        [OperationContract]
+        List<User> getDataFromUser(string name, bool status);
+
+        #endregion
+
+        #region OrderStatus
+
+        [OperationContract]
+        List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity);
+
+        #endregion
     }
 }
