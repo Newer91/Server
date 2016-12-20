@@ -43,5 +43,10 @@ namespace BandD.Serwis.Client
             window.ShowDialog();
         }
 
+        private void Users_Click(object sender, RoutedEventArgs e)
+        {
+            Users window = new Users();
+            window.ShowDialog();
+        }
     }
 }
