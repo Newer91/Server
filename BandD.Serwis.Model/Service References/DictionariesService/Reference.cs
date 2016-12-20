@@ -20,6 +20,12 @@ namespace BandD.Serwis.Model.DictionariesService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
         System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/Autorauthorization", ReplyAction="http://tempuri.org/IDictionariesService/AutorauthorizationResponse")]
+        bool Autorauthorization(string password, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/Autorauthorization", ReplyAction="http://tempuri.org/IDictionariesService/AutorauthorizationResponse")]
+        System.Threading.Tasks.Task<bool> AutorauthorizationAsync(string password, string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace BandD.Serwis.Model.DictionariesService {
         
         public System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity) {
             return base.Channel.getDataFromSlOrderStatAsync(name, activity);
+        }
+        
+        public bool Autorauthorization(string password, string userName) {
+            return base.Channel.Autorauthorization(password, userName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AutorauthorizationAsync(string password, string userName) {
+            return base.Channel.AutorauthorizationAsync(password, userName);
         }
     }
 }

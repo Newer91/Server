@@ -60,8 +60,6 @@
     <Compile Include="EntityContexClass\SerwisContex.cs" />
     <Compile Include="Interface\IDictionariesService.cs" />
     <Compile Include="InitClass.cs" />
-    <Compile Include="Interface\ILoginService.cs" />
-    <Compile Include="Service\LoginService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

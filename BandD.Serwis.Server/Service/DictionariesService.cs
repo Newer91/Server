@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using BandD.Serwis.Tools.ServerTools;
 using BandD.Serwis.Domain;
+using System.Linq;
 
 namespace BandD.Serwis.Server.Service
 {
@@ -19,6 +20,21 @@ namespace BandD.Serwis.Server.Service
                 var sl1 = new SlOrderStat() { Active = true, Name = "jakis", OrderStatusId = Guid.NewGuid(), Description = "cos" };
 
                 result.Add(sl1);
+                return result;
+            }
+        }
+
+        public bool Autorauthorization(string password, string userName)
+        {
+            using (var ctx = new ServisContex(conectionString))
+            {
+                bool result = false;
+                var login = ctx.Users
+                    .Where(l => l.UserName == userName)
+                    .FirstOrDefault();
+
+                if (login.Password == password)
+                    return true;
                 return result;
             }
         }

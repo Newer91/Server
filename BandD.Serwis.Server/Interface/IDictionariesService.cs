@@ -10,5 +10,8 @@ namespace BandD.Serwis.Server.Interface
     {
         [OperationContract]
         List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity);
+
+        [OperationContract]
+        bool Autorauthorization(string password, string userName);
     }
 }

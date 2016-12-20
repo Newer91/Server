@@ -13,16 +13,35 @@
   <wsdl:message name="IDictionariesService_getDataFromSlOrderStat_OutputMessage">
     <wsdl:part name="parameters" element="tns:getDataFromSlOrderStatResponse" />
   </wsdl:message>
+  <wsdl:message name="IDictionariesService_Autorauthorization_InputMessage">
+    <wsdl:part name="parameters" element="tns:Autorauthorization" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_Autorauthorization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutorauthorizationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDictionariesService">
     <wsdl:operation name="getDataFromSlOrderStat">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat" message="tns:IDictionariesService_getDataFromSlOrderStat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse" message="tns:IDictionariesService_getDataFromSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Autorauthorization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/Autorauthorization" message="tns:IDictionariesService_Autorauthorization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/AutorauthorizationResponse" message="tns:IDictionariesService_Autorauthorization_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DictionariesServiceEndpoint" type="tns:IDictionariesService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getDataFromSlOrderStat">
       <soap:operation soapAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Autorauthorization">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/Autorauthorization" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

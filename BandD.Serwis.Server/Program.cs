@@ -15,8 +15,6 @@ namespace BandD.Serwis.Server
             try
             {
                 InitClass defoultItems = new InitClass();
-                hostLogin = new ServiceHost(typeof(LoginService));
-                hostLogin.Open();
 
                 hostDictionary = new ServiceHost(typeof(DictionariesService));
                 hostDictionary.Open();
