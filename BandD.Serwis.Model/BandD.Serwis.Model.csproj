@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dictionaries\OrderStatusModel.cs" />
-    <Compile Include="LoginModel.cs" />
+    <Compile Include="Dictionaries\UserModel.cs" />
     <Compile Include="MailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\DictionariesService\Reference.cs">
@@ -56,8 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="BandD.Serwis.Domain.SlOrderStat.datasource" />
-    <None Include="DTO\BandD.Serwis.Class.SlOrderStat.datasource" />
+    <None Include="DTO\Dictionaries\BandD.Serwis.Domain.SlOrderStat.datasource" />
+    <None Include="DTO\Dictionaries\BandD.Serwis.Domain.User.datasource" />
     <None Include="Service References\DictionariesService\BandD.Serwis.Domain.xsd">
       <SubType>Designer</SubType>
     </None>

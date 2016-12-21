@@ -9,7 +9,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries
 {
     public class OrderStatusViewModel : BaseClass
     {
-        private DictionariesModel model = new DictionariesModel();
+        private OrderStatusModel model;
 
         private string name;
         private bool activity;
@@ -18,7 +18,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries
 
         public OrderStatusViewModel()
         {
-            model = new DictionariesModel();
+            model = new OrderStatusModel();
         }
 
         public List<SlOrderStat> OrderStatusList
@@ -50,7 +50,6 @@ namespace BandD.Serwis.ViewModel.Dictionaries
         private void SearchExecute()
         {
             OrderStatusList = model.getDataFromSlOrderStat(name, activity);
-//            OrderStatusList = model.getDataFromSlOrderStat(name, activity);
         }
     }
 }

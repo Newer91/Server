@@ -15,17 +15,23 @@ namespace BandD.Serwis.Model.DictionariesService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DictionariesService.IDictionariesService")]
     public interface IDictionariesService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
-        BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, bool activity);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
-        System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/Autorauthorization", ReplyAction="http://tempuri.org/IDictionariesService/AutorauthorizationResponse")]
         bool Autorauthorization(string password, string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/Autorauthorization", ReplyAction="http://tempuri.org/IDictionariesService/AutorauthorizationResponse")]
         System.Threading.Tasks.Task<bool> AutorauthorizationAsync(string password, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromUser", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromUserResponse")]
+        BandD.Serwis.Domain.User[] getDataFromUser(string name, bool status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromUser", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromUserResponse")]
+        System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, bool status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
+        BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, bool activity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
+        System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,20 +61,28 @@ namespace BandD.Serwis.Model.DictionariesService {
                 base(binding, remoteAddress) {
         }
         
-        public BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, bool activity) {
-            return base.Channel.getDataFromSlOrderStat(name, activity);
-        }
-        
-        public System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity) {
-            return base.Channel.getDataFromSlOrderStatAsync(name, activity);
-        }
-        
         public bool Autorauthorization(string password, string userName) {
             return base.Channel.Autorauthorization(password, userName);
         }
         
         public System.Threading.Tasks.Task<bool> AutorauthorizationAsync(string password, string userName) {
             return base.Channel.AutorauthorizationAsync(password, userName);
+        }
+        
+        public BandD.Serwis.Domain.User[] getDataFromUser(string name, bool status) {
+            return base.Channel.getDataFromUser(name, status);
+        }
+        
+        public System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, bool status) {
+            return base.Channel.getDataFromUserAsync(name, status);
+        }
+        
+        public BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, bool activity) {
+            return base.Channel.getDataFromSlOrderStat(name, activity);
+        }
+        
+        public System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity) {
+            return base.Channel.getDataFromSlOrderStatAsync(name, activity);
         }
     }
 }

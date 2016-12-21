@@ -10,7 +10,6 @@ namespace BandD.Serwis.Server
     {
         static void Main(string[] args)
         {
-            ServiceHost hostLogin = null;
             ServiceHost hostDictionary = null;
             try
             {
@@ -28,11 +27,6 @@ namespace BandD.Serwis.Server
             }
             finally
             {
-                if (hostLogin.State == CommunicationState.Faulted)
-                    hostLogin.Abort();
-                else
-                    hostLogin.Close();
-
                 if (hostDictionary.State == CommunicationState.Faulted)
                     hostDictionary.Abort();
                 else

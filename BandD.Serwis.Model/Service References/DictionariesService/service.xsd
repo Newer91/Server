@@ -1,21 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" />
-  <xs:element name="getDataFromSlOrderStat">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="activity" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getDataFromSlOrderStatResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="getDataFromSlOrderStatResult" nillable="true" type="q1:ArrayOfSlOrderStat" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Autorauthorization">
     <xs:complexType>
       <xs:sequence>
@@ -28,6 +13,36 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="AutorauthorizationResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataFromUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataFromUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="getDataFromUserResult" nillable="true" type="q1:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataFromSlOrderStat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="activity" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataFromSlOrderStatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="getDataFromSlOrderStatResult" nillable="true" type="q2:ArrayOfSlOrderStat" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

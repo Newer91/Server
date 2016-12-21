@@ -17,7 +17,7 @@ namespace BandD.Serwis.Server.EntityContexClass
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new LoginEntityConfiguration());
+            modelBuilder.Configurations.Add(new UserEntityConfiguration());
             modelBuilder.Configurations.Add(new SlOrdersStatsEntityConfiguration());
         }
     }
