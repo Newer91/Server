@@ -29,16 +29,23 @@ namespace BandD.Serwis.Server.Service
             return result;
         }
 
-        public List<User> getDataFromUser(string name, bool status)
+        public List<User> getDataFromUser()
         {
             List<User> result = new List<User>();
             var user = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = "Admin", Password = SecureTools.CalculateMD5Hash("dedra") };
             var user2 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = "Admin", Password = SecureTools.CalculateMD5Hash("12345") };
             var user3 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "Admin", Role = "Admin", Password = SecureTools.CalculateMD5Hash("admin") };
 
-            result.Add(user);
-            result.Add(user2);
-            result.Add(user3);
+            using (var ctx = new ServisContex(conectionString))
+            {
+                var userList = ctx.Users;
+                foreach (var item in userList)
+                {
+                    result.Add(item);
+                }
+            }
+
+
             return result;
         }
 
@@ -46,23 +53,35 @@ namespace BandD.Serwis.Server.Service
 
         #region OrderStatus
 
-        public List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity)
+        public List<SlOrderStat> getDataFromSlOrderStat(string name, bool? activity)
         {
-            List<SlOrderStat> result = new List<SlOrderStat>();
             using (var ctx = new ServisContex(conectionString))
             {
                 var list = ctx.SlOrdersStats.ToList();
 
-                if (name != null && name != string.Empty)
-                    list = list.Where(n => n.Name == name).ToList();
+                if (name != string.Empty)
+                    list.RemoveAll(l => l.Name != name);
 
-                if (activity)
-                    list = list.Where(a => Convert.ToByte(a.Active) == Convert.ToByte(activity)).ToList();
+                if (activity != null)
+                    list.RemoveAll(l => l.Active != activity);
 
-                result = list;                
+                return list;
             }
+        }
 
-            return result;
+        public void removeElementFromSlOrderStat(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addElementToSlOrderStat(SlOrderStat element)
+        {
+
+        }
+
+        public void updateElementSlOrderStat(SlOrderStat element)
+        {
+
         }
 
         #endregion

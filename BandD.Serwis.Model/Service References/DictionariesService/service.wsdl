@@ -25,6 +25,24 @@
   <wsdl:message name="IDictionariesService_getDataFromSlOrderStat_OutputMessage">
     <wsdl:part name="parameters" element="tns:getDataFromSlOrderStatResponse" />
   </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromSlOrderStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromSlOrderStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromSlOrderStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromSlOrderStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToSlOrderStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToSlOrderStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToSlOrderStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToSlOrderStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementSlOrderStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementSlOrderStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementSlOrderStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementSlOrderStatResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDictionariesService">
     <wsdl:operation name="Autorauthorization">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/Autorauthorization" message="tns:IDictionariesService_Autorauthorization_InputMessage" />
@@ -37,6 +55,18 @@
     <wsdl:operation name="getDataFromSlOrderStat">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat" message="tns:IDictionariesService_getDataFromSlOrderStat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse" message="tns:IDictionariesService_getDataFromSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromSlOrderStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStat" message="tns:IDictionariesService_removeElementFromSlOrderStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStatResponse" message="tns:IDictionariesService_removeElementFromSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addElementToSlOrderStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/addElementToSlOrderStat" message="tns:IDictionariesService_addElementToSlOrderStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/addElementToSlOrderStatResponse" message="tns:IDictionariesService_addElementToSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateElementSlOrderStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStat" message="tns:IDictionariesService_updateElementSlOrderStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStatResponse" message="tns:IDictionariesService_updateElementSlOrderStat_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DictionariesServiceEndpoint" type="tns:IDictionariesService">
@@ -61,6 +91,33 @@
     </wsdl:operation>
     <wsdl:operation name="getDataFromSlOrderStat">
       <soap:operation soapAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromSlOrderStat">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addElementToSlOrderStat">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/addElementToSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateElementSlOrderStat">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/updateElementSlOrderStat" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

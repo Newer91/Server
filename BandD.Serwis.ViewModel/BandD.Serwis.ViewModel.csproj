@@ -43,7 +43,8 @@
   <ItemGroup>
     <Compile Include="Class\BaseViewClass.cs" />
     <Compile Include="Class\RelayCommand.cs" />
-    <Compile Include="Dictionaries\OrderStatusViewModel.cs" />
+    <Compile Include="Dictionaries\OrderStatus\OrderStatusDetailViewModel.cs" />
+    <Compile Include="Dictionaries\OrderStatus\OrderStatusViewModel.cs" />
     <Compile Include="Dictionaries\UserViewModel.cs" />
     <Compile Include="LoginWindowViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />

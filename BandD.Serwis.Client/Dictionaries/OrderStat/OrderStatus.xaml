@@ -12,9 +12,9 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="70"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="buttonView" Content="Przeglądaj" Grid.Column="1" Margin="5,10,0,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center"/>
-        <Button x:Name="buttonAdd" Content="Dodaj" Grid.Column="1" Margin="5,35,0,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center"/>
-        <Button x:Name="buttonEdit" Content="Edytuj" Grid.Column="1" Margin="5,60,0,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center"/>
+        <Button x:Name="buttonView" Content="Przeglądaj" Grid.Column="1" Margin="5,10,0,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonView_Click"/>
+        <Button x:Name="buttonAdd" Content="Dodaj" Grid.Column="1" Margin="5,35,0,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonAdd_Click"/>
+        <Button x:Name="buttonEdit" Content="Edytuj" Grid.Column="1" Margin="5,60,0,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonEdit_Click"/>
         <Button x:Name="buttonRemove" Content="Usuń" Grid.Column="1" Margin="5,85,0,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center"/>
         <Button x:Name="buttonExit" Content="Wyjście" Grid.Column="1" Margin="5,348,5,10" Width="60" Height="20" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
         <Grid Grid.Column="0">

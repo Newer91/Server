@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:element name="Autorauthorization">
     <xs:complexType>
       <xs:sequence>
@@ -18,10 +19,7 @@
   </xs:element>
   <xs:element name="getDataFromUser">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="status" type="xs:boolean" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="getDataFromUserResponse">
@@ -35,7 +33,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="activity" type="xs:boolean" />
+        <xs:element minOccurs="0" name="activity" nillable="true" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -44,6 +42,42 @@
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="getDataFromSlOrderStatResult" nillable="true" type="q2:ArrayOfSlOrderStat" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeElementFromSlOrderStat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q3:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeElementFromSlOrderStatResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addElementToSlOrderStat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="element" nillable="true" type="q4:SlOrderStat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addElementToSlOrderStatResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateElementSlOrderStat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="element" nillable="true" type="q5:SlOrderStat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateElementSlOrderStatResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

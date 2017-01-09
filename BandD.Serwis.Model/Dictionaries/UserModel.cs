@@ -19,7 +19,9 @@ namespace BandD.Serwis.Model
 
         public List<User> getDataFromUser(string name, bool status)
         {
-            return service.getDataFromUser(name, status).ToList();
+            List<User> result = service.getDataFromUser().ToList();
+
+            return result;
         }
     }
 }

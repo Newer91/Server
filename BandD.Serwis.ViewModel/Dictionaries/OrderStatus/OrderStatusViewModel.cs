@@ -12,7 +12,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries
         private OrderStatusModel model;
 
         private string name;
-        private bool activity;
+        private bool? activity;
         private List<SlOrderStat> orderStatusList;
         private SlOrderStat slOrderStat;
 
@@ -33,7 +33,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries
             set { name = value; OnPropertyChanged(); }
         }
 
-        public bool Active
+        public bool? Active
         {
             get { return activity; }
             set { activity = value; OnPropertyChanged(); }
