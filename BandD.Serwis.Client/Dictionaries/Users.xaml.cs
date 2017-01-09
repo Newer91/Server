@@ -20,7 +20,7 @@ namespace BandD.Serwis.Client.Dictionaries
     /// </summary>
     public partial class Users : Window
     {
-        UserViewModel userViewModel = new UserViewModel();
+        UserStatusViewModel userViewModel = new UserStatusViewModel();
         public Users()
         {
             InitializeComponent();
