@@ -10,5 +10,3 @@ namespace BandD.Serwis.Domain
         public string Description { get; set; }
     }
 }
-
-
