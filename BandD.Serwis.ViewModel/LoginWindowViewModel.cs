@@ -7,7 +7,6 @@ namespace BandD.Serwis.ViewModel
 {
     public class LoginWindowViewModel : BaseViewClass
     {
-
         private UserModel model = new UserModel();
         private User login;
         private string ipServer;

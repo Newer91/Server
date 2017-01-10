@@ -59,6 +59,10 @@
       <Project>{a66f0c99-dfa1-4924-b559-65c8c1d1bf77}</Project>
       <Name>BandD.Serwis.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
+      <Project>{a3b36418-88f1-4e65-9ff0-e93113198747}</Project>
+      <Name>BandD.Serwis.Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,7 +8,7 @@ namespace BandD.Serwis.Server
 {
     public class InitClass
     {
-        private string conectionString = Extension.GetConnectionString(Environment.MachineName);
+        private string conectionString = ServerExtension.GetConnectionString(Environment.MachineName);
 
         public InitClass()
         {

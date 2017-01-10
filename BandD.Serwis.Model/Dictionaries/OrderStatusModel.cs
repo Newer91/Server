@@ -1,7 +1,9 @@
 ﻿using BandD.Serwis.Domain;
 using BandD.Serwis.Model.DictionariesService;
+using BandD.Serwis.Tools.Extension;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace BandD.Serwis.Model.Dictionaries
 {
@@ -13,6 +15,33 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             string names = name == null ? string.Empty : name;
             return service.getDataFromSlOrderStat(names, activity).ToList();
+        }
+
+        public bool SaveChange(SlOrderStat stats)
+        {
+            if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
+            {
+                service.updateElementSlOrderStat(stats);
+                return true;
+            }
+            else
+                return false;          
+        }
+
+        public bool AddNewItem(SlOrderStat stats)
+        {
+            if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
+            {
+                service.addElementToSlOrderStat(stats);
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public void RemoveElement(Guid id)
+        {
+            service.removeElementFromSlOrderStat(id);
         }
     }
 }

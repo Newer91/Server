@@ -83,7 +83,6 @@
     <Compile Include="Dictionaries\Users.xaml.cs">
       <DependentUpon>Users.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extension\Enums.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -125,6 +124,10 @@
     <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
       <Project>{E0F63FBA-812A-447B-B9DB-7B9D185802FE}</Project>
       <Name>BandD.Serwis.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
+      <Project>{A3B36418-88F1-4E65-9FF0-E93113198747}</Project>
+      <Name>BandD.Serwis.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.ViewModel\BandD.Serwis.ViewModel.csproj">
       <Project>{b7003163-6beb-4185-8028-f7daa6eb584a}</Project>

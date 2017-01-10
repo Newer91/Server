@@ -10,7 +10,7 @@ namespace BandD.Serwis.Server.Service
 {
     public class DictionariesService : IDictionariesService
     {
-        private string conectionString = Extension.GetConnectionString(Environment.MachineName);
+        private string conectionString = ServerExtension.GetConnectionString(Environment.MachineName);
 
         #region User
 
@@ -44,8 +44,6 @@ namespace BandD.Serwis.Server.Service
                     result.Add(item);
                 }
             }
-
-
             return result;
         }
 
@@ -57,31 +55,47 @@ namespace BandD.Serwis.Server.Service
         {
             using (var ctx = new ServisContex(conectionString))
             {
-                var list = ctx.SlOrdersStats.ToList();
+                var list = ctx.SlOrdersStats;
 
                 if (name != string.Empty)
-                    list.RemoveAll(l => l.Name != name);
+                    list.Where(l => l.Name != name);
 
                 if (activity != null)
-                    list.RemoveAll(l => l.Active != activity);
+                    list.Where(l => l.Active != activity);
 
-                return list;
+                return list.ToList();
             }
         }
 
         public void removeElementFromSlOrderStat(Guid id)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ServisContex(conectionString))
+            {
+                var item = ctx.SlOrdersStats.Find(id);
+                ctx.SlOrdersStats.Remove(item);
+                ctx.SaveChanges();
+            }
         }
 
-        public void addElementToSlOrderStat(SlOrderStat element)
+        public void addElementToSlOrderStat(SlOrderStat item)
         {
-
+            using (var ctx = new ServisContex(conectionString))
+            {
+                ctx.SlOrdersStats.Add(item);
+                ctx.SaveChanges();
+            }
         }
 
-        public void updateElementSlOrderStat(SlOrderStat element)
+        public void updateElementSlOrderStat(SlOrderStat item)
         {
-
+            using (var ctx = new ServisContex(conectionString))
+            {
+                var element = ctx.SlOrdersStats.Find(item.OrderStatusId);
+                element.Name = item.Name;
+                element.Description = item.Description;
+                element.Active = item.Active;
+                ctx.SaveChanges();
+            }
         }
 
         #endregion

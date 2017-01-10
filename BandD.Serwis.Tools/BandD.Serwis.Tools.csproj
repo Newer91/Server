@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extension\ClientTools.cs" />
+    <Compile Include="Extension\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServerTools\Extension.cs" />
+    <Compile Include="ServerTools\ServerExtension.cs" />
     <Compile Include="ServerTools\SecureTools.cs" />
     <Compile Include="StaticResource.cs" />
   </ItemGroup>

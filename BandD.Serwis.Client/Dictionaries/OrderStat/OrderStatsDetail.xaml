@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BandD.Serwis.Client.Dictionaries.OrderStat"
         mc:Ignorable="d"
-        Title="OrderStatsDetail" Height="300" Width="300">
+        Title="{Binding Title}" Height="350" Width="350" MinHeight="350" MinWidth="350">
     
     <Grid Background="{StaticResource applicationColor}">
-        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="10,30,0,0" TextWrapping="Wrap" Text="{Binding Stats.Name}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxDescription" Margin="10,80,10,40" TextWrapping="Wrap" Text="{Binding Stats.Description}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="10,30,0,0" TextWrapping="Wrap" Text="{Binding Stats.Name}" VerticalAlignment="Top" Width="120" IsReadOnly="{Binding IsReadOnly}"/>
+        <TextBox x:Name="textBoxDescription" Margin="10,80,10,40" TextWrapping="Wrap" Text="{Binding Stats.Description}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsReadOnly="{Binding IsReadOnly}"/>
         <TextBlock x:Name="textBlockName" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlockDescription" HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="Opis" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBoxActive" Content="Czy aktywny" HorizontalAlignment="Left" Margin="140,34,0,0" VerticalAlignment="Top" IsChecked="{Binding Stats.Active}"/>
-        <Button x:Name="buttonSave" Content="Zapisz" Margin="10,170,179,10" Width="60" Height="20"/>
-        <Button x:Name="buttonCancel" Content="Anuluj" Margin="180,170,10,10" Width="60" Height="20"/>
+        <CheckBox x:Name="checkBoxActive" Content="Czy aktywny" HorizontalAlignment="Left" Margin="140,34,0,0" VerticalAlignment="Top" IsChecked="{Binding Stats.Active}" IsEnabled="{Binding IsEnable}"/>
+        <Button x:Name="buttonSave" Content="Zapisz" Margin="10,239,220,10" Width="60" Height="20" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="{Binding IsEnable}" Click="buttonSave_Click"/>
+        <Button x:Name="buttonCancel" Content="{Binding CancelButtonName}" Margin="221,242,10,10" Width="60" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="buttonCancel_Click"/>
     </Grid>
 </Window>
