@@ -9,7 +9,4 @@ namespace BandD.Serwis.Domain
         public bool Active { get; set; }
         public string Description { get; set; }
     }
-
-    }
-
-
+}

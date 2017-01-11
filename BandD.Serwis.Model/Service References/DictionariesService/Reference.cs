@@ -24,16 +24,34 @@ namespace BandD.Serwis.Model.DictionariesService {
         System.Threading.Tasks.Task<bool> AutorauthorizationAsync(string password, string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromUser", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromUserResponse")]
-        BandD.Serwis.Domain.User[] getDataFromUser(string name, bool status, string role);
+        BandD.Serwis.Domain.User[] getDataFromUser();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromUser", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromUserResponse")]
-        System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, bool status, string role);
+        System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
-        BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, bool activity);
+        BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, System.Nullable<bool> activity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
-        System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity);
+        System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, System.Nullable<bool> activity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStatResponse")]
+        void removeElementFromSlOrderStat(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStatResponse")]
+        System.Threading.Tasks.Task removeElementFromSlOrderStatAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/addElementToSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/addElementToSlOrderStatResponse")]
+        void addElementToSlOrderStat(BandD.Serwis.Domain.SlOrderStat element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/addElementToSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/addElementToSlOrderStatResponse")]
+        System.Threading.Tasks.Task addElementToSlOrderStatAsync(BandD.Serwis.Domain.SlOrderStat element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/updateElementSlOrderStatResponse")]
+        void updateElementSlOrderStat(BandD.Serwis.Domain.SlOrderStat element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/updateElementSlOrderStatResponse")]
+        System.Threading.Tasks.Task updateElementSlOrderStatAsync(BandD.Serwis.Domain.SlOrderStat element);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -71,21 +89,44 @@ namespace BandD.Serwis.Model.DictionariesService {
             return base.Channel.AutorauthorizationAsync(password, userName);
         }
         
-        public BandD.Serwis.Domain.User[] getDataFromUser(string name, bool status, string role) {
-            return base.Channel.getDataFromUser(name, status, role);
+        public BandD.Serwis.Domain.User[] getDataFromUser() {
+            return base.Channel.getDataFromUser();
         }
         
-        public System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, bool status, string role) {
-            return base.Channel.getDataFromUserAsync(name, status, role);
+        public System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync() {
+            return base.Channel.getDataFromUserAsync();
         }
         
-        public BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, bool activity) {
+        public BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, System.Nullable<bool> activity) {
             return base.Channel.getDataFromSlOrderStat(name, activity);
         }
         
-        public System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity) {
+        public System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, System.Nullable<bool> activity) {
             return base.Channel.getDataFromSlOrderStatAsync(name, activity);
         }
-
+        
+        public void removeElementFromSlOrderStat(System.Guid id) {
+            base.Channel.removeElementFromSlOrderStat(id);
+        }
+        
+        public System.Threading.Tasks.Task removeElementFromSlOrderStatAsync(System.Guid id) {
+            return base.Channel.removeElementFromSlOrderStatAsync(id);
+        }
+        
+        public void addElementToSlOrderStat(BandD.Serwis.Domain.SlOrderStat element) {
+            base.Channel.addElementToSlOrderStat(element);
+        }
+        
+        public System.Threading.Tasks.Task addElementToSlOrderStatAsync(BandD.Serwis.Domain.SlOrderStat element) {
+            return base.Channel.addElementToSlOrderStatAsync(element);
+        }
+        
+        public void updateElementSlOrderStat(BandD.Serwis.Domain.SlOrderStat element) {
+            base.Channel.updateElementSlOrderStat(element);
+        }
+        
+        public System.Threading.Tasks.Task updateElementSlOrderStatAsync(BandD.Serwis.Domain.SlOrderStat element) {
+            return base.Channel.updateElementSlOrderStatAsync(element);
+        }
     }
 }

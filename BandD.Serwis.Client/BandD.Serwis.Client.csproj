@@ -54,9 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Dictionaries\OrderStatus.xaml">
+    <Page Include="Dictionaries\OrderStat\OrderStatsDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionaries\OrderStat\OrderStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Dictionaries\Users.xaml">
       <SubType>Designer</SubType>
@@ -70,7 +74,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Dictionaries\OrderStatus.xaml.cs">
+    <Compile Include="Dictionaries\OrderStat\OrderStatsDetail.xaml.cs">
+      <DependentUpon>OrderStatsDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionaries\OrderStat\OrderStatus.xaml.cs">
       <DependentUpon>OrderStatus.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dictionaries\Users.xaml.cs">
@@ -114,6 +121,14 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
+      <Project>{E0F63FBA-812A-447B-B9DB-7B9D185802FE}</Project>
+      <Name>BandD.Serwis.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
+      <Project>{A3B36418-88F1-4E65-9FF0-E93113198747}</Project>
+      <Name>BandD.Serwis.Tools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.ViewModel\BandD.Serwis.ViewModel.csproj">
       <Project>{b7003163-6beb-4185-8028-f7daa6eb584a}</Project>
       <Name>BandD.Serwis.ViewModel</Name>

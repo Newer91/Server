@@ -10,7 +10,7 @@ namespace BandD.Serwis.Server.Service
 {
     public class DictionariesService : IDictionariesService
     {
-        private string conectionString = Extension.GetConnectionString(Environment.MachineName);
+        private string conectionString = ServerExtension.GetConnectionString(Environment.MachineName);
 
         #region User
 
@@ -29,16 +29,21 @@ namespace BandD.Serwis.Server.Service
             return result;
         }
 
-        public List<User> getDataFromUser(string name, bool status)
+        public List<User> getDataFromUser()
         {
             List<User> result = new List<User>();
             var user = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = "Admin", Password = SecureTools.CalculateMD5Hash("dedra") };
             var user2 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = "Admin", Password = SecureTools.CalculateMD5Hash("12345") };
             var user3 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "Admin", Role = "Admin", Password = SecureTools.CalculateMD5Hash("admin") };
 
-            result.Add(user);
-            result.Add(user2);
-            result.Add(user3);
+            using (var ctx = new ServisContex(conectionString))
+            {
+                var userList = ctx.Users;
+                foreach (var item in userList)
+                {
+                    result.Add(item);
+                }
+            }
             return result;
         }
 
@@ -46,23 +51,51 @@ namespace BandD.Serwis.Server.Service
 
         #region OrderStatus
 
-        public List<SlOrderStat> getDataFromSlOrderStat(string name, bool activity)
+        public List<SlOrderStat> getDataFromSlOrderStat(string name, bool? activity)
         {
-            List<SlOrderStat> result = new List<SlOrderStat>();
             using (var ctx = new ServisContex(conectionString))
             {
-                var list = ctx.SlOrdersStats.ToList();
+                var list = ctx.SlOrdersStats;
 
-                if (name != null && name != string.Empty)
-                    list = list.Where(n => n.Name == name).ToList();
+                if (name != string.Empty)
+                    list.Where(l => l.Name != name);
 
-                if (activity)
-                    list = list.Where(a => Convert.ToByte(a.Active) == Convert.ToByte(activity)).ToList();
+                if (activity != null)
+                    list.Where(l => l.Active != activity);
 
-                result = list;                
+                return list.ToList();
             }
+        }
 
-            return result;
+        public void removeElementFromSlOrderStat(Guid id)
+        {
+            using (var ctx = new ServisContex(conectionString))
+            {
+                var item = ctx.SlOrdersStats.Find(id);
+                ctx.SlOrdersStats.Remove(item);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void addElementToSlOrderStat(SlOrderStat item)
+        {
+            using (var ctx = new ServisContex(conectionString))
+            {
+                ctx.SlOrdersStats.Add(item);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void updateElementSlOrderStat(SlOrderStat item)
+        {
+            using (var ctx = new ServisContex(conectionString))
+            {
+                var element = ctx.SlOrdersStats.Find(item.OrderStatusId);
+                element.Name = item.Name;
+                element.Description = item.Description;
+                element.Active = item.Active;
+                ctx.SaveChanges();
+            }
         }
 
         #endregion

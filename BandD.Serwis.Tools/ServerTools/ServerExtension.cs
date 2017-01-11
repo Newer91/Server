@@ -1,6 +1,6 @@
 ﻿namespace BandD.Serwis.Tools.ServerTools
 {
-    public static class Extension
+    public static class ServerExtension
     {
         public static string GetConnectionString(string computerName)
         {
