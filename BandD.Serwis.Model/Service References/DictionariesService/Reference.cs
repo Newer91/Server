@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace BandD.Serwis.Model.DictionariesService {
     
     
@@ -22,10 +24,10 @@ namespace BandD.Serwis.Model.DictionariesService {
         System.Threading.Tasks.Task<bool> AutorauthorizationAsync(string password, string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromUser", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromUserResponse")]
-        BandD.Serwis.Domain.User[] getDataFromUser(string name, bool status);
+        BandD.Serwis.Domain.User[] getDataFromUser(string name, bool status, string role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromUser", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromUserResponse")]
-        System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, bool status);
+        System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, bool status, string role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
         BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, bool activity);
@@ -69,12 +71,12 @@ namespace BandD.Serwis.Model.DictionariesService {
             return base.Channel.AutorauthorizationAsync(password, userName);
         }
         
-        public BandD.Serwis.Domain.User[] getDataFromUser(string name, bool status) {
-            return base.Channel.getDataFromUser(name, status);
+        public BandD.Serwis.Domain.User[] getDataFromUser(string name, bool status, string role) {
+            return base.Channel.getDataFromUser(name, status, role);
         }
         
-        public System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, bool status) {
-            return base.Channel.getDataFromUserAsync(name, status);
+        public System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, bool status, string role) {
+            return base.Channel.getDataFromUserAsync(name, status, role);
         }
         
         public BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, bool activity) {
@@ -84,5 +86,6 @@ namespace BandD.Serwis.Model.DictionariesService {
         public System.Threading.Tasks.Task<BandD.Serwis.Domain.SlOrderStat[]> getDataFromSlOrderStatAsync(string name, bool activity) {
             return base.Channel.getDataFromSlOrderStatAsync(name, activity);
         }
+
     }
 }

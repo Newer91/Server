@@ -16,6 +16,7 @@ namespace BandD.Serwis.Server
             {
                 InitLoginTable();
                 InitOrderDictionaryTable();
+                InitUsersTable();
             }
 
         }
@@ -58,6 +59,14 @@ namespace BandD.Serwis.Server
                 ctx.Users.Add(user2);
                 ctx.Users.Add(user3);
                 ctx.SaveChanges();
+            }
+        }
+        private void InitUsersTable()
+        {
+            using (var ctx = new ServisContex(conectionString))
+            {
+                var userRole = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "asieradzannn", Role = "Admin",  };
+                ctx.Users.Add(userRole);
             }
         }
     }
