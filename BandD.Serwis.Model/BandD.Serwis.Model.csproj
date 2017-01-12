@@ -74,12 +74,20 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
-      <Project>{E0F63FBA-812A-447B-B9DB-7B9D185802FE}</Project>
+      <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
       <Name>BandD.Serwis.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BandD.Serwis.Server\BandD.Serwis.Server.csproj">
+      <Project>{8d1761dd-c003-4d3f-acd0-5ef68f9782d3}</Project>
+      <Name>BandD.Serwis.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
       <Project>{A3B36418-88F1-4E65-9FF0-E93113198747}</Project>
       <Name>BandD.Serwis.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassViewModel\ClassViewModel.csproj">
+      <Project>{52b01e10-d3a2-4554-91be-735830e56409}</Project>
+      <Name>ClassViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -43,16 +43,17 @@
   <ItemGroup>
     <Compile Include="Class\BaseViewClass.cs" />
     <Compile Include="Class\RelayCommand.cs" />
+    <Compile Include="Dictionaries\Adress\AdressViewModel.cs" />
     <Compile Include="Dictionaries\OrderStatus\OrderStatusDetailViewModel.cs" />
     <Compile Include="Dictionaries\OrderStatus\OrderStatusViewModel.cs" />
-    <Compile Include="Dictionaries\UserViewModel.cs" />
+    <Compile Include="Dictionaries\User\UserViewModel.cs" />
     <Compile Include="LoginWindowViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
-      <Project>{E0F63FBA-812A-447B-B9DB-7B9D185802FE}</Project>
+      <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
       <Name>BandD.Serwis.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Model\BandD.Serwis.Model.csproj">
@@ -62,6 +63,10 @@
     <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
       <Project>{a3b36418-88f1-4e65-9ff0-e93113198747}</Project>
       <Name>BandD.Serwis.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassViewModel\ClassViewModel.csproj">
+      <Project>{52b01e10-d3a2-4554-91be-735830e56409}</Project>
+      <Name>ClassViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

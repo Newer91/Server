@@ -1,14 +1,13 @@
 ﻿using BandD.Serwis.ViewModel.Class;
 using System.Collections.Generic;
 using System.Windows.Input;
-using System;
 using BandD.Serwis.Model.Dictionaries;
 using BandD.Serwis.Domain;
 using System.Windows;
 
 namespace BandD.Serwis.ViewModel.Dictionaries
 {
-    public class OrderStatusViewModel : BaseClass
+    public class OrderStatusViewModel : BaseViewClass
     {
         private OrderStatusModel model;
 

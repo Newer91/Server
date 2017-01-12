@@ -2,7 +2,7 @@
 
 namespace BandD.Serwis.Domain
 {
-    public class User: BaseClass
+    public class User
     {
         public Guid UserId { get; set; }
         public string UserName { get; set; }

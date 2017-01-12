@@ -26,25 +26,8 @@ namespace BandD.Serwis.Client.Dictionaries.OrderStat
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            Save();
-        }
-
-        private void Save()
-        {
-            bool result = false;
-            var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (question == MessageBoxResult.Yes)
-                if (viewModel.ViewType == ViewType.Edit)
-                    result = viewModel.SaveChange();
-                else if (viewModel.ViewType == ViewType.New)
-                    result = viewModel.AddNewItem();
-            if (result)
-            {
-                MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (viewModel.SaveChange())
                 this.Close();
-            }
-            else
-                MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

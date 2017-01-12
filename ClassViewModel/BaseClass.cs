@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace BandD.Serwis.Domain
+namespace BandD.Serwis.ClassViewModel
 {
     public abstract class BaseClass : INotifyPropertyChanged
     {

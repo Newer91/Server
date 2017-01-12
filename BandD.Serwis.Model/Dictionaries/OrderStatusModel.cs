@@ -1,9 +1,9 @@
-﻿using BandD.Serwis.Domain;
-using BandD.Serwis.Model.DictionariesService;
+﻿using BandD.Serwis.Model.DictionariesService;
 using BandD.Serwis.Tools.Extension;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using BandD.Serwis.Domain;
 
 namespace BandD.Serwis.Model.Dictionaries
 {

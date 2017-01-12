@@ -1,11 +1,13 @@
 ﻿using System;
-using BandD.Serwis.Domain;
 using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.Model.Dictionaries;
+using System.Windows;
+using BandD.Serwis.Domain;
+using BandD.Serwis.ViewModel.Class;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
 {
-    public class OrderStatusDetailViewModel : BaseClass
+    public class OrderStatusDetailViewModel : BaseViewClass
     {
         private OrderStatusModel model;
         private ViewType viewType;
@@ -20,7 +22,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
         public ViewType ViewType
         {
             get { return viewType; }
-            set { viewType = value;OnPropertyChanged(); }
+            set { viewType = value; OnPropertyChanged(); }
         }
 
         public bool IsReadOnly
@@ -69,7 +71,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
                 IsEnable = false;
                 IsReadOnly = true;
                 CancelButtonName = "Zamknij";
-            }                
+            }
             else
             {
                 IsEnable = true;
@@ -83,7 +85,20 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
 
         public bool SaveChange()
         {
-            return model.SaveChange(stats);
+            bool result = false;
+            var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (question == MessageBoxResult.Yes)
+                if (ViewType == ViewType.Edit)
+                    result = model.SaveChange(stats);
+                else if (ViewType == ViewType.New)
+                    result = AddNewItem();
+            if (result)
+            {
+                MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+                MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            return false;
         }
 
         public bool AddNewItem()

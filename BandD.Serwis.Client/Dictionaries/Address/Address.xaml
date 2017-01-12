@@ -1,0 +1,38 @@
+﻿<Window x:Class="BandD.Serwis.Client.Dictionaries.Address.Address"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BandD.Serwis.Client.Dictionaries.Address"
+        xmlns:conv ="clr-namespace:BandD.Serwis.Client.Converter"
+        mc:Ignorable="d"
+        Title="Adresy" Height="350" Width="625">
+    <Window.Resources>
+        <conv:YesNoToBooleanConverter x:Key="YesNoToBooleanConverter"/>
+    </Window.Resources>
+    
+    <Grid Background="{StaticResource applicationColor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                  ItemsSource="{Binding Addresses,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Address,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="80" Header="Nazwa klienta" DisplayMemberBinding="{Binding ClientName}"/>
+                    <GridViewColumn Width="60" Header="Miasto" DisplayMemberBinding="{Binding City}"/>
+                    <GridViewColumn Width="60" Header="Ulica" DisplayMemberBinding="{Binding Street}"/>
+                    <GridViewColumn Width="50" Header="Numer" DisplayMemberBinding="{Binding Number}"/>
+                    <GridViewColumn Width="80" Header="Kod pocztowy" DisplayMemberBinding="{Binding PostCode, StringFormat={} {0:00-000}}"/>
+                    <GridViewColumn Width="90" Header="Czy adres firmy" DisplayMemberBinding="{Binding IsCompanyAddres, Converter={StaticResource YesNoToBooleanConverter}}"/>
+                    <GridViewColumn Width="110" Header="Czy adres dostawy" DisplayMemberBinding="{Binding IsDeliveryAddres, Converter={StaticResource YesNoToBooleanConverter}}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

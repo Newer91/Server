@@ -11,25 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BandD.Serwis.ViewModel.Dictionaries;
 
-namespace BandD.Serwis.Client.Dictionaries
+namespace BandD.Serwis.Client.Dictionaries.Address
 {
     /// <summary>
-    /// Interaction logic for Users.xaml
+    /// Interaction logic for Address.xaml
     /// </summary>
-    public partial class Users : Window
+    public partial class Address : Window
     {
-        UserStatusViewModel userViewModel = new UserStatusViewModel();
-        public Users()
+        public Address()
         {
             InitializeComponent();
-            this.DataContext = userViewModel;
-        }
-
-        private void buttonExit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

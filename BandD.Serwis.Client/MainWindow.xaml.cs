@@ -4,6 +4,7 @@ using System.Windows.Input;
 using BandD.Serwis.ViewModel;
 using BandD.Serwis.Client.Dictionaries;
 using BandD.Serwis.Client.Dictionaries.OrderStat;
+using BandD.Serwis.Client.Dictionaries.User;
 
 namespace BandD.Serwis.Client
 {

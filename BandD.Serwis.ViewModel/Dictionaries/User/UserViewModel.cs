@@ -1,14 +1,11 @@
-﻿using BandD.Serwis.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BandD.Serwis.Model;
+using BandD.Serwis.Domain;
+using BandD.Serwis.ViewModel.Class;
 
-namespace BandD.Serwis.ViewModel.Dictionaries
+namespace BandD.Serwis.ViewModel.Dictionaries.Users
 {
-    public class UserStatusViewModel : BaseClass
+    public class UserStatusViewModel : BaseViewClass
     {
         private UserModel model;
         private List<User> userList;
