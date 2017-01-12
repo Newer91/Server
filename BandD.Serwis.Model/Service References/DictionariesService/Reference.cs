@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace BandD.Serwis.Model.DictionariesService {
     
     

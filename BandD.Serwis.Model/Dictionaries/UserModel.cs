@@ -17,7 +17,7 @@ namespace BandD.Serwis.Model
             return service.Autorauthorization(pass, userName);
         }
 
-        public List<User> getDataFromUser(string name, bool status)
+        public List<User> getDataFromUser(string name, bool status, string role)
         {
             List<User> result = service.getDataFromUser().ToList();
 
