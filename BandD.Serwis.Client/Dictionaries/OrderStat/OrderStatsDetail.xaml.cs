@@ -1,6 +1,6 @@
-﻿using BandD.Serwis.Domain;
-using BandD.Serwis.Tools.ServerTools.Extension;
+﻿using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Dictionaries.OrderStatus;
+using ClassViewModel.Dictionaries;
 using System.Windows;
 
 namespace BandD.Serwis.Client.Dictionaries.OrderStat
@@ -9,25 +9,25 @@ namespace BandD.Serwis.Client.Dictionaries.OrderStat
     {
         OrderStatusDetailViewModel viewModel;
 
-        public OrderStatsDetail(ViewType viewType, SlOrderStat stats)
+        public OrderStatsDetail(ViewType viewType, SlOrderStatView stats)
         {
             InitializeComponent();
             viewModel = new OrderStatusDetailViewModel(viewType);
             if (viewType == ViewType.New)
-                stats = new SlOrderStat();
+                stats = new SlOrderStatView();
             viewModel.Stats = stats;
-            this.DataContext = viewModel;
+            DataContext = viewModel;
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             if (viewModel.SaveChange())
-                this.Close();
+                Close();
         }
     }
 }

@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
 namespace BandD.Serwis.Model.DictionariesService {
     
     
@@ -24,10 +22,28 @@ namespace BandD.Serwis.Model.DictionariesService {
         System.Threading.Tasks.Task<bool> AutorauthorizationAsync(string password, string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromUser", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromUserResponse")]
-        BandD.Serwis.Domain.User[] getDataFromUser();
+        BandD.Serwis.Domain.User[] getDataFromUser(string name, System.Nullable<bool> status, string role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromUser", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromUserResponse")]
-        System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync();
+        System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, System.Nullable<bool> status, string role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/removeElementFromUsers", ReplyAction="http://tempuri.org/IDictionariesService/removeElementFromUsersResponse")]
+        void removeElementFromUsers(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/removeElementFromUsers", ReplyAction="http://tempuri.org/IDictionariesService/removeElementFromUsersResponse")]
+        System.Threading.Tasks.Task removeElementFromUsersAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/addElementToUsers", ReplyAction="http://tempuri.org/IDictionariesService/addElementToUsersResponse")]
+        void addElementToUsers(BandD.Serwis.Domain.User element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/addElementToUsers", ReplyAction="http://tempuri.org/IDictionariesService/addElementToUsersResponse")]
+        System.Threading.Tasks.Task addElementToUsersAsync(BandD.Serwis.Domain.User element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/updateElementUsers", ReplyAction="http://tempuri.org/IDictionariesService/updateElementUsersResponse")]
+        void updateElementUsers(BandD.Serwis.Domain.User element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/updateElementUsers", ReplyAction="http://tempuri.org/IDictionariesService/updateElementUsersResponse")]
+        System.Threading.Tasks.Task updateElementUsersAsync(BandD.Serwis.Domain.User element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse")]
         BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, System.Nullable<bool> activity);
@@ -89,12 +105,36 @@ namespace BandD.Serwis.Model.DictionariesService {
             return base.Channel.AutorauthorizationAsync(password, userName);
         }
         
-        public BandD.Serwis.Domain.User[] getDataFromUser() {
-            return base.Channel.getDataFromUser();
+        public BandD.Serwis.Domain.User[] getDataFromUser(string name, System.Nullable<bool> status, string role) {
+            return base.Channel.getDataFromUser(name, status, role);
         }
         
-        public System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync() {
-            return base.Channel.getDataFromUserAsync();
+        public System.Threading.Tasks.Task<BandD.Serwis.Domain.User[]> getDataFromUserAsync(string name, System.Nullable<bool> status, string role) {
+            return base.Channel.getDataFromUserAsync(name, status, role);
+        }
+        
+        public void removeElementFromUsers(System.Guid id) {
+            base.Channel.removeElementFromUsers(id);
+        }
+        
+        public System.Threading.Tasks.Task removeElementFromUsersAsync(System.Guid id) {
+            return base.Channel.removeElementFromUsersAsync(id);
+        }
+        
+        public void addElementToUsers(BandD.Serwis.Domain.User element) {
+            base.Channel.addElementToUsers(element);
+        }
+        
+        public System.Threading.Tasks.Task addElementToUsersAsync(BandD.Serwis.Domain.User element) {
+            return base.Channel.addElementToUsersAsync(element);
+        }
+        
+        public void updateElementUsers(BandD.Serwis.Domain.User element) {
+            base.Channel.updateElementUsers(element);
+        }
+        
+        public System.Threading.Tasks.Task updateElementUsersAsync(BandD.Serwis.Domain.User element) {
+            return base.Channel.updateElementUsersAsync(element);
         }
         
         public BandD.Serwis.Domain.SlOrderStat[] getDataFromSlOrderStat(string name, System.Nullable<bool> activity) {

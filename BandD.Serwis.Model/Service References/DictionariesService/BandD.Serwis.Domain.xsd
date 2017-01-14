@@ -8,23 +8,15 @@
   </xs:complexType>
   <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
   <xs:complexType name="User">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:BaseClass">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
-          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="UserId" type="ser:guid" />
-          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
-  <xs:complexType name="BaseClass">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="BaseClass" nillable="true" type="tns:BaseClass" />
   <xs:complexType name="ArrayOfSlOrderStat">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="SlOrderStat" nillable="true" type="tns:SlOrderStat" />

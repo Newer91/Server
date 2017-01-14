@@ -1,4 +1,6 @@
-﻿namespace BandD.Serwis.Tools.Extension
+﻿using BandD.Serwis.Tools.ServerTools.Extension;
+
+namespace BandD.Serwis.Tools.Extension
 {
     public static class ClientTools
     {
@@ -9,6 +11,20 @@
                 return true;
 
             return false;
+        }
+
+        public static string SetTitleToDetailView(ViewType type)
+        {
+            string result = string.Empty;
+
+            if (type == ViewType.Edit)
+                result = "Edytuj element";
+            else if (type == ViewType.New)
+                result = "Dodaj element";
+            else if (type == ViewType.View)
+                result = "Przeglądaj element";
+
+            return result;
         }
     }
 }

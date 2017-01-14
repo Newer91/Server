@@ -14,7 +14,16 @@ namespace BandD.Serwis.Server.Interface
         bool Autorauthorization(string password, string userName);
 
         [OperationContract]
-        List<User> getDataFromUser();
+        List<User> getDataFromUser(string name, bool? status, string role);
+
+        [OperationContract]
+        void removeElementFromUsers(Guid id);
+
+        [OperationContract]
+        void addElementToUsers(User element);
+
+        [OperationContract]
+        void updateElementUsers(User element);
 
         #endregion
 

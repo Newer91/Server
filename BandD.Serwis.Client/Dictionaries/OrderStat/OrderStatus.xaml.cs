@@ -18,7 +18,6 @@ namespace BandD.Serwis.Client.Dictionaries
         {
             OrderStatsDetail detail = new OrderStatsDetail(ViewType.View, orderViemModel.SlOrderStats);
             detail.ShowDialog();
-            orderViemModel.SearchExecute();
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)

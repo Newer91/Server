@@ -19,6 +19,24 @@
   <wsdl:message name="IDictionariesService_getDataFromUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:getDataFromUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementUsersResponse" />
+  </wsdl:message>
   <wsdl:message name="IDictionariesService_getDataFromSlOrderStat_InputMessage">
     <wsdl:part name="parameters" element="tns:getDataFromSlOrderStat" />
   </wsdl:message>
@@ -52,6 +70,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromUser" message="tns:IDictionariesService_getDataFromUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromUserResponse" message="tns:IDictionariesService_getDataFromUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="removeElementFromUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromUsers" message="tns:IDictionariesService_removeElementFromUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromUsersResponse" message="tns:IDictionariesService_removeElementFromUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addElementToUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/addElementToUsers" message="tns:IDictionariesService_addElementToUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/addElementToUsersResponse" message="tns:IDictionariesService_addElementToUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateElementUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/updateElementUsers" message="tns:IDictionariesService_updateElementUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/updateElementUsersResponse" message="tns:IDictionariesService_updateElementUsers_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getDataFromSlOrderStat">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat" message="tns:IDictionariesService_getDataFromSlOrderStat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse" message="tns:IDictionariesService_getDataFromSlOrderStat_OutputMessage" />
@@ -82,6 +112,33 @@
     </wsdl:operation>
     <wsdl:operation name="getDataFromUser">
       <soap:operation soapAction="http://tempuri.org/IDictionariesService/getDataFromUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromUsers">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/removeElementFromUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addElementToUsers">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/addElementToUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateElementUsers">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/updateElementUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

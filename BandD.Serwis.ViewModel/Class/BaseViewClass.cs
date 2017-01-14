@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
@@ -23,6 +24,22 @@ namespace BandD.Serwis.ViewModel.Class
             VerifyPropertyName(name);
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public class ActiveItem
+        {
+            public bool? Value { get; set; }
+            public string Name { get; set; }
+
+            public ObservableCollection<ActiveItem> getActiveList()
+            {
+                return new ObservableCollection<ActiveItem>()
+                {
+                     new ActiveItem { Name = "Wszystkie", Value =null},
+                     new ActiveItem {Name= "Tak", Value=true },
+                     new ActiveItem {Name= "Nie", Value = false }
+                };
+            }
         }
     }
 }

@@ -1,22 +1,24 @@
 ﻿using System;
+using BandD.Serwis.Model;
 using BandD.Serwis.Tools.ServerTools.Extension;
-using BandD.Serwis.Model.Dictionaries;
-using System.Windows;
 using BandD.Serwis.ViewModel.Class;
 using ClassViewModel.Dictionaries;
 using BandD.Serwis.Tools.Extension;
+using System.Windows;
+using System.Security;
 
-namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
+namespace BandD.Serwis.ViewModel.Dictionaries.User
 {
-    public class OrderStatusDetailViewModel : BaseViewClass
+    public class UserDetailViewModel: BaseViewClass
     {
-        private OrderStatusModel model;
+        private UserModel model;
         private ViewType viewType;
-        private SlOrderStatView stats;
+        private UserView user;
         private string title;
         private bool isReadOnly;
         private bool isEnable;
         private string cancelButtonName;
+        private SecureString securePassword;
 
         #region Public propertis
 
@@ -44,10 +46,10 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
             set { title = value; OnPropertyChanged(); }
         }
 
-        public SlOrderStatView Stats
+        public UserView User
         {
-            get { return stats; }
-            set { stats = value; OnPropertyChanged(); }
+            get { return user; }
+            set { user = value; OnPropertyChanged(); }
         }
 
         public string CancelButtonName
@@ -56,13 +58,19 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
             set { cancelButtonName = value; OnPropertyChanged(); }
         }
 
+        public SecureString SecurePassword
+        {
+            get { return securePassword; }
+            set { securePassword = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
-        public OrderStatusDetailViewModel(ViewType viewType)
+        public UserDetailViewModel(ViewType viewType)
         {
             ViewType = viewType;
             SetViewMode(viewType);
-            model = new OrderStatusModel();
+            model = new UserModel();
         }
 
         private void SetViewMode(ViewType viewType)
@@ -81,18 +89,19 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
             }
 
             if (viewType == ViewType.New)
-                stats = new SlOrderStatView();
+                user = new UserView();
 
             Title = ClientTools.SetTitleToDetailView(viewType);
         }
 
         public bool SaveChange()
         {
+            throw new NotImplementedException();//brak oblsugi hasel
             bool result = false;
             var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
                 if (ViewType == ViewType.Edit)
-                    result = model.SaveChange(stats);
+                    result = model.SaveChange(User);
                 else if (ViewType == ViewType.New)
                     result = AddNewItem();
             if (result)
@@ -100,14 +109,16 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
                 MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                //MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new NotImplementedException();
             return false;
         }
 
         public bool AddNewItem()
         {
-            stats.OrderStatusId = Guid.NewGuid();
-            return model.AddNewItem(stats);
+            throw new NotImplementedException();//BNrak oblsugi hasel
+            user.UserId = Guid.NewGuid();
+            return model.AddNewItem(user);
         }
     }
 }

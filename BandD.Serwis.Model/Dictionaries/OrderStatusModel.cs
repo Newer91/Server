@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using BandD.Serwis.Domain;
+using ClassViewModel.Dictionaries;
+using System.Collections.ObjectModel;
+using ClassViewModel.DomainToViewConverter;
+using ClassViewModel.ViewToDomainConverter;
 
 namespace BandD.Serwis.Model.Dictionaries
 {
@@ -11,28 +15,35 @@ namespace BandD.Serwis.Model.Dictionaries
     {
         private DictionariesServiceClient service = new DictionariesServiceClient();
 
-        public List<SlOrderStat> getDataFromSlOrderStat(string name, bool? activity)
+        public ObservableCollection<SlOrderStatView> getDataFromSlOrderStat(string name, bool? activity)
         {
             string names = name == null ? string.Empty : name;
-            return service.getDataFromSlOrderStat(names, activity).ToList();
+            var items = service.getDataFromSlOrderStat(names, activity).ToList();
+            var result = new ObservableCollection<SlOrderStatView>();
+            foreach (var item in items)
+            {
+                result.Add(DictionaryCoverterToView.SlOrderStatToView(item));
+            }
+
+            return result;
         }
 
-        public bool SaveChange(SlOrderStat stats)
+        public bool SaveChange(SlOrderStatView stats)
         {
             if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
             {
-                service.updateElementSlOrderStat(stats);
+                service.updateElementSlOrderStat(DictionaryCoverterToDomain.SlOrderStatToDomain(stats));
                 return true;
             }
             else
                 return false;          
         }
 
-        public bool AddNewItem(SlOrderStat stats)
+        public bool AddNewItem(SlOrderStatView stats)
         {
             if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
             {
-                service.addElementToSlOrderStat(stats);
+                service.addElementToSlOrderStat(DictionaryCoverterToDomain.SlOrderStatToDomain(stats));
                 return true;
             }
             else
@@ -45,9 +56,3 @@ namespace BandD.Serwis.Model.Dictionaries
         }
     }
 }
-
-//if (name != null && name != string.Empty)
-//    list = list.Where(n => n.Name == name).ToList();
-
-//if (activity != null)
-//    list = list.Where(a => Convert.ToByte(a.Active) == Convert.ToByte(activity)).ToList();

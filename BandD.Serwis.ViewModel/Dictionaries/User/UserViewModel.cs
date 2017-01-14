@@ -1,16 +1,19 @@
-﻿using System.Collections.Generic;
-using BandD.Serwis.Model;
-using BandD.Serwis.Domain;
+﻿using BandD.Serwis.Model;
 using BandD.Serwis.ViewModel.Class;
+using System.Windows.Input;
+using System.Windows;
+using ClassViewModel.Dictionaries;
+using System.Collections.ObjectModel;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.Users
 {
     public class UserStatusViewModel : BaseViewClass
-    {
+    {        
         private UserModel model;
-        private List<User> userList;
-        private User userStat;
+        private ObservableCollection<UserView> userList;
+        private UserView user;
         private string name;
+        private string role;
         private bool activity;
 
         public UserStatusViewModel()
@@ -18,7 +21,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
             model = new UserModel();
         }
 
-        public List<User> UserList
+        public ObservableCollection<UserView> UserList
         {
             get { return userList; }
             set { userList = value; OnPropertyChanged(); }
@@ -30,16 +33,38 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
             set { name = value; OnPropertyChanged(); }
         }
 
+        public string Role
+        {
+            get { return name; }
+            set { name = value; OnPropertyChanged(); }
+        }
+
         public bool Active
         {
             get { return activity; }
             set { activity = value; OnPropertyChanged(); }
         }
 
-        public User UserStat
+        public UserView User
         {
-            get { return userStat; }
-            set { userStat = value; OnPropertyChanged(); }
+            get { return user; }
+            set { user = value; OnPropertyChanged(); }
+        }
+
+        public ICommand Search { get { return new RelayCommand(SearchExecute, null); } }
+        public ICommand Remove { get { return new RelayCommand(RemoveExecute, null); } }
+
+        private void RemoveExecute()
+        {
+            var question = MessageBox.Show("Czy na pewno chcesz usunąc wskazany element?", "Pytanie", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (question == MessageBoxResult.Yes)
+                model.RemoveElement(User.UserId);
+            SearchExecute();
+        }
+
+        public void SearchExecute()
+        {
+            UserList = model.getDataFromUser(name, activity,role);
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using BandD.Serwis.Domain;
-using BandD.Serwis.Model;
+﻿using BandD.Serwis.Model;
 using BandD.Serwis.ViewModel.Class;
+using ClassViewModel.Dictionaries;
 using System.Security;
 
 namespace BandD.Serwis.ViewModel
@@ -8,12 +8,12 @@ namespace BandD.Serwis.ViewModel
     public class LoginWindowViewModel : BaseViewClass
     {
         private UserModel model = new UserModel();
-        private User login;
+        private UserView login;
         private string ipServer;
         private SecureString securePassword;
         private string name = "blisowski";
 
-        public User Login
+        public UserView Login
         {
             get { return login; }
             set { login = value; OnPropertyChanged(); }

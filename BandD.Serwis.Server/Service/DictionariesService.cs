@@ -29,22 +29,38 @@ namespace BandD.Serwis.Server.Service
             return result;
         }
 
-        public List<User> getDataFromUser()
+        public List<User> getDataFromUser(string name, bool? status, string role)
         {
-            List<User> result = new List<User>();
-            var user = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "blisowski", Role = "Admin", Password = SecureTools.CalculateMD5Hash("dedra") };
-            var user2 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "asieradzan", Role = "Admin", Password = SecureTools.CalculateMD5Hash("12345") };
-            var user3 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "Admin", Role = "Admin", Password = SecureTools.CalculateMD5Hash("admin") };
-
             using (var ctx = new ServisContex(conectionString))
             {
                 var userList = ctx.Users;
-                foreach (var item in userList)
-                {
-                    result.Add(item);
-                }
+
+                if (name != string.Empty)
+                    userList.Where(l => l.UserName != name);
+
+                if (status != null)
+                    userList.Where(l => l.Active == status);
+
+                if (role != string.Empty)
+                    userList.Where(l => l.Role != role);
+
+                return userList.ToList();
             }
-            return result;
+        }
+
+        public void removeElementFromUsers(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addElementToUsers(User element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateElementUsers(User element)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -61,7 +77,7 @@ namespace BandD.Serwis.Server.Service
                     list.Where(l => l.Name != name);
 
                 if (activity != null)
-                    list.Where(l => l.Active != activity);
+                    list.Where(l => l.Active == activity);
 
                 return list.ToList();
             }
@@ -99,5 +115,8 @@ namespace BandD.Serwis.Server.Service
         }
 
         #endregion
+
+
+
     }
 }

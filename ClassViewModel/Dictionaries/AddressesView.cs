@@ -12,5 +12,10 @@ namespace BandD.Serwis.ClassViewModel.Dictionaries
         public bool IsCompanyAddres { get; set; }
         public bool IsDeliveryAddres { get; set; }
         public string ClientName { get; set; }
+
+        public AddressesView CreateAddresView()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

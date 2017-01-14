@@ -1,9 +1,10 @@
 ﻿using BandD.Serwis.ViewModel.Class;
-using System.Collections.Generic;
 using System.Windows.Input;
 using BandD.Serwis.Model.Dictionaries;
-using BandD.Serwis.Domain;
 using System.Windows;
+using ClassViewModel.Dictionaries;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace BandD.Serwis.ViewModel.Dictionaries
 {
@@ -12,16 +13,19 @@ namespace BandD.Serwis.ViewModel.Dictionaries
         private OrderStatusModel model;
 
         private string name;
-        private bool? activity;
-        private List<SlOrderStat> orderStatusList;
-        private SlOrderStat slOrderStat;
+        private ActiveItem activity;
+        private ObservableCollection<SlOrderStatView> orderStatusList;
+        private ObservableCollection<ActiveItem> activeComboBox;
+        private SlOrderStatView slOrderStat;
 
         public OrderStatusViewModel()
         {
             model = new OrderStatusModel();
+            ActiveComboBox = new ActiveItem().getActiveList();
+            Active = ActiveComboBox[0];
         }
 
-        public List<SlOrderStat> OrderStatusList
+        public ObservableCollection<SlOrderStatView> OrderStatusList
         {
             get { return orderStatusList; }
             set { orderStatusList = value; OnPropertyChanged(); }
@@ -33,16 +37,22 @@ namespace BandD.Serwis.ViewModel.Dictionaries
             set { name = value; OnPropertyChanged(); }
         }
 
-        public bool? Active
+        public ActiveItem Active
         {
             get { return activity; }
             set { activity = value; OnPropertyChanged(); }
         }
 
-        public SlOrderStat SlOrderStats
+        public SlOrderStatView SlOrderStats
         {
             get { return slOrderStat; }
             set { slOrderStat = value; OnPropertyChanged(); }
+        }
+
+        public ObservableCollection<ActiveItem> ActiveComboBox
+        {
+            get { return activeComboBox; }
+            set { activeComboBox = value;OnPropertyChanged(); }
         }
 
         public ICommand Search { get { return new RelayCommand(SearchExecute, null); } }
@@ -58,7 +68,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries
 
         public void SearchExecute()
         {
-            OrderStatusList = model.getDataFromSlOrderStat(name, activity);
+            OrderStatusList = model.getDataFromSlOrderStat(name, activity.Value);
         }
     }
 }

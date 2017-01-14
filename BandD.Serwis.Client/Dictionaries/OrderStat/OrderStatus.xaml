@@ -43,7 +43,9 @@
             <Label x:Name="labelName" Content="Nazwa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labelActiv" Content="Aktywność" HorizontalAlignment="Left" Margin="171,10,0,0" VerticalAlignment="Top"/>
 
-            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="171,47,0,0" VerticalAlignment="Top" Width="120" Height="20" />
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="171,47,0,0" VerticalAlignment="Top" Width="120" Height="20" 
+                      ItemsSource="{Binding Path=ActiveComboBox}" SelectedIndex="0" SelectedValuePath="Value" DisplayMemberPath="Name"
+                      SelectedItem="{Binding Path=Active}"/>
             
             <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,47,0,10" TextWrapping="Wrap" Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="120" Height="20"/>
 

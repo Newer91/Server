@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ClassViewModel</RootNamespace>
     <AssemblyName>ClassViewModel</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,7 +43,17 @@
   <ItemGroup>
     <Compile Include="BaseClass.cs" />
     <Compile Include="Dictionaries\AddressesView.cs" />
+    <Compile Include="Dictionaries\SlOrderStatView.cs" />
+    <Compile Include="Dictionaries\UserView.cs" />
+    <Compile Include="DomainToViewConverter\DictionaryCoverterToView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewToDomainConverter\DictionaryCoverterToDomain.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
+      <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
+      <Name>BandD.Serwis.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

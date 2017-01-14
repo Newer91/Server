@@ -19,7 +19,11 @@
   </xs:element>
   <xs:element name="getDataFromUser">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getDataFromUserResponse">
@@ -27,6 +31,42 @@
       <xs:sequence>
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="getDataFromUserResult" nillable="true" type="q1:ArrayOfUser" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeElementFromUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q2:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeElementFromUsersResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addElementToUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="element" nillable="true" type="q3:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addElementToUsersResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateElementUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="element" nillable="true" type="q4:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateElementUsersResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="getDataFromSlOrderStat">
@@ -40,14 +80,14 @@
   <xs:element name="getDataFromSlOrderStatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="getDataFromSlOrderStatResult" nillable="true" type="q2:ArrayOfSlOrderStat" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="getDataFromSlOrderStatResult" nillable="true" type="q5:ArrayOfSlOrderStat" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="removeElementFromSlOrderStat">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q3:guid" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q6:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -59,7 +99,7 @@
   <xs:element name="addElementToSlOrderStat">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="element" nillable="true" type="q4:SlOrderStat" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="element" nillable="true" type="q7:SlOrderStat" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -71,7 +111,7 @@
   <xs:element name="updateElementSlOrderStat">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="element" nillable="true" type="q5:SlOrderStat" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="element" nillable="true" type="q8:SlOrderStat" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

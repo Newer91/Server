@@ -17,10 +17,10 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="70"/> 
         </Grid.ColumnDefinitions>
-        <Button x:Name="buttonView" Content="Przeglądaj" Grid.Column="1" Margin="5,10,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Right" />
-        <Button x:Name="buttonAdd" Content="Dodaj" Grid.Column="1" Margin="5,35,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center"/>
-        <Button x:Name="buttonEdit" Content="Edytuj" Grid.Column="1" Margin="5,60,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" />
-        <Button x:Name="buttonRemove" Content="Usuń" Grid.Column="1" Margin="5,85,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center"/>
+        <Button x:Name="buttonView" Content="Przeglądaj" Grid.Column="1" Margin="5,10,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Right" Click="buttonView_Click" />
+        <Button x:Name="buttonAdd" Content="Dodaj" Grid.Column="1" Margin="5,35,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonAdd_Click"/>
+        <Button x:Name="buttonEdit" Content="Edytuj" Grid.Column="1" Margin="5,60,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonEdit_Click" />
+        <Button x:Name="buttonRemove" Content="Usuń" Grid.Column="1" Margin="5,85,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Command="{Binding Remove}"/>
         <Button x:Name="buttonExit" Content="Wyjście" Grid.Column="1" Margin="5,0,5,10" Width="60" Height="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="buttonExit_Click"/>
         
         <Grid Grid.Column="0">
@@ -29,12 +29,12 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <ListView x:Name="listViewUserStatus" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" SelectionMode="Single" Grid.Row="1"
-                      ItemsSource="{Binding UserStatusList, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding UserStat}">
+                      ItemsSource="{Binding UserList, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding User}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="250" Header="Nazwa użytkownika" DisplayMemberBinding="{Binding UserName}"/>
-                        <GridViewColumn Width="120" Header="Rodzaj użytkownika" DisplayMemberBinding="{Binding UserType}"/>
-                        <GridViewColumn Width="65" Header="Status" DisplayMemberBinding="{Binding Status}"/>
+                        <GridViewColumn Width="120" Header="Rodzaj użytkownika" DisplayMemberBinding="{Binding Role}"/>
+                        <GridViewColumn Width="65" Header="Status" DisplayMemberBinding="{Binding Active}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
