@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain.Dictionaries" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain.Dictionaries" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" />
+  <xs:complexType name="SlRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleId" type="ser:guid" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="User" nillable="true" type="q1:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SlRole" nillable="true" type="tns:SlRole" />
+</xs:schema>

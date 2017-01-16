@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityClassConfiguration\SlRoleEntityConfiguration.cs" />
     <Compile Include="Service\DictionariesService.cs" />
     <Compile Include="EntityClassConfiguration\UserEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlOrdersStatsEntityConfiguration.cs" />

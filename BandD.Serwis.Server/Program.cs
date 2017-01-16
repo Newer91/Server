@@ -13,7 +13,7 @@ namespace BandD.Serwis.Server
             ServiceHost hostDictionary = null;
             try
             {
-                InitClass defoultItems = new InitClass();
+                new InitClass();
 
                 hostDictionary = new ServiceHost(typeof(DictionariesService));
                 hostDictionary.Open();

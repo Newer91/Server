@@ -24,10 +24,13 @@ namespace BandD.Serwis.Model
 
         #endregion
 
-        public ObservableCollection<UserView> getDataFromUser(string name, bool status, string role)
+        public ObservableCollection<UserView> getDataFromUser(string name, bool? status, string role)
         {
             string names = name == null ? string.Empty : name;
-            var items = service.getDataFromUser(names, status, role).ToList();
+            string roles = role == null ? string.Empty : role;
+
+            var tmp  = service.getDataFromUser(names, status, roles);
+            var items = service.getDataFromUser(names, status, roles).ToList();
             var result = new ObservableCollection<UserView>();
             foreach (var item in items)
             {

@@ -33,17 +33,17 @@ namespace BandD.Serwis.Server.Service
         {
             using (var ctx = new ServisContex(conectionString))
             {
-                var userList = ctx.Users;
+                IQueryable<User> userList = ctx.Users;
 
                 if (name != string.Empty)
-                    userList.Where(l => l.UserName != name);
+                    userList = userList.Where(l => l.UserName == name);
 
                 if (status != null)
-                    userList.Where(l => l.Active == status);
+                    userList = userList.Where(l => l.Active == status);
 
-                if (role != string.Empty)
-                    userList.Where(l => l.Role != role);
-
+                //if (role != string.Empty)
+                //    userList = userList.Where(l => l.Role == role);
+                                
                 return userList.ToList();
             }
         }
@@ -71,13 +71,13 @@ namespace BandD.Serwis.Server.Service
         {
             using (var ctx = new ServisContex(conectionString))
             {
-                var list = ctx.SlOrdersStats;
+                IQueryable<SlOrderStat> list = ctx.SlOrdersStats;
 
                 if (name != string.Empty)
-                    list.Where(l => l.Name != name);
+                    list = list.Where(l => l.Name == name);
 
                 if (activity != null)
-                    list.Where(l => l.Active == activity);
+                    list = list.Where(l => l.Active == activity);
 
                 return list.ToList();
             }
@@ -115,8 +115,5 @@ namespace BandD.Serwis.Server.Service
         }
 
         #endregion
-
-
-
     }
 }

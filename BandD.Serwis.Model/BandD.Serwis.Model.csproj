@@ -58,6 +58,9 @@
     <None Include="app.config" />
     <None Include="DTO\Dictionaries\BandD.Serwis.Domain.SlOrderStat.datasource" />
     <None Include="DTO\Dictionaries\BandD.Serwis.Domain.User.datasource" />
+    <None Include="Service References\DictionariesService\BandD.Serwis.Domain.Dictionaries.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\DictionariesService\BandD.Serwis.Domain.xsd">
       <SubType>Designer</SubType>
     </None>

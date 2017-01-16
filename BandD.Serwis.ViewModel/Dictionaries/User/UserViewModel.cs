@@ -10,15 +10,24 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
     public class UserStatusViewModel : BaseViewClass
     {        
         private UserModel model;
+        private ActiveItem activity;
         private ObservableCollection<UserView> userList;
+        private ObservableCollection<ActiveItem> activeComboBox;
         private UserView user;
         private string name;
         private string role;
-        private bool activity;
+
+        public ActiveItem Active
+        {
+            get { return activity; }
+            set { activity = value; OnPropertyChanged(); }
+        }
 
         public UserStatusViewModel()
         {
             model = new UserModel();
+            ActiveComboBox = new ActiveItem().getActiveList();
+            Active = ActiveComboBox[0];
         }
 
         public ObservableCollection<UserView> UserList
@@ -27,23 +36,23 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
             set { userList = value; OnPropertyChanged(); }
         }
 
+        public ObservableCollection<ActiveItem> ActiveComboBox
+        {
+            get { return activeComboBox; }
+            set { activeComboBox = value; OnPropertyChanged(); }
+        }
+
         public string Name
         {
             get { return name; }
             set { name = value; OnPropertyChanged(); }
         }
 
-        public string Role
-        {
-            get { return name; }
-            set { name = value; OnPropertyChanged(); }
-        }
-
-        public bool Active
-        {
-            get { return activity; }
-            set { activity = value; OnPropertyChanged(); }
-        }
+        //public string Role
+        //{
+        //    get { return name; }
+        //    set { name = value; OnPropertyChanged(); }
+        //}
 
         public UserView User
         {
@@ -64,7 +73,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
 
         public void SearchExecute()
         {
-            UserList = model.getDataFromUser(name, activity,role);
+            UserList = model.getDataFromUser(name, activity.Value,role);
         }
     }
 }

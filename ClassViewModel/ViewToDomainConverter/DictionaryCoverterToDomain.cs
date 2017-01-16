@@ -30,7 +30,7 @@ namespace ClassViewModel.ViewToDomainConverter
                 result.UserName = user.UserName;
                 result.Password = user.Password;
                 result.Active = user.Active;
-                result.Role = user.Role;
+                //result.Role = user.Role;
             }
 
             return result;

@@ -41,9 +41,10 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Dictionaries\SlRole.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SlOrderStat.cs" />
+    <Compile Include="Dictionaries\SlOrderStat.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

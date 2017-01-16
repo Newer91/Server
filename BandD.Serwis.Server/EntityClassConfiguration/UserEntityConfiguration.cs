@@ -9,6 +9,10 @@ namespace BandD.Serwis.Server.EntityClassConfiguration
         public UserEntityConfiguration()
         {
             this.HasKey<Guid>(k => k.UserId);
+
+            this.HasOptional(c => c.SlRole)
+                .WithOptionalPrincipal()
+                .Map(x => x.MapKey("UserId"));
         }
     }
 }
