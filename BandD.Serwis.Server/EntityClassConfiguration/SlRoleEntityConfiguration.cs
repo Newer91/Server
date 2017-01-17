@@ -10,9 +10,9 @@ namespace BandD.Serwis.Server.EntityClassConfiguration
         {
             this.HasKey<Guid>(k => k.RoleId);
 
-            this.HasOptional(x => x.User)
-                .WithOptionalPrincipal()
-                .Map(x => x.MapKey("RoleId"));
+            this.HasMany(u => u.Users).
+                WithRequired(r => r.SlRole).
+                WillCascadeOnDelete(false);
         }
     }
 }

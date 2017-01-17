@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace BandD.Serwis.Domain
 {
+    [Serializable]
     public class Address
-    {
+    {   
         public Guid AddressId { get; set; }
         public string City { get; set; }
         public string Street { get; set; }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using BandD.Serwis.Tools.ServerTools;
 using BandD.Serwis.Domain;
 using System.Linq;
+using System.Data.Entity;
 
 namespace BandD.Serwis.Server.Service
 {
@@ -33,7 +34,7 @@ namespace BandD.Serwis.Server.Service
         {
             using (var ctx = new ServisContex(conectionString))
             {
-                IQueryable<User> userList = ctx.Users;
+                IQueryable<User> userList = ctx.Users.Include(r => r.SlRole).AsNoTracking();
 
                 if (name != string.Empty)
                     userList = userList.Where(l => l.UserName == name);
@@ -43,8 +44,8 @@ namespace BandD.Serwis.Server.Service
 
                 //if (role != string.Empty)
                 //    userList = userList.Where(l => l.Role == role);
-                                
-                return userList.ToList();
+                var tmp = userList.ToList();
+                return tmp;
             }
         }
 

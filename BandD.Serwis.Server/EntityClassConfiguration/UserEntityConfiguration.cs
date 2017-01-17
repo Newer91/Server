@@ -1,6 +1,8 @@
 ﻿using BandD.Serwis.Domain;
+using System.Data.Entity;
 using System;
 using System.Data.Entity.ModelConfiguration;
+using BandD.Serwis.Domain.Dictionaries;
 
 namespace BandD.Serwis.Server.EntityClassConfiguration
 {
@@ -10,9 +12,7 @@ namespace BandD.Serwis.Server.EntityClassConfiguration
         {
             this.HasKey<Guid>(k => k.UserId);
 
-            this.HasOptional(c => c.SlRole)
-                .WithOptionalPrincipal()
-                .Map(x => x.MapKey("UserId"));
+
         }
     }
 }

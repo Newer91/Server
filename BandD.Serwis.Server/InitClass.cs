@@ -52,16 +52,12 @@ namespace BandD.Serwis.Server
             using (var ctx = new ServisContex(conectionString))
             {
                 var rola1 = new SlRole() { Name = "Admin", RoleId = Guid.NewGuid() };
-                var rola2 = new SlRole() { Name = "Admin", RoleId = Guid.NewGuid() };
-                var rola3 = new SlRole() { Name = "Admin", RoleId = Guid.NewGuid() };
 
                 ctx.SlRoles.Add(rola1);
-                ctx.SlRoles.Add(rola2);
-                ctx.SlRoles.Add(rola3);
 
-                var user = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "blisowski", /*SlRole = rola1,*/ Password = SecureTools.CalculateMD5Hash("dedra") };
-                var user2 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "asieradzan",/* SlRole = rola2, */Password = SecureTools.CalculateMD5Hash("12345") };
-                var user3 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "Admin",/* SlRole = rola3,*/ Password = SecureTools.CalculateMD5Hash("admin") };
+                var user = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "blisowski", SlRole = rola1, Password = SecureTools.CalculateMD5Hash("dedra") };
+                var user2 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "asieradzan",SlRole = rola1, Password = SecureTools.CalculateMD5Hash("12345") };
+                var user3 = new User() { UserId = Guid.NewGuid(), Active = true, UserName = "Admin", SlRole = rola1, Password = SecureTools.CalculateMD5Hash("admin") };
 
                 ctx.Users.Add(user);
                 ctx.Users.Add(user2);

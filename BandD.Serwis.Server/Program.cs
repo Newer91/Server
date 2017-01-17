@@ -1,6 +1,4 @@
-﻿using BandD.Serwis.Server.EntityContexClass;
-using BandD.Serwis.Server.Service;
-using BandD.Serwis.Tools.ServerTools;
+﻿using BandD.Serwis.Server.Service;
 using System;
 using System.ServiceModel;
 

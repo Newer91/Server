@@ -28,9 +28,8 @@ namespace BandD.Serwis.Model
         {
             string names = name == null ? string.Empty : name;
             string roles = role == null ? string.Empty : role;
-
-            var tmp  = service.getDataFromUser(names, status, roles);
-            var items = service.getDataFromUser(names, status, roles).ToList();
+ 
+            var items = service.getDataFromUser(names, status, roles);
             var result = new ObservableCollection<UserView>();
             foreach (var item in items)
             {
