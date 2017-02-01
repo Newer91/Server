@@ -9,8 +9,6 @@ namespace BandD.Serwis.Server
 {
     public class InitClass
     {
-        private string conectionString = /*ServerExtension.GetConnectionString(Environment.MachineName);*/"BanddServer";
-
         public InitClass()
         {
             if(!ChechDefoultRecord())
@@ -33,7 +31,6 @@ namespace BandD.Serwis.Server
             }
             return result;
         }
-
 
         private void InitOrderDictionaryTable()
         {
