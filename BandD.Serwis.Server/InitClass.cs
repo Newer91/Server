@@ -9,7 +9,7 @@ namespace BandD.Serwis.Server
 {
     public class InitClass
     {
-        private string conectionString = ServerExtension.GetConnectionString(Environment.MachineName);
+        private string conectionString = /*ServerExtension.GetConnectionString(Environment.MachineName);*/"BanddServer";
 
         public InitClass()
         {
@@ -23,7 +23,7 @@ namespace BandD.Serwis.Server
         private bool ChechDefoultRecord()
         {
             bool result = false;
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 var adminInBase = ctx.Users
                     .Where(l => l.UserName == "Admin")
@@ -37,7 +37,7 @@ namespace BandD.Serwis.Server
 
         private void InitOrderDictionaryTable()
         {
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 var stat = new SlOrderStat() { OrderStatusId = Guid.NewGuid(), Name = "W trakcie realizacji", Active = true, Description = "Zlecenie w trakcie realizacji" };
                 var stat2 = new SlOrderStat() { OrderStatusId = Guid.NewGuid(), Name = "Anulowane", Active = true, Description = "Zlecenie anulowane przez klienta" };
@@ -49,7 +49,7 @@ namespace BandD.Serwis.Server
 
         private void InitLoginTable()
         {
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 var rola1 = new SlRole() { Name = "Admin", RoleId = Guid.NewGuid() };
 

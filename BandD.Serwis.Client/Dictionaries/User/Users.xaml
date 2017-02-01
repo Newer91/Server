@@ -35,6 +35,7 @@
                         <GridViewColumn Width="250" Header="Nazwa użytkownika" DisplayMemberBinding="{Binding UserName}"/>
                         <GridViewColumn Width="120" Header="Rodzaj użytkownika" DisplayMemberBinding="{Binding Role}"/>
                         <GridViewColumn Width="65" Header="Status" DisplayMemberBinding="{Binding Active}"/>
+                        <GridViewColumn Width="50" Header="test" DisplayMemberBinding="{Binding UserId}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

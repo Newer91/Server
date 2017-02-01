@@ -16,6 +16,6 @@ namespace BandD.Serwis.ClassViewModel.Dictionaries
         public AddressesView CreateAddresView()
         {
             throw new NotImplementedException();
-        }
+        }       
     }
 }

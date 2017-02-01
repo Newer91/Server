@@ -7,11 +7,16 @@ namespace BandD.Serwis.Server.EntityContexClass
 {
     public class ServisContex : DbContext
     {
-        public ServisContex(string connectionStringName)
-            : base(connectionStringName)
+        //public ServisContex(string connectionStringName)
+        //    : base(connectionStringName)
+        //{
+        //    //Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
+        //    ////base.Configuration.ProxyCreationEnabled = false;
+        //}
+
+        public ServisContex() : base("BanddServer")
         {
-            //Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
-            base.Configuration.ProxyCreationEnabled = false;
+
         }
 
         public DbSet<User> Users { get; set; }

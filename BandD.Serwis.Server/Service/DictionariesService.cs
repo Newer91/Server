@@ -11,14 +11,14 @@ namespace BandD.Serwis.Server.Service
 {
     public class DictionariesService : IDictionariesService
     {
-        private string conectionString = ServerExtension.GetConnectionString(Environment.MachineName);
+        //private string conectionString =/* ServerExtension.GetConnectionString(Environment.MachineName);*/"BanddServer";
 
         #region User
 
         public bool Autorauthorization(string password, string userName)
         {
             bool result = false;
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 var login = ctx.Users
                     .Where(l => l.UserName == userName)
@@ -32,7 +32,7 @@ namespace BandD.Serwis.Server.Service
 
         public List<User> getDataFromUser(string name, bool? status, string role)
         {
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 IQueryable<User> userList = ctx.Users.Include(r => r.SlRole).AsNoTracking();
 
@@ -70,7 +70,7 @@ namespace BandD.Serwis.Server.Service
 
         public List<SlOrderStat> getDataFromSlOrderStat(string name, bool? activity)
         {
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 IQueryable<SlOrderStat> list = ctx.SlOrdersStats;
 
@@ -86,7 +86,7 @@ namespace BandD.Serwis.Server.Service
 
         public void removeElementFromSlOrderStat(Guid id)
         {
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 var item = ctx.SlOrdersStats.Find(id);
                 ctx.SlOrdersStats.Remove(item);
@@ -96,7 +96,7 @@ namespace BandD.Serwis.Server.Service
 
         public void addElementToSlOrderStat(SlOrderStat item)
         {
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 ctx.SlOrdersStats.Add(item);
                 ctx.SaveChanges();
@@ -105,7 +105,7 @@ namespace BandD.Serwis.Server.Service
 
         public void updateElementSlOrderStat(SlOrderStat item)
         {
-            using (var ctx = new ServisContex(conectionString))
+            using (var ctx = new ServisContex())
             {
                 var element = ctx.SlOrdersStats.Find(item.OrderStatusId);
                 element.Name = item.Name;
