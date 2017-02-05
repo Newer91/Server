@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" />
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain.Dictionaries" />
   <xs:element name="Autorauthorization">
     <xs:complexType>
       <xs:sequence>
@@ -116,6 +117,57 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="updateElementSlOrderStatResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataFromSlCarrierStat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="carrierStatus" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataFromSlCarrierStatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain.Dictionaries" minOccurs="0" name="getDataFromSlCarrierStatResult" nillable="true" type="q9:ArrayOfSlCarrierStat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateElementSlCarrierStat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain.Dictionaries" minOccurs="0" name="stats" nillable="true" type="q10:SlCarrierStat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateElementSlCarrierStatResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addElementToSlCarrierStat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain.Dictionaries" minOccurs="0" name="stats" nillable="true" type="q11:SlCarrierStat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addElementToSlCarrierStatResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeElementFromSlCarrierStat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="statsId" type="q12:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeElementFromSlCarrierStatResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

@@ -47,7 +47,9 @@ namespace BandD.Serwis.Model
                 return true;
             }
             else
+#pragma warning disable CS0162 // Unreachable code detected
                 return false;
+#pragma warning restore CS0162 // Unreachable code detected
         }
 
         public bool SaveChange(UserView user)
@@ -58,7 +60,9 @@ namespace BandD.Serwis.Model
                 return true;
             }
             else
+#pragma warning disable CS0162 // Unreachable code detected
                 return false;
+#pragma warning restore CS0162 // Unreachable code detected
         }
 
         public void RemoveElement(Guid userId)

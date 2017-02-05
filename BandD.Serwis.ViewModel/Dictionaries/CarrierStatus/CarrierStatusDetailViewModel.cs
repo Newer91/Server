@@ -1,27 +1,29 @@
-﻿using System;
-using BandD.Serwis.Model;
+﻿using BandD.Serwis.Model.Dictionaries;
+using BandD.Serwis.Tools.Extension;
 using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Class;
 using ClassViewModel.Dictionaries;
-using BandD.Serwis.Tools.Extension;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
-using System.Security;
 
-namespace BandD.Serwis.ViewModel.Dictionaries.User
+namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
 {
-    public class UserDetailViewModel: BaseViewClass
+
+    public class CarrierStatusDetailViewModel : BaseViewClass
     {
-        private UserModel model;
+        private CarrierStatusModel model;
         private ViewType viewType;
-        private UserView user;
+        private SlCarriersStatView stats;
         private string title;
         private bool isReadOnly;
         private bool isEnable;
         private string cancelButtonName;
-        private SecureString securePassword;
 
-        #region Public propertis
-
+        #region Public properties
         public ViewType ViewType
         {
             get { return viewType; }
@@ -46,10 +48,10 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
             set { title = value; OnPropertyChanged(); }
         }
 
-        public UserView User
+        public SlCarriersStatView Stats
         {
-            get { return user; }
-            set { user = value; OnPropertyChanged(); }
+            get { return stats; }
+            set { stats = value; OnPropertyChanged(); }
         }
 
         public string CancelButtonName
@@ -58,21 +60,14 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
             set { cancelButtonName = value; OnPropertyChanged(); }
         }
 
-        public SecureString SecurePassword
-        {
-            get { return securePassword; }
-            set { securePassword = value; OnPropertyChanged(); }
-        }
-
         #endregion
 
-        public UserDetailViewModel(ViewType viewType)
+        public CarrierStatusDetailViewModel(ViewType viewType)
         {
             ViewType = viewType;
             SetViewMode(viewType);
-            model = new UserModel();
+            model = new CarrierStatusModel();
         }
-
         private void SetViewMode(ViewType viewType)
         {
             if (viewType == ViewType.View)
@@ -86,41 +81,37 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
                 IsEnable = true;
                 IsReadOnly = false;
                 CancelButtonName = "Anuluj";
-            }
 
+            }
             if (viewType == ViewType.New)
-                user = new UserView();
+                stats = new SlCarriersStatView();
 
             Title = ClientTools.SetTitleToDetailView(viewType);
         }
-
         public bool SaveChange()
         {
-            throw new NotImplementedException();//brak oblsugi hasel
-#pragma warning disable CS0162 // Unreachable code detected
             bool result = false;
-#pragma warning restore CS0162 // Unreachable code detected
             var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
                 if (ViewType == ViewType.Edit)
-                    result = model.SaveChange(User);
+                    result = model.SaveChange(stats);
                 else if (ViewType == ViewType.New)
                     result = AddNewItem();
             if (result)
             {
                 MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+
             }
             else
-                //MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
-                throw new NotImplementedException();
+                MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             return false;
+            
         }
-
         public bool AddNewItem()
         {
-            throw new NotImplementedException();//BNrak oblsugi hasel
-            user.UserId = Guid.NewGuid();
-            return model.AddNewItem(user);
+            stats.CarrierStatusId = Guid.NewGuid();
+            return model.AddNewItem(stats);
         }
     }
 }
+

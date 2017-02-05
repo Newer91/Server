@@ -42,6 +42,7 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -54,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityClassConfiguration\SlCarrierStatEntityConfiuration.cs" />
     <Compile Include="EntityClassConfiguration\SlRoleEntityConfiguration.cs" />
     <Compile Include="Service\DictionariesService.cs" />
     <Compile Include="EntityClassConfiguration\UserEntityConfiguration.cs" />

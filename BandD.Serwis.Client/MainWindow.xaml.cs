@@ -5,6 +5,7 @@ using BandD.Serwis.ViewModel;
 using BandD.Serwis.Client.Dictionaries;
 using BandD.Serwis.Client.Dictionaries.OrderStat;
 using BandD.Serwis.Client.Dictionaries.User;
+using BandD.Serwis.Client.Dictionaries.Carriers;
 
 namespace BandD.Serwis.Client
 {
@@ -42,6 +43,11 @@ namespace BandD.Serwis.Client
         private void OrderStatus_Click(object sender, RoutedEventArgs e)
         {
             OrderStatus window = new OrderStatus();
+            window.ShowDialog();
+        }
+        private void CarrierStatus_Click(object sender, RoutedEventArgs e)
+        {
+            Carriers window = new Carriers();
             window.ShowDialog();
         }
 

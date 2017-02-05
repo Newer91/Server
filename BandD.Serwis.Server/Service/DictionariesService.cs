@@ -6,6 +6,7 @@ using BandD.Serwis.Tools.ServerTools;
 using BandD.Serwis.Domain;
 using System.Linq;
 using System.Data.Entity;
+using BandD.Serwis.Domain.Dictionaries;
 
 namespace BandD.Serwis.Server.Service
 {
@@ -116,5 +117,56 @@ namespace BandD.Serwis.Server.Service
         }
 
         #endregion
+
+        #region CarrierStatus
+        public List<SlCarrierStat> getDataFromSlCarrierStat(string carrierName, bool? carrierStatus)
+        {
+            using (var ctx = new ServisContex())
+            {
+                IQueryable<SlCarrierStat> list = ctx.SlCarrierStats;
+
+                if (carrierName != string.Empty)
+                    list = list.Where(l => l.CarrierName == carrierName);
+
+                if (carrierStatus != null)
+                    list = list.Where(l => l.CarrierStatus == carrierStatus);
+
+                return list.ToList();
+            }
+        }
+
+        public void removeElementFromSlCarrierStat(Guid id)
+        {
+            using (var ctx = new ServisContex())
+            {
+                var item = ctx.SlCarrierStats.Find(id);
+                ctx.SlCarrierStats.Remove(item);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void addElementToSlCarrierStat(SlCarrierStat item)
+        {
+            using (var ctx = new ServisContex())
+            {
+                ctx.SlCarrierStats.Add(item);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void updateElementSlCarrierStat(SlCarrierStat item)
+        {
+            using (var ctx = new ServisContex())
+            {
+                var element = ctx.SlCarrierStats.Find(item.CarrierStatusId);
+                element.CarrierName = item.CarrierName;
+                element.CarrierLink = item.CarrierLink;
+                element.CarrierStatus = item.CarrierStatus;
+                ctx.SaveChanges();
+            }
+        }
+
+        #endregion
+
     }
 }

@@ -18,7 +18,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
         private bool isEnable;
         private string cancelButtonName;
 
-        #region Public propertis
+        #region Public properties
 
         public ViewType ViewType
         {
