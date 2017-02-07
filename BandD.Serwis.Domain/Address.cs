@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace BandD.Serwis.Domain
 {
     [Serializable]
+    [DataContract(IsReference = true)]
     public class Address
     {   
         public Guid AddressId { get; set; }

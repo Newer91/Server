@@ -10,8 +10,7 @@ using System.Data.Entity;
 namespace BandD.Serwis.Server.Service
 {
     public class DictionariesService : IDictionariesService
-    {
-        //private string conectionString =/* ServerExtension.GetConnectionString(Environment.MachineName);*/"BanddServer";
+    {      
 
         #region User
 
@@ -44,6 +43,7 @@ namespace BandD.Serwis.Server.Service
 
                 //if (role != string.Empty)
                 //    userList = userList.Where(l => l.Role == role);
+
                 var tmp = userList.ToList();
                 return tmp;
             }

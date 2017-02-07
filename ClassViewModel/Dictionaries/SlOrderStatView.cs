@@ -1,5 +1,4 @@
-﻿using BandD.Serwis.Domain;
-using System;
+﻿using System;
 
 namespace ClassViewModel.Dictionaries
 {

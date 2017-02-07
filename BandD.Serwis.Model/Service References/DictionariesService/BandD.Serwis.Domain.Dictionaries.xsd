@@ -8,6 +8,8 @@
       <xs:element minOccurs="0" name="RoleId" type="ser:guid" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BandD.Serwis.Domain" minOccurs="0" name="Users" nillable="true" type="q1:ArrayOfUser" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="SlRole" nillable="true" type="tns:SlRole" />
 </xs:schema>

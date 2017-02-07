@@ -16,7 +16,7 @@ namespace BandD.Serwis.Server.EntityContexClass
 
         public ServisContex() : base("BanddServer")
         {
-
+           base.Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<User> Users { get; set; }

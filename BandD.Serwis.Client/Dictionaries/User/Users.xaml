@@ -33,9 +33,8 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="250" Header="Nazwa użytkownika" DisplayMemberBinding="{Binding UserName}"/>
-                        <GridViewColumn Width="120" Header="Rodzaj użytkownika" DisplayMemberBinding="{Binding Role}"/>
+                        <GridViewColumn Width="120" Header="Rodzaj użytkownika" DisplayMemberBinding="{Binding Rola.Name}"/>
                         <GridViewColumn Width="65" Header="Status" DisplayMemberBinding="{Binding Active}"/>
-                        <GridViewColumn Width="50" Header="test" DisplayMemberBinding="{Binding UserId}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -48,7 +47,7 @@
                       ItemsSource="{Binding Path=ActiveComboBox}" SelectedValuePath="Value" DisplayMemberPath="Name"
                       SelectedItem="{Binding Path=Active}"/>
 
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,40,0,20" TextWrapping="Wrap" Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="160" Height="20"/>
+            <TextBox x:Name="tbName" HorizontalAlignment="Left" Margin="10,40,0,20" TextWrapping="Wrap" Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="160" Height="20"/>
 
             <Button x:Name="buttonSearch" Content="Szukaj" HorizontalAlignment="Right" Margin="0,30,8,0" VerticalAlignment="Top" Width="75" Height="20" Command="{Binding Search}"/>
 

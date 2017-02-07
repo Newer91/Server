@@ -1,4 +1,5 @@
 ﻿using BandD.Serwis.Domain;
+using BandD.Serwis.Domain.Dictionaries;
 using ClassViewModel.Dictionaries;
 
 namespace ClassViewModel.DomainToViewConverter
@@ -30,11 +31,22 @@ namespace ClassViewModel.DomainToViewConverter
                 result.UserName = user.UserName;
                 result.Password = user.Password;
                 result.Active = user.Active;
-                result.Role = user.SlRole.Name;
-                result.RoleId = user.SlRole.RoleId;
+                result.Rola = SlRolaToView(user.SlRole);
             }
 
             return result;
+        }
+
+        public static SlRoleView SlRolaToView(SlRole slRole)
+        {
+            var result = new SlRoleView();
+            if(slRole!=null)
+            {
+                result.RoleId = slRole.RoleId;
+                result.Name = slRole.Name;
+            }
+            return result;
+
         }
     }
 }

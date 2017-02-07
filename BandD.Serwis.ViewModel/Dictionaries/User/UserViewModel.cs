@@ -15,7 +15,6 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
         private ObservableCollection<ActiveItem> activeComboBox;
         private UserView user;
         private string name;
-        private string role;
 
         public ActiveItem Active
         {
@@ -73,7 +72,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
 
         public void SearchExecute()
         {
-            UserList = model.getDataFromUser(name, activity.Value,role);
+            UserList = model.getDataFromUser(name, activity.Value,"");
         }
     }
 }
