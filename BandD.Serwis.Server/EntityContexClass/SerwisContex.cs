@@ -7,20 +7,16 @@ namespace BandD.Serwis.Server.EntityContexClass
 {
     public class ServisContex : DbContext
     {
-        //public ServisContex(string connectionStringName)
-        //    : base(connectionStringName)
-        //{
-        //    //Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
-        //    ////base.Configuration.ProxyCreationEnabled = false;
-        //}
-
         public ServisContex() : base("BanddServer")
         {
-           base.Configuration.ProxyCreationEnabled = false;
+            Database.SetInitializer<ServisContex>(new DropCreateDatabaseIfModelChanges<ServisContex>());
+            base.Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<SlOrderStat> SlOrdersStats { get; set; }
+
+        public DbSet<SlCarrierStat> SlCarrierStats { get; set; }
         public DbSet<SlRole> SlRoles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -28,6 +24,7 @@ namespace BandD.Serwis.Server.EntityContexClass
             modelBuilder.Configurations.Add(new UserEntityConfiguration());
             modelBuilder.Configurations.Add(new SlOrdersStatsEntityConfiguration());
             modelBuilder.Configurations.Add(new SlRoleEntityConfiguration());
+            modelBuilder.Configurations.Add(new SlCarrierStatEntityConfiuration());
         }
     }
 }

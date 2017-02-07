@@ -1,4 +1,5 @@
-﻿using BandD.Serwis.Domain;
+﻿using System;
+using BandD.Serwis.Domain;
 using BandD.Serwis.Domain.Dictionaries;
 using ClassViewModel.Dictionaries;
 
@@ -18,6 +19,18 @@ namespace ClassViewModel.DomainToViewConverter
                 result.Description = user.Description;
             }
 
+            return result;
+        }
+        public static SlCarriersStatView SlCarriersToView(SlCarrierStat user)
+        {
+            var result = new SlCarriersStatView();
+            if (user != null)
+            {
+                result.CarrierStatusId = user.CarrierStatusId;
+                result.CarrierName = user.CarrierName;
+                result.CarrierStatus = user.CarrierStatus;
+                result.CarrierLink = user.CarrierLink;
+            }
             return result;
         }
 
