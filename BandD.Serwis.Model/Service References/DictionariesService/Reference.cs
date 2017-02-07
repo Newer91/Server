@@ -68,6 +68,30 @@ namespace BandD.Serwis.Model.DictionariesService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/updateElementSlOrderStatResponse")]
         System.Threading.Tasks.Task updateElementSlOrderStatAsync(BandD.Serwis.Domain.SlOrderStat element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStatResponse")]
+        BandD.Serwis.Domain.Dictionaries.SlCarrierStat[] getDataFromSlCarrierStat(string name, System.Nullable<bool> carrierStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStatResponse")]
+        System.Threading.Tasks.Task<BandD.Serwis.Domain.Dictionaries.SlCarrierStat[]> getDataFromSlCarrierStatAsync(string name, System.Nullable<bool> carrierStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/updateElementSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/updateElementSlCarrierStatResponse")]
+        void updateElementSlCarrierStat(BandD.Serwis.Domain.Dictionaries.SlCarrierStat stats);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/updateElementSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/updateElementSlCarrierStatResponse")]
+        System.Threading.Tasks.Task updateElementSlCarrierStatAsync(BandD.Serwis.Domain.Dictionaries.SlCarrierStat stats);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/addElementToSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/addElementToSlCarrierStatResponse")]
+        void addElementToSlCarrierStat(BandD.Serwis.Domain.Dictionaries.SlCarrierStat stats);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/addElementToSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/addElementToSlCarrierStatResponse")]
+        System.Threading.Tasks.Task addElementToSlCarrierStatAsync(BandD.Serwis.Domain.Dictionaries.SlCarrierStat stats);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStatResponse")]
+        void removeElementFromSlCarrierStat(System.Guid statsId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStatResponse")]
+        System.Threading.Tasks.Task removeElementFromSlCarrierStatAsync(System.Guid statsId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -167,6 +191,38 @@ namespace BandD.Serwis.Model.DictionariesService {
         
         public System.Threading.Tasks.Task updateElementSlOrderStatAsync(BandD.Serwis.Domain.SlOrderStat element) {
             return base.Channel.updateElementSlOrderStatAsync(element);
+        }
+        
+        public BandD.Serwis.Domain.Dictionaries.SlCarrierStat[] getDataFromSlCarrierStat(string name, System.Nullable<bool> carrierStatus) {
+            return base.Channel.getDataFromSlCarrierStat(name, carrierStatus);
+        }
+        
+        public System.Threading.Tasks.Task<BandD.Serwis.Domain.Dictionaries.SlCarrierStat[]> getDataFromSlCarrierStatAsync(string name, System.Nullable<bool> carrierStatus) {
+            return base.Channel.getDataFromSlCarrierStatAsync(name, carrierStatus);
+        }
+        
+        public void updateElementSlCarrierStat(BandD.Serwis.Domain.Dictionaries.SlCarrierStat stats) {
+            base.Channel.updateElementSlCarrierStat(stats);
+        }
+        
+        public System.Threading.Tasks.Task updateElementSlCarrierStatAsync(BandD.Serwis.Domain.Dictionaries.SlCarrierStat stats) {
+            return base.Channel.updateElementSlCarrierStatAsync(stats);
+        }
+        
+        public void addElementToSlCarrierStat(BandD.Serwis.Domain.Dictionaries.SlCarrierStat stats) {
+            base.Channel.addElementToSlCarrierStat(stats);
+        }
+        
+        public System.Threading.Tasks.Task addElementToSlCarrierStatAsync(BandD.Serwis.Domain.Dictionaries.SlCarrierStat stats) {
+            return base.Channel.addElementToSlCarrierStatAsync(stats);
+        }
+        
+        public void removeElementFromSlCarrierStat(System.Guid statsId) {
+            base.Channel.removeElementFromSlCarrierStat(statsId);
+        }
+        
+        public System.Threading.Tasks.Task removeElementFromSlCarrierStatAsync(System.Guid statsId) {
+            return base.Channel.removeElementFromSlCarrierStatAsync(statsId);
         }
     }
 }

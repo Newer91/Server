@@ -1,4 +1,5 @@
 ﻿using BandD.Serwis.Domain;
+using BandD.Serwis.Domain.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -41,6 +42,19 @@ namespace BandD.Serwis.Server.Interface
         [OperationContract]
         void updateElementSlOrderStat(SlOrderStat element);
 
+
+        #endregion
+
+        #region CarrierStatus
+
+        [OperationContract]
+        List<SlCarrierStat> getDataFromSlCarrierStat(string name, bool? carrierStatus);
+        [OperationContract]
+        void updateElementSlCarrierStat(SlCarrierStat stats);
+        [OperationContract]
+        void addElementToSlCarrierStat(SlCarrierStat stats);
+        [OperationContract]
+        void removeElementFromSlCarrierStat(Guid statsId);
 
         #endregion
     }

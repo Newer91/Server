@@ -44,6 +44,8 @@
     <Compile Include="Class\BaseViewClass.cs" />
     <Compile Include="Class\RelayCommand.cs" />
     <Compile Include="Dictionaries\Adress\AdressViewModel.cs" />
+    <Compile Include="Dictionaries\CarrierStatus\CarrierStatusDetailViewModel.cs" />
+    <Compile Include="Dictionaries\CarrierStatus\CarrierStatusViewModel.cs" />
     <Compile Include="Dictionaries\OrderStatus\OrderStatusDetailViewModel.cs" />
     <Compile Include="Dictionaries\OrderStatus\OrderStatusViewModel.cs" />
     <Compile Include="Dictionaries\User\UserDetailViewModel.cs" />

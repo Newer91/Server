@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Dictionaries\SlCarrierStat.cs" />
     <Compile Include="Dictionaries\SlRole.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

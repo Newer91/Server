@@ -1,4 +1,5 @@
 ﻿using BandD.Serwis.Domain;
+using BandD.Serwis.Domain.Dictionaries;
 using ClassViewModel.Dictionaries;
 
 namespace ClassViewModel.ViewToDomainConverter
@@ -19,7 +20,20 @@ namespace ClassViewModel.ViewToDomainConverter
 
             return result;
         }
+        public static SlCarrierStat SlCarrierStatToDomain(SlCarriersStatView stats)
+        {
+            var result = new SlCarrierStat();
 
+            if (stats != null)
+            {
+                result.CarrierStatusId = stats.CarrierStatusId;
+                result.CarrierName = stats.CarrierName;
+                result.CarrierLink = stats.CarrierLink;
+                result.CarrierStatus = stats.CarrierStatus;
+
+            }
+            return result;
+        }
         public static User UserToDomain(UserView user)
         {
             var result = new User();

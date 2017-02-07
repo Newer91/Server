@@ -62,6 +62,30 @@
   <wsdl:message name="IDictionariesService_updateElementSlOrderStat_OutputMessage">
     <wsdl:part name="parameters" element="tns:updateElementSlOrderStatResponse" />
   </wsdl:message>
+  <wsdl:message name="IDictionariesService_getDataFromSlCarrierStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataFromSlCarrierStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_getDataFromSlCarrierStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataFromSlCarrierStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementSlCarrierStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementSlCarrierStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementSlCarrierStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementSlCarrierStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToSlCarrierStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToSlCarrierStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToSlCarrierStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToSlCarrierStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromSlCarrierStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromSlCarrierStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromSlCarrierStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromSlCarrierStatResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDictionariesService">
     <wsdl:operation name="Autorauthorization">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/Autorauthorization" message="tns:IDictionariesService_Autorauthorization_InputMessage" />
@@ -98,6 +122,22 @@
     <wsdl:operation name="updateElementSlOrderStat">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStat" message="tns:IDictionariesService_updateElementSlOrderStat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStatResponse" message="tns:IDictionariesService_updateElementSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataFromSlCarrierStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStat" message="tns:IDictionariesService_getDataFromSlCarrierStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStatResponse" message="tns:IDictionariesService_getDataFromSlCarrierStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateElementSlCarrierStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlCarrierStat" message="tns:IDictionariesService_updateElementSlCarrierStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlCarrierStatResponse" message="tns:IDictionariesService_updateElementSlCarrierStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addElementToSlCarrierStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/addElementToSlCarrierStat" message="tns:IDictionariesService_addElementToSlCarrierStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/addElementToSlCarrierStatResponse" message="tns:IDictionariesService_addElementToSlCarrierStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromSlCarrierStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStat" message="tns:IDictionariesService_removeElementFromSlCarrierStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStatResponse" message="tns:IDictionariesService_removeElementFromSlCarrierStat_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DictionariesServiceEndpoint" type="tns:IDictionariesService">
@@ -176,6 +216,42 @@
     </wsdl:operation>
     <wsdl:operation name="updateElementSlOrderStat">
       <soap:operation soapAction="http://tempuri.org/IDictionariesService/updateElementSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataFromSlCarrierStat">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateElementSlCarrierStat">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/updateElementSlCarrierStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addElementToSlCarrierStat">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/addElementToSlCarrierStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromSlCarrierStat">
+      <soap:operation soapAction="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStat" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

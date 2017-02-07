@@ -12,4 +12,19 @@
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="SlRole" nillable="true" type="tns:SlRole" />
+  <xs:complexType name="ArrayOfSlCarrierStat">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SlCarrierStat" nillable="true" type="tns:SlCarrierStat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSlCarrierStat" nillable="true" type="tns:ArrayOfSlCarrierStat" />
+  <xs:complexType name="SlCarrierStat">
+    <xs:sequence>
+      <xs:element name="_x003C_CarrierLink_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_CarrierName_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_CarrierStatusId_x003E_k__BackingField" type="ser:guid" />
+      <xs:element name="_x003C_CarrierStatus_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SlCarrierStat" nillable="true" type="tns:SlCarrierStat" />
 </xs:schema>

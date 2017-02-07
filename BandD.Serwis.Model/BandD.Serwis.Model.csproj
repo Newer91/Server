@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionaries\CarrierStatusModel.cs" />
     <Compile Include="Dictionaries\OrderStatusModel.cs" />
-    <Compile Include="Dictionaries\UserModel.cs" />
+    <Compile Include="Properties\UserModel.cs" />
     <Compile Include="MailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\DictionariesService\Reference.cs">
@@ -56,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="DTO\Dictionaries\BandD.Serwis.Domain.Dictionaries.SlCarrierStat.datasource" />
     <None Include="DTO\Dictionaries\BandD.Serwis.Domain.SlOrderStat.datasource" />
     <None Include="DTO\Dictionaries\BandD.Serwis.Domain.User.datasource" />
     <None Include="Service References\DictionariesService\BandD.Serwis.Domain.Dictionaries.xsd">

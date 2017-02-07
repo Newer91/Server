@@ -58,6 +58,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dictionaries\Carriers\Carriers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionaries\OrderStat\OrderStatsDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +89,9 @@
     <Compile Include="Converter\YesNoToBooleanConverter.cs" />
     <Compile Include="Dictionaries\Address\Address.xaml.cs">
       <DependentUpon>Address.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionaries\Carriers\Carriers.xaml.cs">
+      <DependentUpon>Carriers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dictionaries\OrderStat\OrderStatsDetail.xaml.cs">
       <DependentUpon>OrderStatsDetail.xaml</DependentUpon>
