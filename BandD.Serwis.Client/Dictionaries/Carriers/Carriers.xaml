@@ -33,9 +33,9 @@
                       ItemsSource="{Binding CarrierStatusList, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SlCarrierStat}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="70" Header="Nazwa" DisplayMemberBinding="{Binding CarrierName}"/>
-                        <GridViewColumn Width="80" Header="Status" DisplayMemberBinding="{Binding CarrierStatus, Converter={StaticResource YesNoToBooleanConverter}}"/>
-                        <GridViewColumn Width="250" Header="Link" DisplayMemberBinding="{Binding CarrierLink}"/>
+                        <GridViewColumn Width="70" Header="Nazwa" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Width="80" Header="Status" DisplayMemberBinding="{Binding Active, Converter={StaticResource YesNoToBooleanConverter}}"/>
+                        <GridViewColumn Width="250" Header="Link" DisplayMemberBinding="{Binding Link}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

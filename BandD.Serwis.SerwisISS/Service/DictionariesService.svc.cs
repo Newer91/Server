@@ -106,7 +106,7 @@ namespace BandD.Serwis.SerwisISS.Service
             using (var ctx = new ServisContex())
             {
                 var item = ctx.SlOrdersStats.Find(id);
-                ctx.SlOrdersStats.Remove(item);
+                item.Active = false;
                 ctx.SaveChanges();
             }
         }
@@ -143,10 +143,10 @@ namespace BandD.Serwis.SerwisISS.Service
                 IQueryable<SlCarrierStat> list = ctx.SlCarrierStats;
 
                 if (carrierName != string.Empty)
-                    list = list.Where(l => l.CarrierName == carrierName);
+                    list = list.Where(l => l.Name == carrierName);
 
                 if (carrierStatus != null)
-                    list = list.Where(l => l.CarrierStatus == carrierStatus);
+                    list = list.Where(l => l.Status == carrierStatus);
 
                 var tmp = list.ToList();
 
@@ -164,7 +164,7 @@ namespace BandD.Serwis.SerwisISS.Service
             using (var ctx = new ServisContex())
             {
                 var item = ctx.SlCarrierStats.Find(id);
-                ctx.SlCarrierStats.Remove(item);
+                item.Active = false;
                 ctx.SaveChanges();
             }
         }
@@ -183,9 +183,9 @@ namespace BandD.Serwis.SerwisISS.Service
             using (var ctx = new ServisContex())
             {
                 var element = ctx.SlCarrierStats.Find(item.CarrierStatusId);
-                element.CarrierName = item.CarrierName;
-                element.CarrierLink = item.CarrierLink;
-                element.CarrierStatus = item.CarrierStatus;
+                element.Name = item.Name;
+                element.Link = item.Link;
+                element.Status = item.Status;
                 ctx.SaveChanges();
             }
         }
