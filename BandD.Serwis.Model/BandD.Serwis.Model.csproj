@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClassViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -43,8 +44,7 @@
   <ItemGroup>
     <Compile Include="Dictionaries\CarrierStatusModel.cs" />
     <Compile Include="Dictionaries\OrderStatusModel.cs" />
-    <Compile Include="Properties\UserModel.cs" />
-    <Compile Include="MailModel.cs" />
+    <Compile Include="Dictionaries\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\DictionariesService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -56,44 +56,31 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="DTO\Dictionaries\BandD.Serwis.Domain.Dictionaries.SlCarrierStat.datasource" />
-    <None Include="DTO\Dictionaries\BandD.Serwis.Domain.SlOrderStat.datasource" />
-    <None Include="DTO\Dictionaries\BandD.Serwis.Domain.User.datasource" />
-    <None Include="Service References\DictionariesService\BandD.Serwis.Domain.Dictionaries.xsd">
+    <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DictionariesService\BandD.Serwis.Domain.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DictionariesService\service.wsdl" />
-    <None Include="Service References\DictionariesService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DictionariesService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="DTO\Dictionaries\BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView.datasource" />
+    <None Include="DTO\Dictionaries\BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView.datasource" />
+    <None Include="DTO\Dictionaries\BandD.Serwis.ClassViewModel.Dictionaries.UserView.datasource" />
+    <None Include="Service References\DictionariesService\DictionariesService.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\DictionariesService\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\BandD.Serwis.ClassViewModel\BandD.Serwis.ClassViewModel.csproj">
+      <Project>{52B01E10-D3A2-4554-91BE-735830E56409}</Project>
+      <Name>BandD.Serwis.ClassViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
       <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
       <Name>BandD.Serwis.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BandD.Serwis.Server\BandD.Serwis.Server.csproj">
-      <Project>{8d1761dd-c003-4d3f-acd0-5ef68f9782d3}</Project>
-      <Name>BandD.Serwis.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
       <Project>{A3B36418-88F1-4E65-9FF0-E93113198747}</Project>
       <Name>BandD.Serwis.Tools</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ClassViewModel\ClassViewModel.csproj">
-      <Project>{52b01e10-d3a2-4554-91be-735830e56409}</Project>
-      <Name>ClassViewModel</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DictionariesService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\DictionariesService\configuration91.svcinfo" />

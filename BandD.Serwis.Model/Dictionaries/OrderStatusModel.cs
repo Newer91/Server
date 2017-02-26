@@ -1,13 +1,9 @@
 ﻿using BandD.Serwis.Model.DictionariesService;
 using BandD.Serwis.Tools.Extension;
-using System.Collections.Generic;
 using System.Linq;
 using System;
-using BandD.Serwis.Domain;
-using ClassViewModel.Dictionaries;
 using System.Collections.ObjectModel;
-using ClassViewModel.DomainToViewConverter;
-using ClassViewModel.ViewToDomainConverter;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 
 namespace BandD.Serwis.Model.Dictionaries
 {
@@ -22,7 +18,7 @@ namespace BandD.Serwis.Model.Dictionaries
             var result = new ObservableCollection<SlOrderStatView>();
             foreach (var item in items)
             {
-                result.Add(DictionaryCoverterToView.SlOrderStatToView(item));
+                result.Add(item);
             }
 
             return result;
@@ -32,7 +28,7 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
             {
-                service.updateElementSlOrderStat(DictionaryCoverterToDomain.SlOrderStatToDomain(stats));
+                service.updateElementSlOrderStat(stats);
                 return true;
             }
             else
@@ -43,7 +39,7 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
             {
-                service.addElementToSlOrderStat(DictionaryCoverterToDomain.SlOrderStatToDomain(stats));
+                service.addElementToSlOrderStat(stats);
                 return true;
             }
             else

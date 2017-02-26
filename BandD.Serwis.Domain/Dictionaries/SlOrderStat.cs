@@ -2,7 +2,6 @@
 
 namespace BandD.Serwis.Domain
 {
-    [Serializable]
     public class SlOrderStat
     {
         public SlOrderStat() { }

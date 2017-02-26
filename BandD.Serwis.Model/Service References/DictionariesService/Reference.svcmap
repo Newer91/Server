@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5c44f8b6-fb30-467c-afe1-c9746e91f74e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a03cb1cd-7917-4282-9a08-29d867ca3ba1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:9999/DictionariesServiceMex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://94.177.199.89:7833/Service/DictionariesService.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8a563ab6-876b-4348-8caa-ea3c3d8e837d" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7693f1fa-7519-4660-83dc-8a2fde200505" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7e18159d-d83c-4e96-8917-f843d0a41aa7" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
-    <MetadataFile FileName="BandD.Serwis.Domain.xsd" MetadataType="Schema" ID="2329827e-494c-4135-90c6-ce659e548b4b" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
-    <MetadataFile FileName="BandD.Serwis.Domain.Dictionaries.xsd" MetadataType="Schema" ID="ac947e07-5295-4a14-920a-9acba843f586" SourceId="1" SourceUrl="http://localhost:9999/DictionariesServiceMex" />
+    <MetadataFile FileName="DictionariesService.wsdl" MetadataType="Wsdl" ID="93111986-0447-407f-b42b-082ff45f9044" SourceId="1" SourceUrl="http://94.177.199.89:7833/Service/DictionariesService.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,9 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using BandD.Serwis.ViewModel;
 using BandD.Serwis.Client.Dictionaries;
-using BandD.Serwis.Client.Dictionaries.OrderStat;
 using BandD.Serwis.Client.Dictionaries.User;
 using BandD.Serwis.Client.Dictionaries.Carriers;
 
@@ -14,7 +12,6 @@ namespace BandD.Serwis.Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainWindowViewModel mainWindows = new MainWindowViewModel();
         public MainWindow()
         {
             InitializeComponent();
@@ -33,11 +30,6 @@ namespace BandD.Serwis.Client
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-
-        }
-        private void buttonAddOrder_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindows.mail = txtMail.Text;
         }
 
         private void OrderStatus_Click(object sender, RoutedEventArgs e)

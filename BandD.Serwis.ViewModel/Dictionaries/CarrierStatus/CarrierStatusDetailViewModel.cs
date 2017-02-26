@@ -2,12 +2,8 @@
 using BandD.Serwis.Tools.Extension;
 using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Class;
-using ClassViewModel.Dictionaries;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus

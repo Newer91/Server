@@ -1,8 +1,6 @@
 ﻿using BandD.Serwis.Model.DictionariesService;
 using BandD.Serwis.Tools.Extension;
-using ClassViewModel.Dictionaries;
-using ClassViewModel.DomainToViewConverter;
-using ClassViewModel.ViewToDomainConverter;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -20,7 +18,7 @@ namespace BandD.Serwis.Model.Dictionaries
             var result = new ObservableCollection<SlCarriersStatView>();
             foreach (var item in items)
             {
-                result.Add(DictionaryCoverterToView.SlCarriersToView(item));
+                result.Add(item);
             }
             return result;
         }
@@ -28,7 +26,7 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
              {
-                service.updateElementSlCarrierStat(DictionaryCoverterToDomain.SlCarrierStatToDomain(stats));
+                service.updateElementSlCarrierStat(stats);
                 return true;
 
             }
@@ -40,7 +38,7 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
             {
-                service.addElementToSlCarrierStat(DictionaryCoverterToDomain.SlCarrierStatToDomain(stats));
+                service.addElementToSlCarrierStat(stats);
                 return true;
             }
             else

@@ -1,6 +1,6 @@
 ﻿using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Dictionaries.OrderStatus;
-using ClassViewModel.Dictionaries;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Windows;
 
 namespace BandD.Serwis.Client.Dictionaries.OrderStat

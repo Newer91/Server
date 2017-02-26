@@ -1,7 +1,7 @@
-﻿using BandD.Serwis.Model;
-using BandD.Serwis.ViewModel.Class;
-using ClassViewModel.Dictionaries;
+﻿using BandD.Serwis.ViewModel.Class;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Security;
+using BandD.Serwis.Model.Dictionaries;
 
 namespace BandD.Serwis.ViewModel
 {

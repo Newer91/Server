@@ -1,11 +1,11 @@
 ﻿using System;
-using BandD.Serwis.Model;
 using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Class;
-using ClassViewModel.Dictionaries;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using BandD.Serwis.Tools.Extension;
 using System.Windows;
 using System.Security;
+using BandD.Serwis.Model.Dictionaries;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.User
 {

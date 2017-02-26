@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using BandD.Serwis.Model.Dictionaries;
 using System.Windows;
-using ClassViewModel.Dictionaries;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Collections.ObjectModel;
 using System.Linq;
 

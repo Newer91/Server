@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="BandD.Serwis.SerwisISS.Service.DictionariesService" CodeBehind="DictionariesService.svc.cs" %>

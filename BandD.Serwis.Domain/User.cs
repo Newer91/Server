@@ -4,8 +4,6 @@ using System.Runtime.Serialization;
 
 namespace BandD.Serwis.Domain
 {
-    [Serializable]
-    [DataContract(IsReference = true)]
     public class User
     {
         [DataMember]

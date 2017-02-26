@@ -49,14 +49,7 @@
                         Tło
                 </TextBlock>
             </DockPanel>
-            <StackPanel Margin="20" Grid.ColumnSpan="2">
-                <Label Target="{Binding ElementName=txtMail}">
-                    <StackPanel Orientation="Horizontal">
-                        <AccessText Text="_Mail:" />
-                    </StackPanel>
-                </Label>
-                <TextBox Name="txtMail" />
-            </StackPanel>
+
             <Label BorderBrush="Black" BorderThickness="2"  Margin ="0,0,0,0" Grid.Row="1">
                 Serwer:
             </Label>

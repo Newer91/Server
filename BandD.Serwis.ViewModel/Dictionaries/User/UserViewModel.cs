@@ -1,9 +1,9 @@
-﻿using BandD.Serwis.Model;
-using BandD.Serwis.ViewModel.Class;
+﻿using BandD.Serwis.ViewModel.Class;
 using System.Windows.Input;
 using System.Windows;
-using ClassViewModel.Dictionaries;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Collections.ObjectModel;
+using BandD.Serwis.Model.Dictionaries;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.Users
 {

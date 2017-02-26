@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using BandD.Serwis.Tools.ServerTools.Extension;
-using ClassViewModel.Dictionaries;
 using BandD.Serwis.ViewModel.Dictionaries.User;
 using System.Windows.Controls;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 
 namespace BandD.Serwis.Client.Dictionaries.User
 {

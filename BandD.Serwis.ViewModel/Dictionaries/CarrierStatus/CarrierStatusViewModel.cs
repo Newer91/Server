@@ -1,14 +1,7 @@
 ﻿using BandD.Serwis.Model.Dictionaries;
-using BandD.Serwis.Tools.Extension;
-using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Class;
-using ClassViewModel.Dictionaries;
-using System;
-using System.Collections.Generic;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 

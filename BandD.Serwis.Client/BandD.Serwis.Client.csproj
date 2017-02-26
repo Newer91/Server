@@ -143,6 +143,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BandD.Serwis.ClassViewModel\BandD.Serwis.ClassViewModel.csproj">
+      <Project>{52B01E10-D3A2-4554-91BE-735830E56409}</Project>
+      <Name>BandD.Serwis.ClassViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
       <Project>{A3B36418-88F1-4E65-9FF0-E93113198747}</Project>
       <Name>BandD.Serwis.Tools</Name>
@@ -150,10 +154,6 @@
     <ProjectReference Include="..\BandD.Serwis.ViewModel\BandD.Serwis.ViewModel.csproj">
       <Project>{b7003163-6beb-4185-8028-f7daa6eb584a}</Project>
       <Name>BandD.Serwis.ViewModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ClassViewModel\ClassViewModel.csproj">
-      <Project>{52B01E10-D3A2-4554-91BE-735830E56409}</Project>
-      <Name>ClassViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

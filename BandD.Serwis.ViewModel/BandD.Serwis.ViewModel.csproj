@@ -51,10 +51,13 @@
     <Compile Include="Dictionaries\User\UserDetailViewModel.cs" />
     <Compile Include="Dictionaries\User\UserViewModel.cs" />
     <Compile Include="LoginWindowViewModel.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BandD.Serwis.ClassViewModel\BandD.Serwis.ClassViewModel.csproj">
+      <Project>{52B01E10-D3A2-4554-91BE-735830E56409}</Project>
+      <Name>BandD.Serwis.ClassViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Model\BandD.Serwis.Model.csproj">
       <Project>{a66f0c99-dfa1-4924-b559-65c8c1d1bf77}</Project>
       <Name>BandD.Serwis.Model</Name>
@@ -62,10 +65,6 @@
     <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
       <Project>{a3b36418-88f1-4e65-9ff0-e93113198747}</Project>
       <Name>BandD.Serwis.Tools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ClassViewModel\ClassViewModel.csproj">
-      <Project>{52b01e10-d3a2-4554-91be-735830e56409}</Project>
-      <Name>ClassViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

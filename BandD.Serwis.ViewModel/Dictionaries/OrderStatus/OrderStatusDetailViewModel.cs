@@ -3,7 +3,7 @@ using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.Model.Dictionaries;
 using System.Windows;
 using BandD.Serwis.ViewModel.Class;
-using ClassViewModel.Dictionaries;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using BandD.Serwis.Tools.Extension;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
