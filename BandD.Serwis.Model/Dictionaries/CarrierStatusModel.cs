@@ -24,7 +24,7 @@ namespace BandD.Serwis.Model.Dictionaries
         }
         public bool SaveChange(SlCarriersStatView stats)
         {
-            if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Link))
+            if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
              {
                 service.updateElementSlCarrierStat(stats);
                 return true;
@@ -36,7 +36,7 @@ namespace BandD.Serwis.Model.Dictionaries
         }
         public bool AddNewItem(SlCarriersStatView stats)
         {
-            if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Link))
+            if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
             {
                 service.addElementToSlCarrierStat(stats);
                 return true;

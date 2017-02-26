@@ -146,7 +146,7 @@ namespace BandD.Serwis.SerwisISS.Service
                     list = list.Where(l => l.Name == carrierName);
 
                 if (carrierStatus != null)
-                    list = list.Where(l => l.Status == carrierStatus);
+                    list = list.Where(l => l.Active == carrierStatus);
 
                 var tmp = list.ToList();
 
@@ -183,9 +183,9 @@ namespace BandD.Serwis.SerwisISS.Service
             using (var ctx = new ServisContex())
             {
                 var element = ctx.SlCarrierStats.Find(item.CarrierStatusId);
-                element.Name = item.Name;
-                element.Link = item.Link;
-                element.Status = item.Status;
+                element.Name = item.CarrierName;
+                element.Link = item.CarrierLink;
+                element.Active = item.CarrierStatus;
                 ctx.SaveChanges();
             }
         }

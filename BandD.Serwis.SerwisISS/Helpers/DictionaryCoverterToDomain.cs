@@ -27,9 +27,9 @@ namespace SerwisISS.Helpers
             if (stats != null)
             {
                 result.CarrierStatusId = stats.CarrierStatusId;
-                result.Name = stats.Name;
-                result.Link = stats.Link;
-                result.Status = stats.Status;
+                result.Name = stats.CarrierName;
+                result.Link = stats.CarrierLink;
+                result.Active = stats.CarrierStatus;
 
             }
             return result;

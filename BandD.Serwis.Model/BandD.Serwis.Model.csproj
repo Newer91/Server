@@ -66,7 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BandD.Serwis.ClassViewModel\BandD.Serwis.ClassViewModel.csproj">
-      <Project>{52B01E10-D3A2-4554-91BE-735830E56409}</Project>
+      <Project>{52b01e10-d3a2-4554-91be-735830e56409}</Project>
       <Name>BandD.Serwis.ClassViewModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Domain\BandD.Serwis.Domain.csproj">
