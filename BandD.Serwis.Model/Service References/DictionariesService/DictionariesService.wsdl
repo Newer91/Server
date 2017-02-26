@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DictionariesService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IDictionariesService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:element name="Autorauthorization">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AutorauthorizationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AutorauthorizationResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDataFromUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:boolean" />
+            <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDataFromUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="getDataFromUserResult" nillable="true" type="q1:ArrayOfUserView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeElementFromUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q2:guid" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeElementFromUsersResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addElementToUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="element" nillable="true" type="q3:UserView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addElementToUsersResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateElementUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="element" nillable="true" type="q4:UserView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateElementUsersResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDataFromSlOrderStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="activity" nillable="true" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDataFromSlOrderStatResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="getDataFromSlOrderStatResult" nillable="true" type="q5:ArrayOfSlOrderStatView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeElementFromSlOrderStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q6:guid" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeElementFromSlOrderStatResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addElementToSlOrderStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="element" nillable="true" type="q7:SlOrderStatView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addElementToSlOrderStatResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateElementSlOrderStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="element" nillable="true" type="q8:SlOrderStatView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateElementSlOrderStatResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDataFromSlCarrierStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="carrierStatus" nillable="true" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDataFromSlCarrierStatResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="getDataFromSlCarrierStatResult" nillable="true" type="q9:ArrayOfSlCarriersStatView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateElementSlCarrierStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="stats" nillable="true" type="q10:SlCarriersStatView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateElementSlCarrierStatResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addElementToSlCarrierStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="stats" nillable="true" type="q11:SlCarriersStatView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addElementToSlCarrierStatResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeElementFromSlCarrierStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="statsId" type="q12:guid" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeElementFromSlCarrierStatResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="ArrayOfUserView">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="UserView" nillable="true" type="tns:UserView" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfUserView" nillable="true" type="tns:ArrayOfUserView" />
+      <xs:complexType name="UserView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rola" nillable="true" type="tns:SlRoleView" />
+          <xs:element minOccurs="0" name="UserId" type="ser:guid" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute ref="ser:Id" />
+        <xs:attribute ref="ser:Ref" />
+      </xs:complexType>
+      <xs:element name="UserView" nillable="true" type="tns:UserView" />
+      <xs:complexType name="SlRoleView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleId" type="ser:guid" />
+        </xs:sequence>
+        <xs:attribute ref="ser:Id" />
+        <xs:attribute ref="ser:Ref" />
+      </xs:complexType>
+      <xs:element name="SlRoleView" nillable="true" type="tns:SlRoleView" />
+      <xs:complexType name="ArrayOfSlOrderStatView">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SlOrderStatView" nillable="true" type="tns:SlOrderStatView" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSlOrderStatView" nillable="true" type="tns:ArrayOfSlOrderStatView" />
+      <xs:complexType name="SlOrderStatView">
+        <xs:sequence>
+          <xs:element name="_x003C_Active_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_Description_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_Name_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_OrderStatusId_x003E_k__BackingField" type="ser:guid" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SlOrderStatView" nillable="true" type="tns:SlOrderStatView" />
+      <xs:complexType name="ArrayOfSlCarriersStatView">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SlCarriersStatView" nillable="true" type="tns:SlCarriersStatView" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSlCarriersStatView" nillable="true" type="tns:ArrayOfSlCarriersStatView" />
+      <xs:complexType name="SlCarriersStatView">
+        <xs:sequence>
+          <xs:element name="_x003C_CarrierLink_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_CarrierName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_CarrierStatusId_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_CarrierStatus_x003E_k__BackingField" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SlCarriersStatView" nillable="true" type="tns:SlCarriersStatView" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IDictionariesService_Autorauthorization_InputMessage">
+    <wsdl:part name="parameters" element="tns:Autorauthorization" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_Autorauthorization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutorauthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_getDataFromUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataFromUser" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_getDataFromUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataFromUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_getDataFromSlOrderStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataFromSlOrderStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_getDataFromSlOrderStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataFromSlOrderStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromSlOrderStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromSlOrderStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromSlOrderStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromSlOrderStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToSlOrderStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToSlOrderStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToSlOrderStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToSlOrderStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementSlOrderStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementSlOrderStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementSlOrderStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementSlOrderStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_getDataFromSlCarrierStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataFromSlCarrierStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_getDataFromSlCarrierStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataFromSlCarrierStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementSlCarrierStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementSlCarrierStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_updateElementSlCarrierStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateElementSlCarrierStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToSlCarrierStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToSlCarrierStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_addElementToSlCarrierStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addElementToSlCarrierStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromSlCarrierStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromSlCarrierStat" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_removeElementFromSlCarrierStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeElementFromSlCarrierStatResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDictionariesService">
+    <wsdl:operation name="Autorauthorization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/Autorauthorization" message="tns:IDictionariesService_Autorauthorization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/AutorauthorizationResponse" message="tns:IDictionariesService_Autorauthorization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataFromUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromUser" message="tns:IDictionariesService_getDataFromUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromUserResponse" message="tns:IDictionariesService_getDataFromUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromUsers" message="tns:IDictionariesService_removeElementFromUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromUsersResponse" message="tns:IDictionariesService_removeElementFromUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addElementToUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/addElementToUsers" message="tns:IDictionariesService_addElementToUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/addElementToUsersResponse" message="tns:IDictionariesService_addElementToUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateElementUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/updateElementUsers" message="tns:IDictionariesService_updateElementUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/updateElementUsersResponse" message="tns:IDictionariesService_updateElementUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataFromSlOrderStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat" message="tns:IDictionariesService_getDataFromSlOrderStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlOrderStatResponse" message="tns:IDictionariesService_getDataFromSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromSlOrderStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStat" message="tns:IDictionariesService_removeElementFromSlOrderStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStatResponse" message="tns:IDictionariesService_removeElementFromSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addElementToSlOrderStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/addElementToSlOrderStat" message="tns:IDictionariesService_addElementToSlOrderStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/addElementToSlOrderStatResponse" message="tns:IDictionariesService_addElementToSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateElementSlOrderStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStat" message="tns:IDictionariesService_updateElementSlOrderStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlOrderStatResponse" message="tns:IDictionariesService_updateElementSlOrderStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataFromSlCarrierStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStat" message="tns:IDictionariesService_getDataFromSlCarrierStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStatResponse" message="tns:IDictionariesService_getDataFromSlCarrierStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateElementSlCarrierStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlCarrierStat" message="tns:IDictionariesService_updateElementSlCarrierStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/updateElementSlCarrierStatResponse" message="tns:IDictionariesService_updateElementSlCarrierStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addElementToSlCarrierStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/addElementToSlCarrierStat" message="tns:IDictionariesService_addElementToSlCarrierStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/addElementToSlCarrierStatResponse" message="tns:IDictionariesService_addElementToSlCarrierStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromSlCarrierStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStat" message="tns:IDictionariesService_removeElementFromSlCarrierStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStatResponse" message="tns:IDictionariesService_removeElementFromSlCarrierStat_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IDictionariesService" type="tns:IDictionariesService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IDictionariesService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Autorauthorization">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/Autorauthorization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataFromUser">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/getDataFromUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromUsers">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/removeElementFromUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addElementToUsers">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/addElementToUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateElementUsers">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/updateElementUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataFromSlOrderStat">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/getDataFromSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromSlOrderStat">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/removeElementFromSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addElementToSlOrderStat">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/addElementToSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateElementSlOrderStat">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/updateElementSlOrderStat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataFromSlCarrierStat">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/getDataFromSlCarrierStat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateElementSlCarrierStat">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/updateElementSlCarrierStat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addElementToSlCarrierStat">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/addElementToSlCarrierStat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeElementFromSlCarrierStat">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/removeElementFromSlCarrierStat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DictionariesService">
+    <wsdl:port name="WSHttpBinding_IDictionariesService" binding="tns:WSHttpBinding_IDictionariesService">
+      <soap12:address location="http://winserver2008:7833/Service/DictionariesService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://winserver2008:7833/Service/DictionariesService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

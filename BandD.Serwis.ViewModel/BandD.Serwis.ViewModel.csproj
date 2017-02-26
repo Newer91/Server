@@ -30,6 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,19 +41,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginWindowView.cs" />
+    <Compile Include="Class\BaseViewClass.cs" />
+    <Compile Include="Class\RelayCommand.cs" />
+    <Compile Include="Dictionaries\Adress\AdressViewModel.cs" />
+    <Compile Include="Dictionaries\CarrierStatus\CarrierStatusDetailViewModel.cs" />
+    <Compile Include="Dictionaries\CarrierStatus\CarrierStatusViewModel.cs" />
+    <Compile Include="Dictionaries\OrderStatus\OrderStatusDetailViewModel.cs" />
+    <Compile Include="Dictionaries\OrderStatus\OrderStatusViewModel.cs" />
+    <Compile Include="Dictionaries\User\UserDetailViewModel.cs" />
+    <Compile Include="Dictionaries\User\UserViewModel.cs" />
+    <Compile Include="LoginWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BandD.Serwis.Class\BandD.Serwis.Class.csproj">
-      <Project>{e0f63fba-812a-447b-b9db-7b9d185802fe}</Project>
-      <Name>BandD.Serwis.Class</Name>
+    <ProjectReference Include="..\BandD.Serwis.ClassViewModel\BandD.Serwis.ClassViewModel.csproj">
+      <Project>{52B01E10-D3A2-4554-91BE-735830E56409}</Project>
+      <Name>BandD.Serwis.ClassViewModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\BandD.Serwis.Model\BandD.Serwis.Model.csproj">
       <Project>{a66f0c99-dfa1-4924-b559-65c8c1d1bf77}</Project>
       <Name>BandD.Serwis.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BandD.Serwis.Tools\BandD.Serwis.Tools.csproj">
+      <Project>{a3b36418-88f1-4e65-9ff0-e93113198747}</Project>
+      <Name>BandD.Serwis.Tools</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
