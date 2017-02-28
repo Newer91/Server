@@ -9,7 +9,7 @@ namespace BandD.Serwis.SerwisISS.EntityContexClass
     {
         public ServisContex() : base("BanddServer")
         {
-            //Database.SetInitializer<ServisContex>(new DropCreateDatabaseIfModelChanges<ServisContex>());
+            //Database.SetInitializer<ServisContex>(new DropCreateDatabaseAlways<ServisContex>());
             //base.Configuration.ProxyCreationEnabled = false;
         }
 
