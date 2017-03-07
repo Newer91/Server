@@ -9,27 +9,32 @@ using BandD.Serwis.Domain.Dictionaries;
 using BandD.Serwis.SerwisISS.Interface;
 using SerwisISS.Helpers;
 using System.Collections.ObjectModel;
+using BandD.Serwis.Tools.Logger;
 
 namespace BandD.Serwis.SerwisISS.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DictionariesService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select DictionariesService.svc or DictionariesService.svc.cs at the Solution Explorer and start debugging.
     public class DictionariesService : IDictionariesService
     {
         #region User
 
         public bool Autorauthorization(string password, string userName)
         {
-            //new InitClass();
             bool result = false;
             using (var ctx = new ServisContex())
             {
-                var login = ctx.Users
+                try
+                {
+                    var login = ctx.Users
                     .Where(l => l.UserName == userName)
                     .FirstOrDefault();
 
-                if (login.Password == password)
-                    return true;
+                    if (login.Password == password)
+                        return true;
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
+                }
             }
             return result;
         }
@@ -39,21 +44,29 @@ namespace BandD.Serwis.SerwisISS.Service
             using (var ctx = new ServisContex())
             {
                 List<UserView> result = new List<UserView>();
-                IQueryable<User> userList = ctx.Users.Include(r => r.SlRole).AsNoTracking();
-
-                if (name != string.Empty)
-                    userList = userList.Where(l => l.UserName == name);
-
-                if (status != null)
-                    userList = userList.Where(l => l.Active == status);
-
-                if (role != null)
-                    userList = userList.Where(l => l.SlRole.RoleId == role);
-
-                var tmp = userList.ToList();
-                foreach (var item in tmp)
+                try
                 {
-                    result.Add(DictionaryCoverterToView.UserToView(item));
+                    IQueryable<User> userList = ctx.Users.Include(r => r.SlRole).AsNoTracking();
+
+                    if (name != string.Empty)
+                        userList = userList.Where(l => l.UserName == name);
+
+                    if (status != null)
+                        userList = userList.Where(l => l.Active == status);
+
+                    if (role != null)
+                        userList = userList.Where(l => l.SlRole.RoleId == role);
+
+                    var tmp = userList.ToList();
+                    foreach (var item in tmp)
+                    {
+                        result.Add(DictionaryCoverterToView.UserToView(item));
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
                 }
 
                 return result;
@@ -84,18 +97,25 @@ namespace BandD.Serwis.SerwisISS.Service
             using (var ctx = new ServisContex())
             {
                 List<SlOrderStatView> result = new List<SlOrderStatView>();
-                IQueryable<SlOrderStat> list = ctx.SlOrdersStats;
-
-                if (name != string.Empty)
-                    list = list.Where(l => l.Name == name);
-
-                if (activity != null)
-                    list = list.Where(l => l.Active == activity);
-
-                var tmp = list.ToList();
-                foreach (var item in tmp)
+                try
                 {
-                    result.Add(DictionaryCoverterToView.SlOrderStatToView(item));
+                    IQueryable<SlOrderStat> list = ctx.SlOrdersStats;
+
+                    if (name != string.Empty)
+                        list = list.Where(l => l.Name == name);
+
+                    if (activity != null)
+                        list = list.Where(l => l.Active == activity);
+
+                    var tmp = list.ToList();
+                    foreach (var item in tmp)
+                    {
+                        result.Add(DictionaryCoverterToView.SlOrderStatToView(item));
+                    }
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
                 }
 
                 return result;
@@ -106,9 +126,16 @@ namespace BandD.Serwis.SerwisISS.Service
         {
             using (var ctx = new ServisContex())
             {
-                var item = ctx.SlOrdersStats.Find(id);
-                item.Active = false;
-                ctx.SaveChanges();
+                try
+                {
+                    var item = ctx.SlOrdersStats.Find(id);
+                    item.Active = false;
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
+                }
             }
         }
 
@@ -116,8 +143,15 @@ namespace BandD.Serwis.SerwisISS.Service
         {
             using (var ctx = new ServisContex())
             {
-                ctx.SlOrdersStats.Add(DictionaryCoverterToDomain.SlOrderStatToDomain(item));
-                ctx.SaveChanges();
+                try
+                {
+                    ctx.SlOrdersStats.Add(DictionaryCoverterToDomain.SlOrderStatToDomain(item));
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
+                }
             }
         }
 
@@ -125,11 +159,18 @@ namespace BandD.Serwis.SerwisISS.Service
         {
             using (var ctx = new ServisContex())
             {
-                var element = ctx.SlOrdersStats.Find(item.OrderStatusId);
-                element.Name = item.Name;
-                element.Description = item.Description;
-                element.Active = item.Active;
-                ctx.SaveChanges();
+                try
+                {
+                    var element = ctx.SlOrdersStats.Find(item.OrderStatusId);
+                    element.Name = item.Name;
+                    element.Description = item.Description;
+                    element.Active = item.Active;
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
+                }
             }
         }
 
@@ -141,19 +182,26 @@ namespace BandD.Serwis.SerwisISS.Service
             using (var ctx = new ServisContex())
             {
                 List<SlCarriersStatView> result = new List<SlCarriersStatView>();
-                IQueryable<SlCarrierStat> list = ctx.SlCarrierStats;
-
-                if (carrierName != string.Empty)
-                    list = list.Where(l => l.Name == carrierName);
-
-                if (carrierStatus != null)
-                    list = list.Where(l => l.Active == carrierStatus);
-
-                var tmp = list.ToList();
-
-                foreach (var item in tmp)
+                try
                 {
-                    result.Add(DictionaryCoverterToView.SlCarriersToView(item));
+                    IQueryable<SlCarrierStat> list = ctx.SlCarrierStats;
+
+                    if (carrierName != string.Empty)
+                        list = list.Where(l => l.Name == carrierName);
+
+                    if (carrierStatus != null)
+                        list = list.Where(l => l.Active == carrierStatus);
+
+                    var tmp = list.ToList();
+
+                    foreach (var item in tmp)
+                    {
+                        result.Add(DictionaryCoverterToView.SlCarriersToView(item));
+                    }
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
                 }
 
                 return result;
@@ -164,9 +212,16 @@ namespace BandD.Serwis.SerwisISS.Service
         {
             using (var ctx = new ServisContex())
             {
-                var item = ctx.SlCarrierStats.Find(id);
-                item.Active = false;
-                ctx.SaveChanges();
+                try
+                {
+                    var item = ctx.SlCarrierStats.Find(id);
+                    item.Active = false;
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
+                }
             }
         }
 
@@ -183,11 +238,18 @@ namespace BandD.Serwis.SerwisISS.Service
         {
             using (var ctx = new ServisContex())
             {
-                var element = ctx.SlCarrierStats.Find(item.CarrierStatusId);
-                element.Name = item.CarrierName;
-                element.Link = item.CarrierLink;
-                element.Active = item.CarrierStatus;
-                ctx.SaveChanges();
+                try
+                {
+                    var element = ctx.SlCarrierStats.Find(item.CarrierStatusId);
+                    element.Name = item.CarrierName;
+                    element.Link = item.CarrierLink;
+                    element.Active = item.CarrierStatus;
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
+                }
             }
         }
 
@@ -201,12 +263,18 @@ namespace BandD.Serwis.SerwisISS.Service
 
             using (var ctx = new ServisContex())
             {
-                var role = ctx.SlRoles
-                     .Where(a => a.Active == true).ToList();
-
-                foreach (var item in role)
+                try
                 {
-                    result.Add(DictionaryCoverterToView.SlRolaToView(item));
+                    var role = ctx.SlRoles.Where(a => a.Active == true).ToList();
+
+                    foreach (var item in role)
+                    {
+                        result.Add(DictionaryCoverterToView.SlRolaToView(item));
+                    }
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e);
                 }
             }
 

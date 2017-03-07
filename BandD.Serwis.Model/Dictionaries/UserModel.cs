@@ -4,6 +4,7 @@ using BandD.Serwis.Model.DictionariesService;
 using System.Collections.ObjectModel;
 using BandD.Serwis.ClassViewModel.Dictionaries;
 using System;
+using BandD.Serwis.Tools.Logger;
 
 namespace BandD.Serwis.Model.Dictionaries
 {
@@ -24,7 +25,7 @@ namespace BandD.Serwis.Model.Dictionaries
         public ObservableCollection<UserView> GetDataFromUser(string name, bool? status, Guid? role)
         {
             string names = name == null ? string.Empty : name;
-             
+
             var items = service.GetDataFromUser(names, status, role);
             var result = new ObservableCollection<UserView>();
             foreach (var item in items)
@@ -38,8 +39,8 @@ namespace BandD.Serwis.Model.Dictionaries
         public string AddNewItem(UserView user, SecureString password)
         {
             string result = validatePassword(password);
-            if (result == string.Empty)           
-                service.AddElementToUsers(user);            
+            if (result == string.Empty)
+                service.AddElementToUsers(user);
 
             return result;
         }
