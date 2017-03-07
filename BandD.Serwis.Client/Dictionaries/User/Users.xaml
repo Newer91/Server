@@ -42,7 +42,9 @@
             <Label x:Name="labelLevel" Content="Rodzaj użytkownika" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labelActive" Content="Aktywność" VerticalAlignment="Top" Margin="310,10,0,0"/>
 
-            <ComboBox x:Name="comboBoxRole" HorizontalAlignment="Left" Margin="180,40,0,20" VerticalAlignment="Top" Width="120" Height="20"/>
+            <ComboBox x:Name="comboBoxRole" HorizontalAlignment="Left" Margin="180,40,0,20" VerticalAlignment="Top" Width="120" Height="20"
+                      ItemsSource="{Binding Path=Roles}" SelectedValuePath="RoleId" DisplayMemberPath="Name"
+                      SelectedItem="{Binding Path= Role}" />
             <ComboBox x:Name="comboBoxActive" Margin="310,40,100,20" Width="120" Height="20"
                       ItemsSource="{Binding Path=ActiveComboBox}" SelectedValuePath="Value" DisplayMemberPath="Name"
                       SelectedItem="{Binding Path=Active}"/>

@@ -14,6 +14,6 @@ namespace BandD.Serwis.Domain
         public bool IsCompanyAddres { get; set; }
         public bool IsDeliveryAddres { get; set; }
 
-        public virtual List<Client> Client { get; set; }
+        //public virtual List<Client> Client { get; set; }
     }
 }

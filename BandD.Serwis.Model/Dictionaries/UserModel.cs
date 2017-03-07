@@ -21,12 +21,11 @@ namespace BandD.Serwis.Model.Dictionaries
 
         #endregion
 
-        public ObservableCollection<UserView> getDataFromUser(string name, bool? status, string role)
+        public ObservableCollection<UserView> GetDataFromUser(string name, bool? status, Guid? role)
         {
             string names = name == null ? string.Empty : name;
-            string roles = role == null ? string.Empty : role;
- 
-            var items = service.getDataFromUser(names, status, roles);
+             
+            var items = service.GetDataFromUser(names, status, role);
             var result = new ObservableCollection<UserView>();
             foreach (var item in items)
             {
@@ -36,24 +35,25 @@ namespace BandD.Serwis.Model.Dictionaries
             return result;
         }
 
-        public bool AddNewItem(UserView user)
+        public string AddNewItem(UserView user, SecureString password)
         {
-            if (true)// zrobic walidacje    
-            {
-                service.addElementToUsers(user);
-                return true;
-            }
-            else
-#pragma warning disable CS0162 // Unreachable code detected
-                return false;
-#pragma warning restore CS0162 // Unreachable code detected
+            string result = validatePassword(password);
+            if (result == string.Empty)           
+                service.AddElementToUsers(user);            
+
+            return result;
+        }
+
+        private string validatePassword(SecureString password)
+        {
+            throw new NotImplementedException();
         }
 
         public bool SaveChange(UserView user)
         {
             if (true)// zrobic walidacje    
             {
-                service.updateElementUsers(user);
+                service.UpdateElementUsers(user);
                 return true;
             }
             else
@@ -64,7 +64,7 @@ namespace BandD.Serwis.Model.Dictionaries
 
         public void RemoveElement(Guid userId)
         {
-            service.removeElementFromUsers(userId);
+            service.RemoveElementFromUsers(userId);
         }
     }
 }

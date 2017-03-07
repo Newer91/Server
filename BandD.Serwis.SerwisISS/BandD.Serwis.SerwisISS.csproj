@@ -77,6 +77,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityClassConfiguration\AddressEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlCarrierStatEntityConfiuration.cs" />
     <Compile Include="EntityClassConfiguration\SlOrdersStatsEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlRoleEntityConfiguration.cs" />
@@ -88,6 +89,10 @@
     <Compile Include="Migrations\201702261939053_ChangeDomeinName.cs" />
     <Compile Include="Migrations\201702261939053_ChangeDomeinName.Designer.cs">
       <DependentUpon>201702261939053_ChangeDomeinName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703062150369_ChangeInSlRole.cs" />
+    <Compile Include="Migrations\201703062150369_ChangeInSlRole.Designer.cs">
+      <DependentUpon>201703062150369_ChangeInSlRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +131,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702261939053_ChangeDomeinName.resx">
       <DependentUpon>201702261939053_ChangeDomeinName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703062150369_ChangeInSlRole.resx">
+      <DependentUpon>201703062150369_ChangeInSlRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

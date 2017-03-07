@@ -14,7 +14,7 @@ namespace BandD.Serwis.Model.Dictionaries
         public ObservableCollection<SlOrderStatView> getDataFromSlOrderStat(string name, bool? activity)
         {
             string names = name == null ? string.Empty : name;
-            var items = service.getDataFromSlOrderStat(names, activity).ToList();
+            var items = service.GetDataFromSlOrderStat(names, activity).ToList();
             var result = new ObservableCollection<SlOrderStatView>();
             foreach (var item in items)
             {
@@ -28,7 +28,7 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
             {
-                service.updateElementSlOrderStat(stats);
+                service.UpdateElementSlOrderStat(stats);
                 return true;
             }
             else
@@ -39,7 +39,7 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
             {
-                service.addElementToSlOrderStat(stats);
+                service.AddElementToSlOrderStat(stats);
                 return true;
             }
             else
@@ -48,7 +48,7 @@ namespace BandD.Serwis.Model.Dictionaries
 
         public void RemoveElement(Guid id)
         {
-            service.removeElementFromSlOrderStat(id);
+            service.RemoveElementFromSlOrderStat(id);
         }
     }
 }

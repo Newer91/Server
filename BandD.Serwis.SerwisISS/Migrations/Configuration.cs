@@ -9,7 +9,7 @@ namespace SerwisISS.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(BandD.Serwis.SerwisISS.EntityContexClass.ServisContex context)

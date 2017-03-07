@@ -1,6 +1,7 @@
 ﻿using BandD.Serwis.ClassViewModel.Dictionaries;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ServiceModel;
 
 namespace BandD.Serwis.SerwisISS.Interface
@@ -15,46 +16,52 @@ namespace BandD.Serwis.SerwisISS.Interface
         bool Autorauthorization(string password, string userName);
 
         [OperationContract]
-        List<UserView> getDataFromUser(string name, bool? status, string role);
+        List<UserView> GetDataFromUser(string name, bool? status, Guid? role);
 
         [OperationContract]
-        void removeElementFromUsers(Guid id);
+        void RemoveElementFromUsers(Guid id);
 
         [OperationContract]
-        void addElementToUsers(UserView element);
+        void AddElementToUsers(UserView element);
 
         [OperationContract]
-        void updateElementUsers(UserView element);
+        void UpdateElementUsers(UserView element);
 
         #endregion
 
         #region OrderStatus
 
         [OperationContract]
-        List<SlOrderStatView> getDataFromSlOrderStat(string name, bool? activity);
+        List<SlOrderStatView> GetDataFromSlOrderStat(string name, bool? activity);
 
         [OperationContract]
-        void removeElementFromSlOrderStat(Guid id);
+        void RemoveElementFromSlOrderStat(Guid id);
 
         [OperationContract]
-        void addElementToSlOrderStat(SlOrderStatView element);
+        void AddElementToSlOrderStat(SlOrderStatView element);
 
         [OperationContract]
-        void updateElementSlOrderStat(SlOrderStatView element);
-
+        void UpdateElementSlOrderStat(SlOrderStatView element);
 
         #endregion
 
         #region CarrierStatus
 
         [OperationContract]
-        List<SlCarriersStatView> getDataFromSlCarrierStat(string name, bool? carrierStatus);
+        List<SlCarriersStatView> GetDataFromSlCarrierStat(string name, bool? carrierStatus);
         [OperationContract]
-        void updateElementSlCarrierStat(SlCarriersStatView stats);
+        void UpdateElementSlCarrierStat(SlCarriersStatView stats);
         [OperationContract]
-        void addElementToSlCarrierStat(SlCarriersStatView stats);
+        void AddElementToSlCarrierStat(SlCarriersStatView stats);
         [OperationContract]
-        void removeElementFromSlCarrierStat(Guid statsId);
+        void RemoveElementFromSlCarrierStat(Guid statsId);
+
+        #endregion
+
+        #region Roles
+
+        [OperationContract]
+        ObservableCollection<SlRoleView> GetAllActiveRoles();
 
         #endregion
     }

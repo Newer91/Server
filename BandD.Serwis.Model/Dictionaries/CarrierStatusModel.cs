@@ -14,7 +14,7 @@ namespace BandD.Serwis.Model.Dictionaries
         public ObservableCollection<SlCarriersStatView> getDataFromSlCarrierStat(string name, bool? carrierStatus)
         {
             string names = name == null ? string.Empty : name;
-            var items = service.getDataFromSlCarrierStat(names, carrierStatus).ToList();
+            var items = service.GetDataFromSlCarrierStat(names, carrierStatus).ToList();
             var result = new ObservableCollection<SlCarriersStatView>();
             foreach (var item in items)
             {
@@ -26,7 +26,7 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
              {
-                service.updateElementSlCarrierStat(stats);
+                service.UpdateElementSlCarrierStat(stats);
                 return true;
 
             }
@@ -38,7 +38,7 @@ namespace BandD.Serwis.Model.Dictionaries
         {
             if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
             {
-                service.addElementToSlCarrierStat(stats);
+                service.AddElementToSlCarrierStat(stats);
                 return true;
             }
             else
@@ -46,7 +46,7 @@ namespace BandD.Serwis.Model.Dictionaries
         }
         public void RemoveElement(Guid id)
         {
-            service.removeElementFromSlCarrierStat(id);
+            service.RemoveElementFromSlCarrierStat(id);
         }
     }
 }

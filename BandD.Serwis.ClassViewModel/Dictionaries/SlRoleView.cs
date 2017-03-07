@@ -8,8 +8,10 @@ namespace BandD.Serwis.ClassViewModel.Dictionaries
     public class SlRoleView
     {
         [DataMember]
-        public Guid RoleId { get; set; }
+        public Guid? RoleId { get; set; }
         [DataMember]
         public string Name { get; set; }
+        [DataMember]
+        public bool Active { get; set; }
     }
 }

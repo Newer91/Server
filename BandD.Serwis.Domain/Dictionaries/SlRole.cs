@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 namespace BandD.Serwis.Domain.Dictionaries
 {
@@ -8,6 +7,7 @@ namespace BandD.Serwis.Domain.Dictionaries
     {
         public Guid RoleId { get; set; }
         public string Name { get; set; }
+        public bool Active { get; set; }
         public virtual IList<User> Users { get; set; }
     }
 }

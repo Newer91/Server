@@ -8,6 +8,7 @@ using System.Data.Entity;
 using BandD.Serwis.Domain.Dictionaries;
 using BandD.Serwis.SerwisISS.Interface;
 using SerwisISS.Helpers;
+using System.Collections.ObjectModel;
 
 namespace BandD.Serwis.SerwisISS.Service
 {
@@ -33,7 +34,7 @@ namespace BandD.Serwis.SerwisISS.Service
             return result;
         }
 
-        public List<UserView> getDataFromUser(string name, bool? status, string role)
+        public List<UserView> GetDataFromUser(string name, bool? status, Guid? role)
         {
             using (var ctx = new ServisContex())
             {
@@ -46,8 +47,8 @@ namespace BandD.Serwis.SerwisISS.Service
                 if (status != null)
                     userList = userList.Where(l => l.Active == status);
 
-                //if (role != string.Empty)
-                //    userList = userList.Where(l => l.Role == role);
+                if (role != null)
+                    userList = userList.Where(l => l.SlRole.RoleId == role);
 
                 var tmp = userList.ToList();
                 foreach (var item in tmp)
@@ -59,17 +60,17 @@ namespace BandD.Serwis.SerwisISS.Service
             }
         }
 
-        public void removeElementFromUsers(Guid id)
+        public void RemoveElementFromUsers(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public void addElementToUsers(UserView element)
+        public void AddElementToUsers(UserView element)
         {
             throw new NotImplementedException();
         }
 
-        public void updateElementUsers(UserView element)
+        public void UpdateElementUsers(UserView element)
         {
             throw new NotImplementedException();
         }
@@ -78,7 +79,7 @@ namespace BandD.Serwis.SerwisISS.Service
 
         #region OrderStatus
 
-        public List<SlOrderStatView> getDataFromSlOrderStat(string name, bool? activity)
+        public List<SlOrderStatView> GetDataFromSlOrderStat(string name, bool? activity)
         {
             using (var ctx = new ServisContex())
             {
@@ -101,7 +102,7 @@ namespace BandD.Serwis.SerwisISS.Service
             }
         }
 
-        public void removeElementFromSlOrderStat(Guid id)
+        public void RemoveElementFromSlOrderStat(Guid id)
         {
             using (var ctx = new ServisContex())
             {
@@ -111,7 +112,7 @@ namespace BandD.Serwis.SerwisISS.Service
             }
         }
 
-        public void addElementToSlOrderStat(SlOrderStatView item)
+        public void AddElementToSlOrderStat(SlOrderStatView item)
         {
             using (var ctx = new ServisContex())
             {
@@ -120,7 +121,7 @@ namespace BandD.Serwis.SerwisISS.Service
             }
         }
 
-        public void updateElementSlOrderStat(SlOrderStatView item)
+        public void UpdateElementSlOrderStat(SlOrderStatView item)
         {
             using (var ctx = new ServisContex())
             {
@@ -135,7 +136,7 @@ namespace BandD.Serwis.SerwisISS.Service
         #endregion
 
         #region CarrierStatus
-        public List<SlCarriersStatView> getDataFromSlCarrierStat(string carrierName, bool? carrierStatus)
+        public List<SlCarriersStatView> GetDataFromSlCarrierStat(string carrierName, bool? carrierStatus)
         {
             using (var ctx = new ServisContex())
             {
@@ -159,7 +160,7 @@ namespace BandD.Serwis.SerwisISS.Service
             }
         }
 
-        public void removeElementFromSlCarrierStat(Guid id)
+        public void RemoveElementFromSlCarrierStat(Guid id)
         {
             using (var ctx = new ServisContex())
             {
@@ -169,7 +170,7 @@ namespace BandD.Serwis.SerwisISS.Service
             }
         }
 
-        public void addElementToSlCarrierStat(SlCarriersStatView item)
+        public void AddElementToSlCarrierStat(SlCarriersStatView item)
         {
             //using (var ctx = new ServisContex())
             //{
@@ -178,7 +179,7 @@ namespace BandD.Serwis.SerwisISS.Service
             //}
         }
 
-        public void updateElementSlCarrierStat(SlCarriersStatView item)
+        public void UpdateElementSlCarrierStat(SlCarriersStatView item)
         {
             using (var ctx = new ServisContex())
             {
@@ -191,5 +192,28 @@ namespace BandD.Serwis.SerwisISS.Service
         }
 
         #endregion
+
+        #region Roles
+
+        public ObservableCollection<SlRoleView> GetAllActiveRoles()
+        {
+            ObservableCollection<SlRoleView> result = new ObservableCollection<SlRoleView>();
+
+            using (var ctx = new ServisContex())
+            {
+                var role = ctx.SlRoles
+                     .Where(a => a.Active == true).ToList();
+
+                foreach (var item in role)
+                {
+                    result.Add(DictionaryCoverterToView.SlRolaToView(item));
+                }
+            }
+
+            return result;
+        }
+
+        #endregion
+
     }
 }

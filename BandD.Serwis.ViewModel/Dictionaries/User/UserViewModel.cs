@@ -8,13 +8,27 @@ using BandD.Serwis.Model.Dictionaries;
 namespace BandD.Serwis.ViewModel.Dictionaries.Users
 {
     public class UserStatusViewModel : BaseViewClass
-    {        
+    {
         private UserModel model;
         private ActiveItem activity;
         private ObservableCollection<UserView> userList;
         private ObservableCollection<ActiveItem> activeComboBox;
+        private ObservableCollection<SlRoleView> roles;
         private UserView user;
+        private SlRoleView role;
         private string name;
+
+        public SlRoleView Role
+        {
+            get { return role; }
+            set { role = value; OnPropertyChanged(); }
+        }
+
+        public ObservableCollection<SlRoleView> Roles
+        {
+            get { return roles; }
+            set { roles = value; OnPropertyChanged(); }
+        }
 
         public ActiveItem Active
         {
@@ -27,6 +41,9 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
             model = new UserModel();
             ActiveComboBox = new ActiveItem().getActiveList();
             Active = ActiveComboBox[0];
+            Roles = new RolesModel().GetAllActiveRole();
+            Roles.Insert(0, new SlRoleView() { RoleId = null, Name = "Wszystkie" });
+            Role = Roles[0];
         }
 
         public ObservableCollection<UserView> UserList
@@ -47,12 +64,6 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
             set { name = value; OnPropertyChanged(); }
         }
 
-        //public string Role
-        //{
-        //    get { return name; }
-        //    set { name = value; OnPropertyChanged(); }
-        //}
-
         public UserView User
         {
             get { return user; }
@@ -72,7 +83,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
 
         public void SearchExecute()
         {
-            UserList = model.getDataFromUser(name, activity.Value,"");
+            UserList = model.GetDataFromUser(name, activity.Value, Role.RoleId);
         }
     }
 }

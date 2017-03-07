@@ -118,9 +118,16 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
 
         public bool AddNewItem()
         {
-            throw new NotImplementedException();//BNrak oblsugi hasel
+            bool result = false;
             user.UserId = Guid.NewGuid();
-            return model.AddNewItem(user);
+
+            string comunity = model.AddNewItem(user, securePassword);
+            if (comunity == string.Empty)
+                result = true;
+            else
+                MessageBox.Show(comunity, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            return result;
         }
     }
 }

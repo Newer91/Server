@@ -1,4 +1,5 @@
-﻿using BandD.Serwis.ClassViewModel.Dictionaries;
+﻿using System;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using BandD.Serwis.Domain;
 using BandD.Serwis.Domain.Dictionaries;
 
@@ -56,6 +57,7 @@ namespace SerwisISS.Helpers
             {
                 result.RoleId = slRole.RoleId;
                 result.Name = slRole.Name;
+                result.Active = slRole.Active;
             }
             return result;
 
