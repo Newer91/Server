@@ -4,6 +4,7 @@ using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
+using BandD.Serwis.Tools.ClientTools;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
 {
@@ -23,8 +24,8 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
             activeComboBox = new ActiveItem().getActiveList();
             Active = activeComboBox[0];
         }
-       
-            public ObservableCollection<SlCarriersStatView> CarrierStatusList
+
+        public ObservableCollection<SlCarriersStatView> CarrierStatusList
         {
             get { return carrierStatusList; }
             set { carrierStatusList = value; OnPropertyChanged(); }
@@ -61,7 +62,8 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
         {
             var question = MessageBox.Show("Czy na pewno chcesz usunąc wskazany element?", "Pytanie", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
-                model.RemoveElement(slCarrierStat.CarrierStatusId);
+                if (!model.RemoveElement(slCarrierStat.CarrierStatusId))
+                    ClientMessage.ServerErrorMessage();
             SearchExecute();
         }
 

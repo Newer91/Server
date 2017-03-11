@@ -19,13 +19,13 @@ namespace BandD.Serwis.SerwisISS.Interface
         List<UserView> GetDataFromUser(string name, bool? status, Guid? role);
 
         [OperationContract]
-        void RemoveElementFromUsers(Guid id);
+        bool RemoveElementFromUsers(Guid id);
 
         [OperationContract]
-        void AddElementToUsers(UserView element);
+        bool AddElementToUsers(UserView element);
 
         [OperationContract]
-        void UpdateElementUsers(UserView element);
+        bool UpdateElementUsers(UserView element);
 
         #endregion
 
@@ -35,13 +35,13 @@ namespace BandD.Serwis.SerwisISS.Interface
         List<SlOrderStatView> GetDataFromSlOrderStat(string name, bool? activity);
 
         [OperationContract]
-        void RemoveElementFromSlOrderStat(Guid id);
+        bool RemoveElementFromSlOrderStat(Guid id);
 
         [OperationContract]
-        void AddElementToSlOrderStat(SlOrderStatView element);
+        bool AddElementToSlOrderStat(SlOrderStatView element);
 
         [OperationContract]
-        void UpdateElementSlOrderStat(SlOrderStatView element);
+        bool UpdateElementSlOrderStat(SlOrderStatView element);
 
         #endregion
 
@@ -49,19 +49,22 @@ namespace BandD.Serwis.SerwisISS.Interface
 
         [OperationContract]
         List<SlCarriersStatView> GetDataFromSlCarrierStat(string name, bool? carrierStatus);
+
         [OperationContract]
-        void UpdateElementSlCarrierStat(SlCarriersStatView stats);
+        bool UpdateElementSlCarrierStat(SlCarriersStatView stats);
+
         [OperationContract]
-        void AddElementToSlCarrierStat(SlCarriersStatView stats);
+        bool AddElementToSlCarrierStat(SlCarriersStatView stats);
+
         [OperationContract]
-        void RemoveElementFromSlCarrierStat(Guid statsId);
+        bool RemoveElementFromSlCarrierStat(Guid statsId);
 
         #endregion
 
         #region Roles
 
         [OperationContract]
-        ObservableCollection<SlRoleView> GetAllActiveRoles();
+        ObservableCollection<SlRoleView> GetAllRoles(bool isAll);
 
         #endregion
     }

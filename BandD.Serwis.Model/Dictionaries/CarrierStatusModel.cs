@@ -22,31 +22,20 @@ namespace BandD.Serwis.Model.Dictionaries
             }
             return result;
         }
+
         public bool SaveChange(SlCarriersStatView stats)
         {
-            if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
-             {
-                service.UpdateElementSlCarrierStat(stats);
-                return true;
-
-            }
-            else
-                return false;
-
+            return service.UpdateElementSlCarrierStat(stats);
         }
+
         public bool AddNewItem(SlCarriersStatView stats)
         {
-            if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
-            {
-                service.AddElementToSlCarrierStat(stats);
-                return true;
-            }
-            else
-                return false;
+            return service.AddElementToSlCarrierStat(stats);
         }
-        public void RemoveElement(Guid id)
+
+        public bool RemoveElement(Guid id)
         {
-            service.RemoveElementFromSlCarrierStat(id);
+            return service.RemoveElementFromSlCarrierStat(id);
         }
     }
 }

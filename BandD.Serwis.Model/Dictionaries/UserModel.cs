@@ -4,7 +4,6 @@ using BandD.Serwis.Model.DictionariesService;
 using System.Collections.ObjectModel;
 using BandD.Serwis.ClassViewModel.Dictionaries;
 using System;
-using BandD.Serwis.Tools.Logger;
 
 namespace BandD.Serwis.Model.Dictionaries
 {
@@ -36,36 +35,20 @@ namespace BandD.Serwis.Model.Dictionaries
             return result;
         }
 
-        public string AddNewItem(UserView user, SecureString password)
+        public bool AddNewItem(UserView user, SecureString password)
         {
-            string result = validatePassword(password);
-            if (result == string.Empty)
-                service.AddElementToUsers(user);
-
-            return result;
-        }
-
-        private string validatePassword(SecureString password)
-        {
-            throw new NotImplementedException();
+            user.Password = SecureTools.CalculateMD5Hash(SecureTools.convertToUNSecureString(password));
+            return service.AddElementToUsers(user);
         }
 
         public bool SaveChange(UserView user)
         {
-            if (true)// zrobic walidacje    
-            {
-                service.UpdateElementUsers(user);
-                return true;
-            }
-            else
-#pragma warning disable CS0162 // Unreachable code detected
-                return false;
-#pragma warning restore CS0162 // Unreachable code detected
+            return service.UpdateElementUsers(user);
         }
 
-        public void RemoveElement(Guid userId)
+        public bool RemoveElement(Guid userId)
         {
-            service.RemoveElementFromUsers(userId);
+            return service.RemoveElementFromUsers(userId);
         }
     }
 }

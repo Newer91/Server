@@ -16,10 +16,10 @@ namespace BandD.Serwis.Tools.LoggerService {
     public interface ILogger {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogger/SaveErrorToDataBase", ReplyAction="http://tempuri.org/ILogger/SaveErrorToDataBaseResponse")]
-        void SaveErrorToDataBase(System.Guid applicationId, System.Guid clientId, string exeptionMessage, string methodNames);
+        void SaveErrorToDataBase(System.Guid applicationId, System.Guid clientId, string exeptionMessage, string methodNamesExeption, string methoNameCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogger/SaveErrorToDataBase", ReplyAction="http://tempuri.org/ILogger/SaveErrorToDataBaseResponse")]
-        System.Threading.Tasks.Task SaveErrorToDataBaseAsync(System.Guid applicationId, System.Guid clientId, string exeptionMessage, string methodNames);
+        System.Threading.Tasks.Task SaveErrorToDataBaseAsync(System.Guid applicationId, System.Guid clientId, string exeptionMessage, string methodNamesExeption, string methoNameCode);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +49,12 @@ namespace BandD.Serwis.Tools.LoggerService {
                 base(binding, remoteAddress) {
         }
         
-        public void SaveErrorToDataBase(System.Guid applicationId, System.Guid clientId, string exeptionMessage, string methodNames) {
-            base.Channel.SaveErrorToDataBase(applicationId, clientId, exeptionMessage, methodNames);
+        public void SaveErrorToDataBase(System.Guid applicationId, System.Guid clientId, string exeptionMessage, string methodNamesExeption, string methoNameCode) {
+            base.Channel.SaveErrorToDataBase(applicationId, clientId, exeptionMessage, methodNamesExeption, methoNameCode);
         }
         
-        public System.Threading.Tasks.Task SaveErrorToDataBaseAsync(System.Guid applicationId, System.Guid clientId, string exeptionMessage, string methodNames) {
-            return base.Channel.SaveErrorToDataBaseAsync(applicationId, clientId, exeptionMessage, methodNames);
+        public System.Threading.Tasks.Task SaveErrorToDataBaseAsync(System.Guid applicationId, System.Guid clientId, string exeptionMessage, string methodNamesExeption, string methoNameCode) {
+            return base.Channel.SaveErrorToDataBaseAsync(applicationId, clientId, exeptionMessage, methodNamesExeption, methoNameCode);
         }
     }
 }

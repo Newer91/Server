@@ -32,10 +32,6 @@ namespace BandD.Serwis.Client
                 this.Close();
                 mw.ShowDialog();
             }
-            else
-            {
-                MessageBox.Show("Brak użytkownia o podanych danych.", "Błąd", MessageBoxButton.OKCancel, MessageBoxImage.Error);
-            }
         }
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)

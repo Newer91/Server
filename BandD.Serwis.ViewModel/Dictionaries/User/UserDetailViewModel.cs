@@ -6,19 +6,24 @@ using BandD.Serwis.Tools.Extension;
 using System.Windows;
 using System.Security;
 using BandD.Serwis.Model.Dictionaries;
+using System.Collections.ObjectModel;
+using BandD.Serwis.Tools.ClientTools;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.User
 {
-    public class UserDetailViewModel: BaseViewClass
+    public class UserDetailViewModel : BaseViewClass
     {
         private UserModel model;
         private ViewType viewType;
         private UserView user;
+        private SlRoleView role;
         private string title;
         private bool isReadOnly;
         private bool isEnable;
         private string cancelButtonName;
         private SecureString securePassword;
+        private ObservableCollection<SlRoleView> aveilableRoles;
+
 
         #region Public propertis
 
@@ -52,6 +57,12 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
             set { user = value; OnPropertyChanged(); }
         }
 
+        public SlRoleView Role
+        {
+            get { return role; }
+            set { role = value; OnPropertyChanged(); }
+        }
+
         public string CancelButtonName
         {
             get { return cancelButtonName; }
@@ -64,6 +75,12 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
             set { securePassword = value; OnPropertyChanged(); }
         }
 
+        public ObservableCollection<SlRoleView> AveilableRoles
+        {
+            get { return aveilableRoles; }
+            set { aveilableRoles = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         public UserDetailViewModel(ViewType viewType)
@@ -71,6 +88,15 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
             ViewType = viewType;
             SetViewMode(viewType);
             model = new UserModel();
+            CreateRoleList(viewType);
+        }
+
+        private void CreateRoleList(ViewType viewType)
+        {
+            if (viewType == ViewType.New || viewType == ViewType.Edit)
+                AveilableRoles = new RolesModel().GetAllActiveRole();
+            if (viewType == ViewType.View)
+                AveilableRoles = new RolesModel().GetAllRole();
         }
 
         private void SetViewMode(ViewType viewType)
@@ -96,37 +122,83 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
 
         public bool SaveChange()
         {
-            throw new NotImplementedException();//brak oblsugi hasel
-#pragma warning disable CS0162 // Unreachable code detected
             bool result = false;
-#pragma warning restore CS0162 // Unreachable code detected
+
             var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
-                if (ViewType == ViewType.Edit)
-                    result = model.SaveChange(User);
-                else if (ViewType == ViewType.New)
-                    result = AddNewItem();
-            if (result)
             {
-                MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (validateUser())
+                {
+                    if (ViewType == ViewType.Edit)
+                    {
+                        if (!model.SaveChange(User))
+                        {
+                            ClientMessage.ServerErrorMessage();
+                            result = false;
+                        }
+                    }
+                    else if (ViewType == ViewType.New)
+                    {
+                        result = AddNewItem();
+                    }
+                    result = true;
+                }
             }
-            else
-                //MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
-                throw new NotImplementedException();
-            return false;
+
+            if (result)
+                MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            return result;
         }
 
         public bool AddNewItem()
         {
-            bool result = false;
-            user.UserId = Guid.NewGuid();
+            user.UserId = Guid.NewGuid();            
+            user.Rola = Role;
 
-            string comunity = model.AddNewItem(user, securePassword);
-            if (comunity == string.Empty)
-                result = true;
-            else
-                MessageBox.Show(comunity, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (!model.AddNewItem(user, securePassword))
+            {
+                ClientMessage.ServerErrorMessage();
+                return false;
+            }
+            return true;
+        }
 
+        private bool validateUser()
+        {
+            bool result = true;
+            if (!validatePassword() || !validateOtherElements())
+                result = false;
+
+            return result;
+        }
+
+        private bool validateOtherElements()
+        {
+            bool result = true;
+
+            if (User.UserName == string.Empty)
+            {
+                MessageBox.Show("Nazwa użytkownika nie może być pusta.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                result = false;
+            }
+            if (Role == null || Role.RoleId == null)
+            {
+                MessageBox.Show("Należy wybrać role użytkownika.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                result = false;
+            }
+
+            return result;
+        }
+
+        private bool validatePassword()
+        {
+            bool result = true;
+            if (securePassword.Length < 4)
+            {
+                MessageBox.Show("Hasło nie może być krótsze niż 5 znaków", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                result = false;
+            }
             return result;
         }
     }

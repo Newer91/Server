@@ -28,22 +28,22 @@ namespace BandD.Serwis.Model.DictionariesService {
         System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.UserView[]> GetDataFromUserAsync(string name, System.Nullable<bool> status, System.Nullable<System.Guid> role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromUsers", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromUsersResponse")]
-        void RemoveElementFromUsers(System.Guid id);
+        bool RemoveElementFromUsers(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromUsers", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromUsersResponse")]
-        System.Threading.Tasks.Task RemoveElementFromUsersAsync(System.Guid id);
+        System.Threading.Tasks.Task<bool> RemoveElementFromUsersAsync(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToUsers", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToUsersResponse")]
-        void AddElementToUsers(BandD.Serwis.ClassViewModel.Dictionaries.UserView element);
+        bool AddElementToUsers(BandD.Serwis.ClassViewModel.Dictionaries.UserView element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToUsers", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToUsersResponse")]
-        System.Threading.Tasks.Task AddElementToUsersAsync(BandD.Serwis.ClassViewModel.Dictionaries.UserView element);
+        System.Threading.Tasks.Task<bool> AddElementToUsersAsync(BandD.Serwis.ClassViewModel.Dictionaries.UserView element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementUsers", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementUsersResponse")]
-        void UpdateElementUsers(BandD.Serwis.ClassViewModel.Dictionaries.UserView element);
+        bool UpdateElementUsers(BandD.Serwis.ClassViewModel.Dictionaries.UserView element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementUsers", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementUsersResponse")]
-        System.Threading.Tasks.Task UpdateElementUsersAsync(BandD.Serwis.ClassViewModel.Dictionaries.UserView element);
+        System.Threading.Tasks.Task<bool> UpdateElementUsersAsync(BandD.Serwis.ClassViewModel.Dictionaries.UserView element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetDataFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/GetDataFromSlOrderStatResponse")]
         BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView[] GetDataFromSlOrderStat(string name, System.Nullable<bool> activity);
@@ -52,22 +52,22 @@ namespace BandD.Serwis.Model.DictionariesService {
         System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView[]> GetDataFromSlOrderStatAsync(string name, System.Nullable<bool> activity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromSlOrderStatResponse")]
-        void RemoveElementFromSlOrderStat(System.Guid id);
+        bool RemoveElementFromSlOrderStat(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromSlOrderStatResponse")]
-        System.Threading.Tasks.Task RemoveElementFromSlOrderStatAsync(System.Guid id);
+        System.Threading.Tasks.Task<bool> RemoveElementFromSlOrderStatAsync(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToSlOrderStatResponse")]
-        void AddElementToSlOrderStat(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element);
+        bool AddElementToSlOrderStat(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToSlOrderStatResponse")]
-        System.Threading.Tasks.Task AddElementToSlOrderStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element);
+        System.Threading.Tasks.Task<bool> AddElementToSlOrderStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementSlOrderStatResponse")]
-        void UpdateElementSlOrderStat(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element);
+        bool UpdateElementSlOrderStat(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementSlOrderStat", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementSlOrderStatResponse")]
-        System.Threading.Tasks.Task UpdateElementSlOrderStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element);
+        System.Threading.Tasks.Task<bool> UpdateElementSlOrderStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetDataFromSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/GetDataFromSlCarrierStatResponse")]
         BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView[] GetDataFromSlCarrierStat(string name, System.Nullable<bool> carrierStatus);
@@ -76,28 +76,28 @@ namespace BandD.Serwis.Model.DictionariesService {
         System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView[]> GetDataFromSlCarrierStatAsync(string name, System.Nullable<bool> carrierStatus);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementSlCarrierStatResponse")]
-        void UpdateElementSlCarrierStat(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats);
+        bool UpdateElementSlCarrierStat(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementSlCarrierStatResponse")]
-        System.Threading.Tasks.Task UpdateElementSlCarrierStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats);
+        System.Threading.Tasks.Task<bool> UpdateElementSlCarrierStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToSlCarrierStatResponse")]
-        void AddElementToSlCarrierStat(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats);
+        bool AddElementToSlCarrierStat(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToSlCarrierStatResponse")]
-        System.Threading.Tasks.Task AddElementToSlCarrierStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats);
+        System.Threading.Tasks.Task<bool> AddElementToSlCarrierStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromSlCarrierStatResponse")]
-        void RemoveElementFromSlCarrierStat(System.Guid statsId);
+        bool RemoveElementFromSlCarrierStat(System.Guid statsId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromSlCarrierStat", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromSlCarrierStatResponse")]
-        System.Threading.Tasks.Task RemoveElementFromSlCarrierStatAsync(System.Guid statsId);
+        System.Threading.Tasks.Task<bool> RemoveElementFromSlCarrierStatAsync(System.Guid statsId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetAllActiveRoles", ReplyAction="http://tempuri.org/IDictionariesService/GetAllActiveRolesResponse")]
-        BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[] GetAllActiveRoles();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetAllRoles", ReplyAction="http://tempuri.org/IDictionariesService/GetAllRolesResponse")]
+        BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[] GetAllRoles(bool isAll);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetAllActiveRoles", ReplyAction="http://tempuri.org/IDictionariesService/GetAllActiveRolesResponse")]
-        System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[]> GetAllActiveRolesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetAllRoles", ReplyAction="http://tempuri.org/IDictionariesService/GetAllRolesResponse")]
+        System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[]> GetAllRolesAsync(bool isAll);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -143,27 +143,27 @@ namespace BandD.Serwis.Model.DictionariesService {
             return base.Channel.GetDataFromUserAsync(name, status, role);
         }
         
-        public void RemoveElementFromUsers(System.Guid id) {
-            base.Channel.RemoveElementFromUsers(id);
+        public bool RemoveElementFromUsers(System.Guid id) {
+            return base.Channel.RemoveElementFromUsers(id);
         }
         
-        public System.Threading.Tasks.Task RemoveElementFromUsersAsync(System.Guid id) {
+        public System.Threading.Tasks.Task<bool> RemoveElementFromUsersAsync(System.Guid id) {
             return base.Channel.RemoveElementFromUsersAsync(id);
         }
         
-        public void AddElementToUsers(BandD.Serwis.ClassViewModel.Dictionaries.UserView element) {
-            base.Channel.AddElementToUsers(element);
+        public bool AddElementToUsers(BandD.Serwis.ClassViewModel.Dictionaries.UserView element) {
+            return base.Channel.AddElementToUsers(element);
         }
         
-        public System.Threading.Tasks.Task AddElementToUsersAsync(BandD.Serwis.ClassViewModel.Dictionaries.UserView element) {
+        public System.Threading.Tasks.Task<bool> AddElementToUsersAsync(BandD.Serwis.ClassViewModel.Dictionaries.UserView element) {
             return base.Channel.AddElementToUsersAsync(element);
         }
         
-        public void UpdateElementUsers(BandD.Serwis.ClassViewModel.Dictionaries.UserView element) {
-            base.Channel.UpdateElementUsers(element);
+        public bool UpdateElementUsers(BandD.Serwis.ClassViewModel.Dictionaries.UserView element) {
+            return base.Channel.UpdateElementUsers(element);
         }
         
-        public System.Threading.Tasks.Task UpdateElementUsersAsync(BandD.Serwis.ClassViewModel.Dictionaries.UserView element) {
+        public System.Threading.Tasks.Task<bool> UpdateElementUsersAsync(BandD.Serwis.ClassViewModel.Dictionaries.UserView element) {
             return base.Channel.UpdateElementUsersAsync(element);
         }
         
@@ -175,27 +175,27 @@ namespace BandD.Serwis.Model.DictionariesService {
             return base.Channel.GetDataFromSlOrderStatAsync(name, activity);
         }
         
-        public void RemoveElementFromSlOrderStat(System.Guid id) {
-            base.Channel.RemoveElementFromSlOrderStat(id);
+        public bool RemoveElementFromSlOrderStat(System.Guid id) {
+            return base.Channel.RemoveElementFromSlOrderStat(id);
         }
         
-        public System.Threading.Tasks.Task RemoveElementFromSlOrderStatAsync(System.Guid id) {
+        public System.Threading.Tasks.Task<bool> RemoveElementFromSlOrderStatAsync(System.Guid id) {
             return base.Channel.RemoveElementFromSlOrderStatAsync(id);
         }
         
-        public void AddElementToSlOrderStat(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element) {
-            base.Channel.AddElementToSlOrderStat(element);
+        public bool AddElementToSlOrderStat(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element) {
+            return base.Channel.AddElementToSlOrderStat(element);
         }
         
-        public System.Threading.Tasks.Task AddElementToSlOrderStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element) {
+        public System.Threading.Tasks.Task<bool> AddElementToSlOrderStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element) {
             return base.Channel.AddElementToSlOrderStatAsync(element);
         }
         
-        public void UpdateElementSlOrderStat(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element) {
-            base.Channel.UpdateElementSlOrderStat(element);
+        public bool UpdateElementSlOrderStat(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element) {
+            return base.Channel.UpdateElementSlOrderStat(element);
         }
         
-        public System.Threading.Tasks.Task UpdateElementSlOrderStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element) {
+        public System.Threading.Tasks.Task<bool> UpdateElementSlOrderStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView element) {
             return base.Channel.UpdateElementSlOrderStatAsync(element);
         }
         
@@ -207,36 +207,36 @@ namespace BandD.Serwis.Model.DictionariesService {
             return base.Channel.GetDataFromSlCarrierStatAsync(name, carrierStatus);
         }
         
-        public void UpdateElementSlCarrierStat(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats) {
-            base.Channel.UpdateElementSlCarrierStat(stats);
+        public bool UpdateElementSlCarrierStat(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats) {
+            return base.Channel.UpdateElementSlCarrierStat(stats);
         }
         
-        public System.Threading.Tasks.Task UpdateElementSlCarrierStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats) {
+        public System.Threading.Tasks.Task<bool> UpdateElementSlCarrierStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats) {
             return base.Channel.UpdateElementSlCarrierStatAsync(stats);
         }
         
-        public void AddElementToSlCarrierStat(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats) {
-            base.Channel.AddElementToSlCarrierStat(stats);
+        public bool AddElementToSlCarrierStat(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats) {
+            return base.Channel.AddElementToSlCarrierStat(stats);
         }
         
-        public System.Threading.Tasks.Task AddElementToSlCarrierStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats) {
+        public System.Threading.Tasks.Task<bool> AddElementToSlCarrierStatAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView stats) {
             return base.Channel.AddElementToSlCarrierStatAsync(stats);
         }
         
-        public void RemoveElementFromSlCarrierStat(System.Guid statsId) {
-            base.Channel.RemoveElementFromSlCarrierStat(statsId);
+        public bool RemoveElementFromSlCarrierStat(System.Guid statsId) {
+            return base.Channel.RemoveElementFromSlCarrierStat(statsId);
         }
         
-        public System.Threading.Tasks.Task RemoveElementFromSlCarrierStatAsync(System.Guid statsId) {
+        public System.Threading.Tasks.Task<bool> RemoveElementFromSlCarrierStatAsync(System.Guid statsId) {
             return base.Channel.RemoveElementFromSlCarrierStatAsync(statsId);
         }
         
-        public BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[] GetAllActiveRoles() {
-            return base.Channel.GetAllActiveRoles();
+        public BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[] GetAllRoles(bool isAll) {
+            return base.Channel.GetAllRoles(isAll);
         }
         
-        public System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[]> GetAllActiveRolesAsync() {
-            return base.Channel.GetAllActiveRolesAsync();
+        public System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[]> GetAllRolesAsync(bool isAll) {
+            return base.Channel.GetAllRolesAsync(isAll);
         }
     }
 }

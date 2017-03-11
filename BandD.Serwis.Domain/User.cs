@@ -1,6 +1,5 @@
 ﻿using BandD.Serwis.Domain.Dictionaries;
 using System;
-using System.Runtime.Serialization;
 
 namespace BandD.Serwis.Domain
 {

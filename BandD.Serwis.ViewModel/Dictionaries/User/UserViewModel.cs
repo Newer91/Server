@@ -4,6 +4,7 @@ using System.Windows;
 using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Collections.ObjectModel;
 using BandD.Serwis.Model.Dictionaries;
+using BandD.Serwis.Tools.ClientTools;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.Users
 {
@@ -41,7 +42,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
             model = new UserModel();
             ActiveComboBox = new ActiveItem().getActiveList();
             Active = ActiveComboBox[0];
-            Roles = new RolesModel().GetAllActiveRole();
+            Roles = new RolesModel().GetAllRole();
             Roles.Insert(0, new SlRoleView() { RoleId = null, Name = "Wszystkie" });
             Role = Roles[0];
         }
@@ -77,7 +78,8 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Users
         {
             var question = MessageBox.Show("Czy na pewno chcesz usunąc wskazany element?", "Pytanie", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
-                model.RemoveElement(User.UserId);
+                if (!model.RemoveElement(User.UserId))
+                    ClientMessage.ServerErrorMessage();
             SearchExecute();
         }
 

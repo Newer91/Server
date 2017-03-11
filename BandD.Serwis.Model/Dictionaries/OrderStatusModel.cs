@@ -26,29 +26,17 @@ namespace BandD.Serwis.Model.Dictionaries
 
         public bool SaveChange(SlOrderStatView stats)
         {
-            if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
-            {
-                service.UpdateElementSlOrderStat(stats);
-                return true;
-            }
-            else
-                return false;          
+            return service.UpdateElementSlOrderStat(stats);
         }
 
         public bool AddNewItem(SlOrderStatView stats)
         {
-            if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
-            {
-                service.AddElementToSlOrderStat(stats);
-                return true;
-            }
-            else
-                return false;
+            return service.AddElementToSlOrderStat(stats);
         }
 
-        public void RemoveElement(Guid id)
+        public bool RemoveElement(Guid id)
         {
-            service.RemoveElementFromSlOrderStat(id);
+            return service.RemoveElementFromSlOrderStat(id);
         }
     }
 }

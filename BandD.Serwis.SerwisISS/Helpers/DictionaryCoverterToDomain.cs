@@ -1,4 +1,5 @@
-﻿using BandD.Serwis.ClassViewModel.Dictionaries;
+﻿using System;
+using BandD.Serwis.ClassViewModel.Dictionaries;
 using BandD.Serwis.Domain;
 using BandD.Serwis.Domain.Dictionaries;
 
@@ -20,6 +21,7 @@ namespace SerwisISS.Helpers
 
             return result;
         }
+
         public static SlCarrierStat SlCarrierStatToDomain(SlCarriersStatView stats)
         {
             var result = new SlCarrierStat();
@@ -34,7 +36,8 @@ namespace SerwisISS.Helpers
             }
             return result;
         }
-        public static User UserToDomain(UserView user)
+
+        public static User UserToDomain(UserView user, SlRole role)
         {
             var result = new User();
 
@@ -44,7 +47,7 @@ namespace SerwisISS.Helpers
                 result.UserName = user.UserName;
                 result.Password = user.Password;
                 result.Active = user.Active;
-                //result.Role = user.Role;
+                result.SlRole = role;
             }
 
             return result;

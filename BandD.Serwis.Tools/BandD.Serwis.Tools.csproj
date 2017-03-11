@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -42,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientTools\ClientMessage.cs" />
     <Compile Include="Extension\ClientTools.cs" />
     <Compile Include="Extension\Enums.cs" />
     <Compile Include="Logger\LoggerExeption.cs" />

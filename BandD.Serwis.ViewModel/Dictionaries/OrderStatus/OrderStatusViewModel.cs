@@ -5,6 +5,7 @@ using System.Windows;
 using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Collections.ObjectModel;
 using System.Linq;
+using BandD.Serwis.Tools.ClientTools;
 
 namespace BandD.Serwis.ViewModel.Dictionaries
 {
@@ -52,7 +53,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries
         public ObservableCollection<ActiveItem> ActiveComboBox
         {
             get { return activeComboBox; }
-            set { activeComboBox = value;OnPropertyChanged(); }
+            set { activeComboBox = value; OnPropertyChanged(); }
         }
 
         public ICommand Search { get { return new RelayCommand(SearchExecute, null); } }
@@ -62,7 +63,8 @@ namespace BandD.Serwis.ViewModel.Dictionaries
         {
             var question = MessageBox.Show("Czy na pewno chcesz usunąc wskazany element?", "Pytanie", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
-                model.RemoveElement(slOrderStat.OrderStatusId);
+                if (!model.RemoveElement(slOrderStat.OrderStatusId))
+                    ClientMessage.ServerErrorMessage();
             SearchExecute();
         }
 

@@ -2,6 +2,7 @@
 using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Security;
 using BandD.Serwis.Model.Dictionaries;
+using System.Windows;
 
 namespace BandD.Serwis.ViewModel
 {
@@ -39,7 +40,17 @@ namespace BandD.Serwis.ViewModel
 
         public bool Authorization()
         {
-            return model.Autorauthorization(securePassword,name);
+            if (securePassword.Length < 4)
+            {
+                MessageBox.Show("Hasło nie może być krótsze niż 5 znaków", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            var result = model.Autorauthorization(securePassword, name);
+
+            if (!result)            
+                MessageBox.Show("Brak użytkownia o podanych danych.", "Błąd", MessageBoxButton.OKCancel, MessageBoxImage.Error);       
+            return result;
         }
 
     }

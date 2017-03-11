@@ -15,6 +15,13 @@ namespace BandD.Serwis.SerwisISS.Service
 {
     public class DictionariesService : IDictionariesService
     {
+        LoggerExeption logger;
+
+        public DictionariesService()
+        {
+            logger = new LoggerExeption();
+        }
+
         #region User
 
         public bool Autorauthorization(string password, string userName)
@@ -33,7 +40,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
                 }
             }
             return result;
@@ -66,26 +73,75 @@ namespace BandD.Serwis.SerwisISS.Service
 
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
                 }
 
                 return result;
             }
         }
 
-        public void RemoveElementFromUsers(Guid id)
+        public bool RemoveElementFromUsers(Guid id)
         {
-            throw new NotImplementedException();
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    var item = ctx.Users.Find(id);
+                    item.Active = false;
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
+                }
+            }
+            return result;
         }
 
-        public void AddElementToUsers(UserView element)
+        public bool AddElementToUsers(UserView item)
         {
-            throw new NotImplementedException();
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    var role = ctx.SlRoles.First(x => x.RoleId == item.Rola.RoleId);
+                    ctx.Users.Add(DictionaryCoverterToDomain.UserToDomain(item, role));
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
+                }
+            }
+            return result;
         }
 
-        public void UpdateElementUsers(UserView element)
+        public bool UpdateElementUsers(UserView item)
         {
-            throw new NotImplementedException();
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    var element = ctx.Users.Find(item.UserId);
+                    element.UserName = item.UserName;
+                    element.Active = item.Active;
+                    element.Password = item.Password;
+                    element.SlRole.Name = item.Rola.Name;
+                    element.SlRole.RoleId = item.Rola.RoleId.Value;
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
+                }
+            }
+            return result;
         }
 
         #endregion
@@ -115,15 +171,16 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
                 }
 
                 return result;
             }
         }
 
-        public void RemoveElementFromSlOrderStat(Guid id)
+        public bool RemoveElementFromSlOrderStat(Guid id)
         {
+            bool result = true;
             using (var ctx = new ServisContex())
             {
                 try
@@ -134,13 +191,16 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
                 }
             }
+            return result;
         }
 
-        public void AddElementToSlOrderStat(SlOrderStatView item)
+        public bool AddElementToSlOrderStat(SlOrderStatView item)
         {
+            bool result = true;
             using (var ctx = new ServisContex())
             {
                 try
@@ -150,13 +210,16 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
                 }
             }
+            return result;
         }
 
-        public void UpdateElementSlOrderStat(SlOrderStatView item)
+        public bool UpdateElementSlOrderStat(SlOrderStatView item)
         {
+            bool result = true;
             using (var ctx = new ServisContex())
             {
                 try
@@ -169,14 +232,17 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
                 }
             }
+            return result;
         }
 
         #endregion
 
         #region CarrierStatus
+
         public List<SlCarriersStatView> GetDataFromSlCarrierStat(string carrierName, bool? carrierStatus)
         {
             using (var ctx = new ServisContex())
@@ -201,15 +267,16 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
                 }
 
                 return result;
             }
         }
 
-        public void RemoveElementFromSlCarrierStat(Guid id)
+        public bool RemoveElementFromSlCarrierStat(Guid id)
         {
+            bool result = true;
             using (var ctx = new ServisContex())
             {
                 try
@@ -220,22 +287,35 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
                 }
             }
+            return result;
         }
 
-        public void AddElementToSlCarrierStat(SlCarriersStatView item)
+        public bool AddElementToSlCarrierStat(SlCarriersStatView item)
         {
-            //using (var ctx = new ServisContex())
-            //{
-            //    ctx.SlCarrierStats.Add(DictionaryCoverterToDomain.SlCarrierStatToDomain(item));
-            //    ctx.SaveChanges();
-            //}
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    ctx.SlCarrierStats.Add(DictionaryCoverterToDomain.SlCarrierStatToDomain(item));
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
+                }
+            }
+            return result;
         }
 
-        public void UpdateElementSlCarrierStat(SlCarriersStatView item)
+        public bool UpdateElementSlCarrierStat(SlCarriersStatView item)
         {
+            bool result = true;
             using (var ctx = new ServisContex())
             {
                 try
@@ -248,16 +328,18 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());
+                    result = false;
                 }
             }
+            return result;
         }
 
         #endregion
 
         #region Roles
 
-        public ObservableCollection<SlRoleView> GetAllActiveRoles()
+        public ObservableCollection<SlRoleView> GetAllRoles(bool isAll)
         {
             ObservableCollection<SlRoleView> result = new ObservableCollection<SlRoleView>();
 
@@ -265,16 +347,18 @@ namespace BandD.Serwis.SerwisISS.Service
             {
                 try
                 {
-                    var role = ctx.SlRoles.Where(a => a.Active == true).ToList();
+                    IQueryable<SlRole> role = ctx.SlRoles;
+                    if (!isAll)
+                        role = ctx.SlRoles.Where(a => a.Active == true);
 
-                    foreach (var item in role)
+                    foreach (var item in role.ToList())
                     {
                         result.Add(DictionaryCoverterToView.SlRolaToView(item));
                     }
                 }
                 catch (Exception e)
                 {
-                    LoggerExeption.LogExeption(e);
+                    logger.LogExeption(e, logger.CalleMethodsName());                  
                 }
             }
 
@@ -282,6 +366,5 @@ namespace BandD.Serwis.SerwisISS.Service
         }
 
         #endregion
-
     }
 }

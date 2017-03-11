@@ -5,6 +5,7 @@ using System.Windows;
 using BandD.Serwis.ViewModel.Class;
 using BandD.Serwis.ClassViewModel.Dictionaries;
 using BandD.Serwis.Tools.Extension;
+using BandD.Serwis.Tools.ClientTools;
 
 namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
 {
@@ -88,20 +89,32 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
 
         public bool SaveChange()
         {
-            bool result = false;
+            bool result = true;
+            bool serverResult;
             var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
-                if (ViewType == ViewType.Edit)
-                    result = model.SaveChange(stats);
-                else if (ViewType == ViewType.New)
-                    result = AddNewItem();
-            if (result)
             {
-                MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (ClientTools.ValidateProperty(stats.Name) && ClientTools.ValidateProperty(stats.Description))
+                {
+                    if (ViewType == ViewType.Edit)
+                        serverResult = model.SaveChange(stats);
+                    else
+                        serverResult = AddNewItem();
+
+                    if (!serverResult)
+                    {
+                        ClientMessage.ServerErrorMessage();
+                        result = false;
+                    }
+                }
+                else
+                    MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else
-                MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
-            return false;
+
+            if (result)            
+                MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            
+            return result;
         }
 
         public bool AddNewItem()

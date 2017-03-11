@@ -20,7 +20,8 @@
             <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="applicationId" type="q1:guid" />
             <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientId" type="q2:guid" />
             <xs:element minOccurs="0" name="exeptionMessage" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="methodNames" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="methodNamesExeption" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="methoNameCode" nillable="true" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
