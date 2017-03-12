@@ -70,6 +70,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Dictionaries\Role\Role.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionaries\Role\RoleDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionaries\User\Users.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +106,12 @@
     </Compile>
     <Compile Include="Dictionaries\OrderStat\OrderStatus.xaml.cs">
       <DependentUpon>OrderStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionaries\Role\Role.xaml.cs">
+      <DependentUpon>Role.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionaries\Role\RoleDetail.xaml.cs">
+      <DependentUpon>RoleDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dictionaries\User\Users.xaml.cs">
       <DependentUpon>Users.xaml</DependentUpon>

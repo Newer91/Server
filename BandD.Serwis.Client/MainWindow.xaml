@@ -37,12 +37,10 @@
                         <MenuItem Header="_Exit" />
                     </MenuItem>
                     <MenuItem Header="_Słowniki">
-                        <MenuItem Header="_New" />
-                        <MenuItem Header="_Open" />
-                        <MenuItem Header="_Save" />
-                        <MenuItem Header="_Użytkownicy" Name="Users" Click="Users_Click" />
-                        <MenuItem Header="_Statusy zleceń" Name="OrderStatus" Click="OrderStatus_Click"/>
                         <MenuItem Header="_Przewoźnicy" Name="CarrierStatus" Click="CarrierStatus_Click"/>
+                        <MenuItem Header="_Role" Name="UserRole" Click="UserRole_Click"/>
+                        <MenuItem Header="_Statusy zleceń" Name="OrderStatus" Click="OrderStatus_Click"/>
+                        <MenuItem Header="_Użytkownicy" Name="Users" Click="Users_Click" />    
                     </MenuItem>
                 </Menu>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">

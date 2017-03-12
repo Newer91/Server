@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BandD.Serwis.Tools.ClientTools;
+using BandD.Serwis.Tools.Logger;
+using System;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
@@ -11,25 +13,39 @@ namespace BandD.Serwis.Tools.ServerTools
         public static SecureString convertToSecureString(string strPassword)
         {
             var secureStr = new SecureString();
-            if (strPassword.Length > 0)
+            try
             {
-                foreach (var c in strPassword.ToCharArray()) secureStr.AppendChar(c);
+                if (strPassword.Length > 0)
+                {
+                    foreach (var c in strPassword.ToCharArray()) secureStr.AppendChar(c);
+                }
+            }
+            catch (Exception e)
+            {
+                LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
             }
             return secureStr;
         }
 
         public static string convertToUNSecureString(SecureString secstrPassword)
         {
+            string result;
             IntPtr unmanagedString = IntPtr.Zero;
             try
             {
                 unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secstrPassword);
-                return Marshal.PtrToStringUni(unmanagedString);
+                result= Marshal.PtrToStringUni(unmanagedString);
+            }
+            catch (Exception e)
+            {
+                LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+                result = "";
             }
             finally
             {
                 Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
             }
+            return result;
         }
 
         public static bool SecureStringEqual(SecureString secureString1, SecureString secureString2)
@@ -77,13 +93,21 @@ namespace BandD.Serwis.Tools.ServerTools
 
         public static string CalculateMD5Hash(string inputString)
         {
-            MD5 md5 = MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(inputString);
-            byte[] hash = md5.ComputeHash(inputBytes);
-
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-                sb.Append(hash[i].ToString("X2"));
+            MD5 md5 = MD5.Create();
+            try
+            {
+                byte[] inputBytes = Encoding.ASCII.GetBytes(inputString);
+                byte[] hash = md5.ComputeHash(inputBytes);
+
+                for (int i = 0; i < hash.Length; i++)
+                    sb.Append(hash[i].ToString("X2"));
+            }
+            catch (Exception e)
+            {
+                LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+            }
+
             return sb.ToString();
         }
     }

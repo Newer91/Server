@@ -32,5 +32,34 @@ namespace BandD.Serwis.Model.Dictionaries
 
             return result;
         }
+
+        public ObservableCollection<SlRoleView> GetDataFromRole(string name, bool? status)
+        {
+            string names = name == null ? string.Empty : name;
+
+            var items = service.GetDataFromRole(names, status);
+            var result = new ObservableCollection<SlRoleView>();
+            foreach (var item in items)
+            {
+                result.Add(item);
+            }
+
+            return result;
+        }
+
+        public bool RemoveElement(Guid roleId)
+        {
+            return service.RemoveElementFromRole(roleId);
+        }
+
+        public bool SaveChange(SlRoleView role)
+        {
+            return service.UpdateElementSlRole(role);
+        }
+
+        public bool AddNewItem(SlRoleView role)
+        {
+            return service.AddElementToSlRole(role);
+        }
     }
 }

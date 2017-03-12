@@ -15,13 +15,6 @@ namespace BandD.Serwis.SerwisISS.Service
 {
     public class DictionariesService : IDictionariesService
     {
-        LoggerExeption logger;
-
-        public DictionariesService()
-        {
-            logger = new LoggerExeption();
-        }
-
         #region User
 
         public bool Autorauthorization(string password, string userName)
@@ -40,7 +33,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                 }
             }
             return result;
@@ -73,7 +66,7 @@ namespace BandD.Serwis.SerwisISS.Service
 
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                 }
 
                 return result;
@@ -93,7 +86,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -113,7 +106,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -137,7 +130,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -171,7 +164,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                 }
 
                 return result;
@@ -191,7 +184,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -210,7 +203,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -232,7 +225,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -267,7 +260,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                 }
 
                 return result;
@@ -287,7 +280,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -306,7 +299,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -328,7 +321,7 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                     result = false;
                 }
             }
@@ -358,10 +351,99 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
                 catch (Exception e)
                 {
-                    logger.LogExeption(e, logger.CalleMethodsName());                  
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
                 }
             }
 
+            return result;
+        }
+
+        public ObservableCollection<SlRoleView> GetDataFromRole(string name, bool? status)
+        {
+            ObservableCollection<SlRoleView> result = new ObservableCollection<SlRoleView>();
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    IQueryable<SlRole> role = ctx.SlRoles;
+                    if (name != string.Empty)
+                        role = role.Where(l => l.Name == name);
+
+                    if (status != null)
+                        role = role.Where(l => l.Active == status);
+
+                    foreach (var item in role.ToList())
+                    {
+                        result.Add(DictionaryCoverterToView.SlRolaToView(item));
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+                }
+            }
+
+            return result;
+        }
+
+        public bool RemoveElementFromRole(Guid id)
+        {
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    var item = ctx.SlRoles.Find(id);
+                    item.Active = false;
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+                    result = false;
+                }
+            }
+            return result;
+        }
+
+        public bool UpdateElementSlRole(SlRoleView role)
+        {
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    var element = ctx.SlRoles.Find(role.RoleId);
+                    element.Name = role.Name;
+                    element.Active = role.Active;
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+                    result = false;
+                }
+            }
+            return result;
+        }
+
+        public bool AddElementToSlRole(SlRoleView role)
+        {
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    ctx.SlRoles.Add(DictionaryCoverterToDomain.SlRoleToDomain(role));
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+                    result = false;
+                }
+            }
             return result;
         }
 

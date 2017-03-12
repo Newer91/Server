@@ -4,6 +4,7 @@ using System.Windows.Input;
 using BandD.Serwis.Client.Dictionaries;
 using BandD.Serwis.Client.Dictionaries.User;
 using BandD.Serwis.Client.Dictionaries.Carriers;
+using BandD.Serwis.Client.Dictionaries.Role;
 
 namespace BandD.Serwis.Client
 {
@@ -18,10 +19,6 @@ namespace BandD.Serwis.Client
             this.DataContext = this;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
         private void pnlMainGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
@@ -46,6 +43,12 @@ namespace BandD.Serwis.Client
         private void Users_Click(object sender, RoutedEventArgs e)
         {
             Users window = new Users();
+            window.ShowDialog();
+        }
+
+        private void UserRole_Click(object sender, RoutedEventArgs e)
+        {
+            Role window = new Role();
             window.ShowDialog();
         }
     }

@@ -216,6 +216,63 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="GetDataFromRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataFromRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="GetDataFromRoleResult" nillable="true" type="q15:ArrayOfSlRoleView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveElementFromRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q16:guid" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveElementFromRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RemoveElementFromRoleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateElementSlRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="role" nillable="true" type="q17:SlRoleView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateElementSlRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateElementSlRoleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddElementToSlRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="role" nillable="true" type="q18:SlRoleView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddElementToSlRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddElementToSlRoleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="anyType" nillable="true" type="xs:anyType" />
@@ -410,6 +467,30 @@
   <wsdl:message name="IDictionariesService_GetAllRoles_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
   </wsdl:message>
+  <wsdl:message name="IDictionariesService_GetDataFromRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataFromRole" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_GetDataFromRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataFromRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_RemoveElementFromRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveElementFromRole" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_RemoveElementFromRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveElementFromRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_UpdateElementSlRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateElementSlRole" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_UpdateElementSlRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateElementSlRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_AddElementToSlRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddElementToSlRole" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_AddElementToSlRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddElementToSlRoleResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDictionariesService">
     <wsdl:operation name="Autorauthorization">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/Autorauthorization" message="tns:IDictionariesService_Autorauthorization_InputMessage" />
@@ -466,6 +547,22 @@
     <wsdl:operation name="GetAllRoles">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/GetAllRoles" message="tns:IDictionariesService_GetAllRoles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/GetAllRolesResponse" message="tns:IDictionariesService_GetAllRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/GetDataFromRole" message="tns:IDictionariesService_GetDataFromRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/GetDataFromRoleResponse" message="tns:IDictionariesService_GetDataFromRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveElementFromRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/RemoveElementFromRole" message="tns:IDictionariesService_RemoveElementFromRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/RemoveElementFromRoleResponse" message="tns:IDictionariesService_RemoveElementFromRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElementSlRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/UpdateElementSlRole" message="tns:IDictionariesService_UpdateElementSlRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/UpdateElementSlRoleResponse" message="tns:IDictionariesService_UpdateElementSlRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddElementToSlRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/AddElementToSlRole" message="tns:IDictionariesService_AddElementToSlRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/AddElementToSlRoleResponse" message="tns:IDictionariesService_AddElementToSlRole_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IDictionariesService" type="tns:IDictionariesService">
@@ -590,6 +687,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllRoles">
       <soap12:operation soapAction="http://tempuri.org/IDictionariesService/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromRole">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/GetDataFromRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveElementFromRole">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/RemoveElementFromRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElementSlRole">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/UpdateElementSlRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElementToSlRole">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/AddElementToSlRole" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

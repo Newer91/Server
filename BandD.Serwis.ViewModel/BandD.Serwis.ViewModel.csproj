@@ -48,6 +48,8 @@
     <Compile Include="Dictionaries\CarrierStatus\CarrierStatusViewModel.cs" />
     <Compile Include="Dictionaries\OrderStatus\OrderStatusDetailViewModel.cs" />
     <Compile Include="Dictionaries\OrderStatus\OrderStatusViewModel.cs" />
+    <Compile Include="Dictionaries\Role\RoleDetailViewModel.cs" />
+    <Compile Include="Dictionaries\Role\RoleViewModel.cs" />
     <Compile Include="Dictionaries\User\UserDetailViewModel.cs" />
     <Compile Include="Dictionaries\User\UserViewModel.cs" />
     <Compile Include="LoginWindowViewModel.cs" />

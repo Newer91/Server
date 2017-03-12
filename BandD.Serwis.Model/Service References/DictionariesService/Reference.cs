@@ -98,6 +98,30 @@ namespace BandD.Serwis.Model.DictionariesService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetAllRoles", ReplyAction="http://tempuri.org/IDictionariesService/GetAllRolesResponse")]
         System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[]> GetAllRolesAsync(bool isAll);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetDataFromRole", ReplyAction="http://tempuri.org/IDictionariesService/GetDataFromRoleResponse")]
+        BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[] GetDataFromRole(string name, System.Nullable<bool> status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetDataFromRole", ReplyAction="http://tempuri.org/IDictionariesService/GetDataFromRoleResponse")]
+        System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[]> GetDataFromRoleAsync(string name, System.Nullable<bool> status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromRole", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromRoleResponse")]
+        bool RemoveElementFromRole(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromRole", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromRoleResponse")]
+        System.Threading.Tasks.Task<bool> RemoveElementFromRoleAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementSlRole", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementSlRoleResponse")]
+        bool UpdateElementSlRole(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementSlRole", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementSlRoleResponse")]
+        System.Threading.Tasks.Task<bool> UpdateElementSlRoleAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToSlRole", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToSlRoleResponse")]
+        bool AddElementToSlRole(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToSlRole", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToSlRoleResponse")]
+        System.Threading.Tasks.Task<bool> AddElementToSlRoleAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -237,6 +261,38 @@ namespace BandD.Serwis.Model.DictionariesService {
         
         public System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[]> GetAllRolesAsync(bool isAll) {
             return base.Channel.GetAllRolesAsync(isAll);
+        }
+        
+        public BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[] GetDataFromRole(string name, System.Nullable<bool> status) {
+            return base.Channel.GetDataFromRole(name, status);
+        }
+        
+        public System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView[]> GetDataFromRoleAsync(string name, System.Nullable<bool> status) {
+            return base.Channel.GetDataFromRoleAsync(name, status);
+        }
+        
+        public bool RemoveElementFromRole(System.Guid id) {
+            return base.Channel.RemoveElementFromRole(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveElementFromRoleAsync(System.Guid id) {
+            return base.Channel.RemoveElementFromRoleAsync(id);
+        }
+        
+        public bool UpdateElementSlRole(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role) {
+            return base.Channel.UpdateElementSlRole(role);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateElementSlRoleAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role) {
+            return base.Channel.UpdateElementSlRoleAsync(role);
+        }
+        
+        public bool AddElementToSlRole(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role) {
+            return base.Channel.AddElementToSlRole(role);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddElementToSlRoleAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role) {
+            return base.Channel.AddElementToSlRoleAsync(role);
         }
     }
 }

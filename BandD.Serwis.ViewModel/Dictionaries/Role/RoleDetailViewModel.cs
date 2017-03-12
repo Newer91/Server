@@ -1,26 +1,30 @@
-﻿using BandD.Serwis.Model.Dictionaries;
+﻿using BandD.Serwis.ClassViewModel.Dictionaries;
+using BandD.Serwis.Model.Dictionaries;
+using BandD.Serwis.Tools.ClientTools;
 using BandD.Serwis.Tools.Extension;
 using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Class;
-using BandD.Serwis.ClassViewModel.Dictionaries;
 using System;
 using System.Windows;
-using BandD.Serwis.Tools.ClientTools;
 
-namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
+namespace BandD.Serwis.ViewModel.Dictionaries.Role
 {
-
-    public class CarrierStatusDetailViewModel : BaseViewClass
+    public class RoleDetailViewModel: BaseViewClass
     {
-        private CarrierStatusModel model;
+        private RolesModel model;
+        private SlRoleView role;
         private ViewType viewType;
-        private SlCarriersStatView stats;
         private string title;
         private bool isReadOnly;
         private bool isEnable;
         private string cancelButtonName;
 
-        #region Public properties
+        public SlRoleView Role
+        {
+            get { return role; }
+            set { role = value; OnPropertyChanged(); }
+        }
+
         public ViewType ViewType
         {
             get { return viewType; }
@@ -45,26 +49,19 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
             set { title = value; OnPropertyChanged(); }
         }
 
-        public SlCarriersStatView Stats
-        {
-            get { return stats; }
-            set { stats = value; OnPropertyChanged(); }
-        }
-
         public string CancelButtonName
         {
             get { return cancelButtonName; }
             set { cancelButtonName = value; OnPropertyChanged(); }
         }
 
-        #endregion
-
-        public CarrierStatusDetailViewModel(ViewType viewType)
+        public RoleDetailViewModel(ViewType viewType)
         {
             ViewType = viewType;
+            model = new RolesModel();
             SetViewMode(viewType);
-            model = new CarrierStatusModel();
         }
+
         private void SetViewMode(ViewType viewType)
         {
             if (viewType == ViewType.View)
@@ -78,26 +75,27 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
                 IsEnable = true;
                 IsReadOnly = false;
                 CancelButtonName = "Anuluj";
-
             }
+
             if (viewType == ViewType.New)
-                stats = new SlCarriersStatView();
+                role = new SlRoleView();
 
             Title = ClientTools.SetTitleToDetailView(viewType);
         }
+
         public bool SaveChange()
         {
-            bool result = false;
+            bool result = true;
             bool serverResult;
             var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
             {
-                if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
+                if (ClientTools.ValidateProperty(role.Name))
                 {
                     if (ViewType == ViewType.Edit)
-                        serverResult = result = model.SaveChange(stats);
+                        serverResult = model.SaveChange(Role);
                     else
-                        serverResult = result = AddNewItem();
+                        serverResult = AddNewItem();
 
                     if (!serverResult)
                     {
@@ -107,25 +105,23 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
                 }
                 else
                 {
-                    throw new NotImplementedException();
-                    MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Pole nazwa nie może być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                     result = false;
                 }
             }
             else
                 return false;
 
-            if (result)            
-                MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);           
+            if (result)
+                MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            return false;
-
+            return result;
         }
+
         public bool AddNewItem()
         {
-            stats.CarrierStatusId = Guid.NewGuid();
-            return model.AddNewItem(stats);
+            role.RoleId = Guid.NewGuid();
+            return model.AddNewItem(role);
         }
     }
 }
-

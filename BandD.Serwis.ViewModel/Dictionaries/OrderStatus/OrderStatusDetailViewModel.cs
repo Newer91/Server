@@ -108,7 +108,10 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
                     }
                 }
                 else
+                {
                     MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    result = false;
+                }                   
             }
 
             if (result)            

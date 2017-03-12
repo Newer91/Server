@@ -66,6 +66,18 @@ namespace BandD.Serwis.SerwisISS.Interface
         [OperationContract]
         ObservableCollection<SlRoleView> GetAllRoles(bool isAll);
 
+        [OperationContract]
+        ObservableCollection<SlRoleView> GetDataFromRole(string name, bool? status);
+
+        [OperationContract]
+        bool RemoveElementFromRole(Guid id);
+
+        [OperationContract]
+        bool UpdateElementSlRole(SlRoleView role);
+
+        [OperationContract]
+        bool AddElementToSlRole(SlRoleView role);
+
         #endregion
     }
 }

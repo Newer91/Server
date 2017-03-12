@@ -144,6 +144,8 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
                     result = true;
                 }
             }
+            else
+                return false;
 
             if (result)
                 MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -177,7 +179,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
         {
             bool result = true;
 
-            if (User.UserName == string.Empty)
+            if (!ClientTools.ValidateProperty(User.UserName))
             {
                 MessageBox.Show("Nazwa użytkownika nie może być pusta.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                 result = false;

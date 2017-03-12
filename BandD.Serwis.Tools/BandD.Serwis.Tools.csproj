@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientTools\ClientMessage.cs" />
-    <Compile Include="Extension\ClientTools.cs" />
+    <Compile Include="ClientTools\ClientTools.cs" />
     <Compile Include="Extension\Enums.cs" />
     <Compile Include="Logger\LoggerExeption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

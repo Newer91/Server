@@ -52,5 +52,18 @@ namespace SerwisISS.Helpers
 
             return result;
         }
+
+        public static SlRole SlRoleToDomain(SlRoleView role)
+        {
+            var result = new SlRole();
+
+            if(role!=null)
+            {
+                result.Active = role.Active;
+                result.Name = role.Name;
+                result.RoleId = role.RoleId.Value;
+            }
+            return result;
+        }
     }
 }
