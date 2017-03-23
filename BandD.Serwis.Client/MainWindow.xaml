@@ -17,7 +17,14 @@
             </Grid.RowDefinitions>
             <DockPanel Grid.ColumnSpan="2">
                 <Menu DockPanel.Dock="Top">
-                    <MenuItem Header="_Zlecenia">
+                    <MenuItem Header="_Konfiguracja">
+                        <!--<MenuItem Header="_New" />
+                        <MenuItem Header="_Open" />
+                        <MenuItem Header="_Save" />-->
+                        <Separator />
+                        <MenuItem Header="_Exit" />
+                    </MenuItem>
+                    <!--<MenuItem Header="_Zlecenia">
                         <MenuItem Header="_New" />
                         <MenuItem Header="_Open" />
                         <MenuItem Header="_Save" />
@@ -28,14 +35,7 @@
                         <MenuItem Header="_Wklej" />
                         <MenuItem Header="_Cofnij" />
                         <MenuItem Header="_Do przodu" />
-                    </MenuItem>
-                    <MenuItem Header="_Konfiguracja">
-                        <MenuItem Header="_New" />
-                        <MenuItem Header="_Open" />
-                        <MenuItem Header="_Save" />
-                        <Separator />
-                        <MenuItem Header="_Exit" />
-                    </MenuItem>
+                    </MenuItem>-->
                     <MenuItem Header="_Słowniki">
                         <MenuItem Header="_Przewoźnicy" Name="CarrierStatus" Click="CarrierStatus_Click"/>
                         <MenuItem Header="_Role" Name="UserRole" Click="UserRole_Click"/>

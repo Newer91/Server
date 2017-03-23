@@ -314,9 +314,9 @@ namespace BandD.Serwis.SerwisISS.Service
                 try
                 {
                     var element = ctx.SlCarrierStats.Find(item.CarrierStatusId);
-                    element.Name = item.CarrierName;
-                    element.Link = item.CarrierLink;
-                    element.Active = item.CarrierStatus;
+                    element.Name = item.Name;
+                    element.Link = item.Link;
+                    element.Active = item.Active;
                     ctx.SaveChanges();
                 }
                 catch (Exception e)

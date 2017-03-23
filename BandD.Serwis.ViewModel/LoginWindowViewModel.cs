@@ -40,7 +40,7 @@ namespace BandD.Serwis.ViewModel
 
         public bool Authorization()
         {
-            if (securePassword.Length < 4)
+            if (securePassword ==null|| securePassword.Length < 4)
             {
                 MessageBox.Show("Hasło nie może być krótsze niż 5 znaków", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;

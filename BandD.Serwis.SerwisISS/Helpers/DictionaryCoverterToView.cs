@@ -1,5 +1,4 @@
-﻿using System;
-using BandD.Serwis.ClassViewModel.Dictionaries;
+﻿using BandD.Serwis.ClassViewModel.Dictionaries;
 using BandD.Serwis.Domain;
 using BandD.Serwis.Domain.Dictionaries;
 
@@ -27,9 +26,9 @@ namespace SerwisISS.Helpers
             if (user != null)
             {
                 result.CarrierStatusId = user.CarrierStatusId;
-                result.CarrierName = user.Name;
-                result.CarrierStatus = user.Active;
-                result.CarrierLink = user.Link;
+                result.Name = user.Name;
+                result.Active = user.Active;
+                result.Link = user.Link;
             }
             return result;
         }

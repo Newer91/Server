@@ -1,18 +1,6 @@
 ﻿using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Dictionaries.CarrierStatus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BandD.Serwis.Client.Dictionaries.Carriers
 {
@@ -22,22 +10,35 @@ namespace BandD.Serwis.Client.Dictionaries.Carriers
     public partial class Carriers : Window
     {
         CarrierStatusViewModel carrierViewModel = new CarrierStatusViewModel();
+
         public Carriers()
         {
             InitializeComponent();
             this.DataContext = carrierViewModel;
         }
-        //private void buttonView_Click(object sender, RoutedEventArgs e)
-        //{
-        //    CarrierStatsDetail detail = new CarrierStatsDetail(ViewType.View, orderViewModel.SlCarrierStats);
-        //    detail.ShowDialog();
-        //}
 
-        //private void buttonAdd_Click(object sender, RoutedEventArgs e)
-        //{
-        //    CarrierStatsDetail detail = new CarrierStatsDetail(ViewType.New, null);
-        //    detail.ShowDialog();
-        //    carrierViewModel.SearchExecute();
-        //}
+        private void buttonView_Click(object sender, RoutedEventArgs e)
+        {
+            CarriersDetails detail = new CarriersDetails(ViewType.View, carrierViewModel.SlCarrierStats);
+            detail.ShowDialog();
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            CarriersDetails detail = new CarriersDetails(ViewType.New, null);
+            detail.ShowDialog();
+            carrierViewModel.SearchExecute();
+        }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            CarriersDetails detail = new CarriersDetails(ViewType.Edit, carrierViewModel.SlCarrierStats);
+            detail.ShowDialog();
+        }
     }
 }

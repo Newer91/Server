@@ -19,11 +19,6 @@ namespace BandD.Serwis.Client
             this.DataContext = this;
         }
 
-        private void pnlMainGrid_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
-        }
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

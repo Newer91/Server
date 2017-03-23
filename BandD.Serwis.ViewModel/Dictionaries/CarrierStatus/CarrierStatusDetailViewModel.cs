@@ -14,7 +14,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
     {
         private CarrierStatusModel model;
         private ViewType viewType;
-        private SlCarriersStatView stats;
+        private SlCarriersStatView carrier;
         private string title;
         private bool isReadOnly;
         private bool isEnable;
@@ -45,10 +45,10 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
             set { title = value; OnPropertyChanged(); }
         }
 
-        public SlCarriersStatView Stats
+        public SlCarriersStatView Carrier
         {
-            get { return stats; }
-            set { stats = value; OnPropertyChanged(); }
+            get { return carrier; }
+            set { carrier = value; OnPropertyChanged(); }
         }
 
         public string CancelButtonName
@@ -81,7 +81,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
 
             }
             if (viewType == ViewType.New)
-                stats = new SlCarriersStatView();
+                carrier = new SlCarriersStatView();
 
             Title = ClientTools.SetTitleToDetailView(viewType);
         }
@@ -92,10 +92,10 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
             var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
             {
-                if (ClientTools.ValidateProperty(stats.CarrierName) && ClientTools.ValidateProperty(stats.CarrierLink))
+                if (ClientTools.ValidateProperty(carrier.Name) && ClientTools.ValidateProperty(carrier.Link))
                 {
                     if (ViewType == ViewType.Edit)
-                        serverResult = result = model.SaveChange(stats);
+                        serverResult = result = model.SaveChange(carrier);
                     else
                         serverResult = result = AddNewItem();
 
@@ -107,7 +107,6 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
                 }
                 else
                 {
-                    throw new NotImplementedException();
                     MessageBox.Show("Pole opis i nazwa nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                     result = false;
                 }
@@ -123,8 +122,8 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
         }
         public bool AddNewItem()
         {
-            stats.CarrierStatusId = Guid.NewGuid();
-            return model.AddNewItem(stats);
+            carrier.CarrierStatusId = Guid.NewGuid();
+            return model.AddNewItem(carrier);
         }
     }
 }

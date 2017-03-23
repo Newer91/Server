@@ -18,11 +18,11 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="70"/>
         </Grid.ColumnDefinitions>
-        <!--<Button x:Name="buttonView" Content="Przeglądaj" Grid.Column="1" Margin="5,10,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonView_Click"/>
+        <Button x:Name="buttonView" Content="Przeglądaj" Grid.Column="1" Margin="5,10,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonView_Click"/>
         <Button x:Name="buttonAdd" Content="Dodaj" Grid.Column="1" Margin="5,35,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonAdd_Click"/>
         <Button x:Name="buttonEdit" Content="Edytuj" Grid.Column="1" Margin="5,60,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonEdit_Click"/>
         <Button x:Name="buttonRemove" Content="Usuń" Grid.Column="1" Margin="5,85,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Command="{Binding Remove}"/>
-        <Button x:Name="buttonExit" Content="Wyjście" Grid.Column="1" Margin="5,0,5,10" Width="60" Height="20" MinHeight="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="buttonExit_Click"/>-->
+        <Button x:Name="buttonExit" Content="Wyjście" Grid.Column="1" Margin="5,0,5,10" Width="60" Height="20" MinHeight="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="buttonExit_Click"/>
 
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
@@ -30,7 +30,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <ListView x:Name="listViewCarrierStatus" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" SelectionMode="Single" Grid.Row="1"
-                      ItemsSource="{Binding CarrierStatusList, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SlCarrierStat}">
+                      ItemsSource="{Binding CarrierStatusList, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SlCarrierStats}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="70" Header="Nazwa" DisplayMemberBinding="{Binding Name}"/>
