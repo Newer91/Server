@@ -7,18 +7,21 @@ namespace BandD.Serwis.ClassViewModel.Dictionaries
     [DataContract(IsReference = true)]
     public class AddressesView
     {
+        [DataMember]
         public Guid AddressId { get; set; }
+        [DataMember]
         public string City { get; set; }
+        [DataMember]
         public string Street { get; set; }
+        [DataMember]
         public string Number { get; set; }
+        [DataMember]
         public int PostCode { get; set; }
+        [DataMember]
         public bool IsCompanyAddres { get; set; }
+        [DataMember]
         public bool IsDeliveryAddres { get; set; }
-        public string ClientName { get; set; }
-
-        public AddressesView CreateAddresView()
-        {
-            throw new NotImplementedException();
-        }       
+        [DataMember]
+        public string ClientName { get; set; } 
     }
 }
