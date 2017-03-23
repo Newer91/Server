@@ -368,10 +368,10 @@
       <xs:element name="ArrayOfSlCarriersStatView" nillable="true" type="tns:ArrayOfSlCarriersStatView" />
       <xs:complexType name="SlCarriersStatView">
         <xs:sequence>
-          <xs:element name="_x003C_CarrierLink_x003E_k__BackingField" nillable="true" type="xs:string" />
-          <xs:element name="_x003C_CarrierName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_Active_x003E_k__BackingField" type="xs:boolean" />
           <xs:element name="_x003C_CarrierStatusId_x003E_k__BackingField" type="ser:guid" />
-          <xs:element name="_x003C_CarrierStatus_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_Link_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_Name_x003E_k__BackingField" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="SlCarriersStatView" nillable="true" type="tns:SlCarriersStatView" />

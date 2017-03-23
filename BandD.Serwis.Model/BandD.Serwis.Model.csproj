@@ -30,7 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -47,24 +46,21 @@
     <Compile Include="Dictionaries\RolesModel.cs" />
     <Compile Include="Dictionaries\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\DictionariesService\Reference.cs">
+    <Compile Include="Service References\DictionarySerivce\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DTO\Dictionaries\BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView.datasource" />
-    <None Include="DTO\Dictionaries\BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView.datasource" />
-    <None Include="DTO\Dictionaries\BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView.datasource" />
-    <None Include="DTO\Dictionaries\BandD.Serwis.ClassViewModel.Dictionaries.UserView.datasource" />
-    <None Include="Service References\DictionariesService\DictionariesService.wsdl" />
+    <None Include="Properties\DataSources\BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView.datasource" />
+    <None Include="Properties\DataSources\BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView.datasource" />
+    <None Include="Properties\DataSources\BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView.datasource" />
+    <None Include="Properties\DataSources\BandD.Serwis.ClassViewModel.Dictionaries.UserView.datasource" />
+    <None Include="Service References\DictionarySerivce\DictionariesService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BandD.Serwis.ClassViewModel\BandD.Serwis.ClassViewModel.csproj">
@@ -82,16 +78,19 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\DictionariesService\" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DictionariesService\configuration91.svcinfo" />
+    <WCFMetadataStorage Include="Service References\DictionarySerivce\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DictionariesService\configuration.svcinfo" />
+    <None Include="Service References\DictionarySerivce\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DictionariesService\Reference.svcmap">
+    <None Include="Service References\DictionarySerivce\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DictionarySerivce\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

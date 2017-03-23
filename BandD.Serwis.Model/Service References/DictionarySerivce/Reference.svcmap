@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="873b7185-b1d5-4852-99b7-c4e46d569cd0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="89b629bf-42eb-4517-a628-05a20e6b60f4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://94.177.199.89:7834/Logger.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://94.177.199.89:7833/Service/DictionariesService.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Logger.wsdl" MetadataType="Wsdl" ID="4e2cdbb3-9a30-4054-a87f-cb835af58bf2" SourceId="1" SourceUrl="http://94.177.199.89:7834/Logger.svc?singleWsdl" />
+    <MetadataFile FileName="DictionariesService.wsdl" MetadataType="Wsdl" ID="a816105a-66c0-4a43-9dd9-b252c49f1361" SourceId="1" SourceUrl="http://94.177.199.89:7833/Service/DictionariesService.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

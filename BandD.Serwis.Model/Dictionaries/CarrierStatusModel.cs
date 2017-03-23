@@ -1,5 +1,5 @@
-﻿using BandD.Serwis.Model.DictionariesService;
-using BandD.Serwis.ClassViewModel.Dictionaries;
+﻿using BandD.Serwis.ClassViewModel.Dictionaries;
+using BandD.Serwis.Model.DictionarySerivce;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;

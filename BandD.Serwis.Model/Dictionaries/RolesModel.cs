@@ -1,7 +1,7 @@
 ﻿using BandD.Serwis.ClassViewModel.Dictionaries;
-using BandD.Serwis.Model.DictionariesService;
-using System.Collections.ObjectModel;
+using BandD.Serwis.Model.DictionarySerivce;
 using System;
+using System.Collections.ObjectModel;
 
 namespace BandD.Serwis.Model.Dictionaries
 {

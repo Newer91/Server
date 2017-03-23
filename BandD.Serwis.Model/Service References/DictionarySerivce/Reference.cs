@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BandD.Serwis.Model.DictionariesService {
+namespace BandD.Serwis.Model.DictionarySerivce {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DictionariesService.IDictionariesService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DictionarySerivce.IDictionariesService")]
     public interface IDictionariesService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/Autorauthorization", ReplyAction="http://tempuri.org/IDictionariesService/AutorauthorizationResponse")]
@@ -125,12 +125,12 @@ namespace BandD.Serwis.Model.DictionariesService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDictionariesServiceChannel : BandD.Serwis.Model.DictionariesService.IDictionariesService, System.ServiceModel.IClientChannel {
+    public interface IDictionariesServiceChannel : BandD.Serwis.Model.DictionarySerivce.IDictionariesService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DictionariesServiceClient : System.ServiceModel.ClientBase<BandD.Serwis.Model.DictionariesService.IDictionariesService>, BandD.Serwis.Model.DictionariesService.IDictionariesService {
+    public partial class DictionariesServiceClient : System.ServiceModel.ClientBase<BandD.Serwis.Model.DictionarySerivce.IDictionariesService>, BandD.Serwis.Model.DictionarySerivce.IDictionariesService {
         
         public DictionariesServiceClient() {
         }
