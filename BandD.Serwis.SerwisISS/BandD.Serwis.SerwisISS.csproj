@@ -101,9 +101,7 @@
     </Compile>
     <Compile Include="Interface\IDictionariesService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
