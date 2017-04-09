@@ -21,6 +21,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
         private string cancelButtonName;
 
         #region Public properties
+
         public ViewType ViewType
         {
             get { return viewType; }
@@ -65,6 +66,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
             SetViewMode(viewType);
             model = new CarrierStatusModel();
         }
+
         private void SetViewMode(ViewType viewType)
         {
             if (viewType == ViewType.View)
@@ -80,11 +82,10 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
                 CancelButtonName = "Anuluj";
 
             }
-            if (viewType == ViewType.New)
-                carrier = new SlCarriersStatView();
 
             Title = ClientTools.SetTitleToDetailView(viewType);
         }
+
         public bool SaveChange()
         {
             bool result = false;
@@ -118,8 +119,8 @@ namespace BandD.Serwis.ViewModel.Dictionaries.CarrierStatus
                 MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);           
 
             return false;
-
         }
+
         public bool AddNewItem()
         {
             carrier.CarrierStatusId = Guid.NewGuid();

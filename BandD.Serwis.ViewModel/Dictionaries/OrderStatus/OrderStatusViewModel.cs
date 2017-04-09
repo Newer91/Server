@@ -4,7 +4,6 @@ using BandD.Serwis.Model.Dictionaries;
 using System.Windows;
 using BandD.Serwis.ClassViewModel.Dictionaries;
 using System.Collections.ObjectModel;
-using System.Linq;
 using BandD.Serwis.Tools.ClientTools;
 
 namespace BandD.Serwis.ViewModel.Dictionaries

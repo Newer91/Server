@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityClassConfiguration\AddressEntityConfiguration.cs" />
+    <Compile Include="EntityClassConfiguration\ClientEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlCarrierStatEntityConfiuration.cs" />
     <Compile Include="EntityClassConfiguration\SlOrdersStatsEntityConfiguration.cs" />
     <Compile Include="EntityClassConfiguration\SlRoleEntityConfiguration.cs" />
@@ -93,6 +94,10 @@
     <Compile Include="Migrations\201703062150369_ChangeInSlRole.cs" />
     <Compile Include="Migrations\201703062150369_ChangeInSlRole.Designer.cs">
       <DependentUpon>201703062150369_ChangeInSlRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704051924361_Add client table.cs" />
+    <Compile Include="Migrations\201704051924361_Add client table.Designer.cs">
+      <DependentUpon>201704051924361_Add client table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703062150369_ChangeInSlRole.resx">
       <DependentUpon>201703062150369_ChangeInSlRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704051924361_Add client table.resx">
+      <DependentUpon>201704051924361_Add client table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

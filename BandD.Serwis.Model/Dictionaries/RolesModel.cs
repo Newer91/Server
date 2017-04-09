@@ -11,20 +11,18 @@ namespace BandD.Serwis.Model.Dictionaries
 
         public ObservableCollection<SlRoleView> GetAllActiveRole()
         {
-            ObservableCollection<SlRoleView> result = new ObservableCollection<SlRoleView>();
-            var items = service.GetAllRoles(false);
-            foreach (var item in items)
-            {
-                result.Add(item);
-            }
-
-            return result;
+            return getRole(true);
         }
 
         public ObservableCollection<SlRoleView> GetAllRole()
         {
+            return getRole(true);            
+        }
+
+        private ObservableCollection<SlRoleView> getRole(bool all)
+        {
             ObservableCollection<SlRoleView> result = new ObservableCollection<SlRoleView>();
-            var items = service.GetAllRoles(true);
+            var items = service.GetAllRoles(all);
             foreach (var item in items)
             {
                 result.Add(item);

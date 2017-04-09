@@ -10,6 +10,7 @@ using BandD.Serwis.SerwisISS.Interface;
 using SerwisISS.Helpers;
 using System.Collections.ObjectModel;
 using BandD.Serwis.Tools.Logger;
+using ClassViewModel.Dictionaries;
 
 namespace BandD.Serwis.SerwisISS.Service
 {
@@ -445,6 +446,105 @@ namespace BandD.Serwis.SerwisISS.Service
                 }
             }
             return result;
+        }
+
+        #endregion
+
+        #region Address
+
+        public ObservableCollection<AddressesView> GetDataFromAddress(string city, string street, string number)
+        {
+            ObservableCollection<AddressesView> result = new ObservableCollection<AddressesView>();
+
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    IQueryable<Address> addres = ctx.Address.Include(c => c.Client).AsNoTracking();
+                    if (city != null)
+                        addres = addres.Where(l => l.City == city);
+
+                    if (street != string.Empty)
+                        addres = addres.Where(l => l.Street == street);
+
+                    if (number != string.Empty)
+                        addres = addres.Where(l => l.Number == number);
+
+                    foreach (var item in addres.ToList())
+                    {
+                        result.Add(DictionaryCoverterToView.AddressToView(item));
+                    }
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+                }
+            }
+            return result;
+        }
+
+        public bool RemoveElementFromAddress(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddElementToAddress(AddressesView address)
+        {
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    ctx.Address.Add(DictionaryCoverterToDomain.AddressToDomain(address));
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+                    result = false;
+                }
+            }
+            return result;
+        }
+
+        public bool UpdateElementAddress(AddressesView address)
+        {
+            bool result = true;
+            using (var ctx = new ServisContex())
+            {
+                try
+                {
+                    var element = ctx.Address.Find(address.AddressId);
+                    element.City = address.City;
+                    element.Street = address.Street;
+                    element.Number = address.Number;
+                    element.PostCode = address.PostCode.Value;
+                    element.IsCompanyAddres = address.IsCompanyAddres;
+                    element.IsDeliveryAddres = address.IsDeliveryAddres;              
+                    
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    LoggerExeption.LogExeption(e, LoggerExeption.CalleMethodsName());
+                    result = false;
+                }
+            }
+            return result;
+        }
+
+        #endregion
+
+        #region Client
+
+        public ObservableCollection<ClientView> GetDataFromClient(string shortName, int nip, int regon, bool? value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveElementFromClient(Guid id)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

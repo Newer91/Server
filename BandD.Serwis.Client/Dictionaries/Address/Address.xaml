@@ -6,33 +6,50 @@
         xmlns:local="clr-namespace:BandD.Serwis.Client.Dictionaries.Address"
         xmlns:conv ="clr-namespace:BandD.Serwis.Client.Converter"
         mc:Ignorable="d"
-        Title="Adresy" Height="350" Width="625">
+        Title="Adresy" MinHeight="400" MinWidth="700">
     <Window.Resources>
         <conv:YesNoToBooleanConverter x:Key="YesNoToBooleanConverter"/>
     </Window.Resources>
-    
+
     <Grid Background="{StaticResource applicationColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="70"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <ListView Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                  ItemsSource="{Binding Addresses,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Address,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="80" Header="Nazwa klienta" DisplayMemberBinding="{Binding ClientName}"/>
-                    <GridViewColumn Width="60" Header="Miasto" DisplayMemberBinding="{Binding City}"/>
-                    <GridViewColumn Width="60" Header="Ulica" DisplayMemberBinding="{Binding Street}"/>
-                    <GridViewColumn Width="50" Header="Numer" DisplayMemberBinding="{Binding Number}"/>
-                    <GridViewColumn Width="80" Header="Kod pocztowy" DisplayMemberBinding="{Binding PostCode, StringFormat={} {0:00-000}}"/>
-                    <GridViewColumn Width="90" Header="Czy adres firmy" DisplayMemberBinding="{Binding IsCompanyAddres, Converter={StaticResource YesNoToBooleanConverter}}"/>
-                    <GridViewColumn Width="110" Header="Czy adres dostawy" DisplayMemberBinding="{Binding IsDeliveryAddres, Converter={StaticResource YesNoToBooleanConverter}}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Button x:Name="buttonView" Content="Przeglądaj" Grid.Column="1" Margin="5,10,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonView_Click"/>
+        <Button x:Name="buttonAdd" Content="Dodaj" Grid.Column="1" Margin="5,35,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonAdd_Click"/>
+        <Button x:Name="buttonEdit" Content="Edytuj" Grid.Column="1" Margin="5,60,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Click="buttonEdit_Click"/>
+        <Button x:Name="buttonRemove" Content="Usuń" Grid.Column="1" Margin="5,85,5,0" VerticalAlignment="Top" Width="60" Height="20" HorizontalAlignment="Center" Command="{Binding Remove}"/>
+        <Button x:Name="buttonExit" Content="Wyjście" Grid.Column="1" Margin="5,0,5,10" Width="60" Height="20" MinHeight="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="buttonExit_Click"/>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                  ItemsSource="{Binding AddressList,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Address,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="100" Header="Miasto" DisplayMemberBinding="{Binding City}"/>
+                        <GridViewColumn Width="100" Header="Ulica" DisplayMemberBinding="{Binding Street}"/>
+                        <GridViewColumn Width="50" Header="Numer" DisplayMemberBinding="{Binding Number}"/>
+                        <GridViewColumn Width="80" Header="Kod pocztowy" DisplayMemberBinding="{Binding PostCode, StringFormat={} {0:00-000}}"/>
+                        <GridViewColumn Width="Auto" Header="Czy adres firmy" DisplayMemberBinding="{Binding IsCompanyAddres, Converter={StaticResource YesNoToBooleanConverter}}"/>
+                        <GridViewColumn Width="Auto" Header="Czy adres dostawy" DisplayMemberBinding="{Binding IsDeliveryAddres, Converter={StaticResource YesNoToBooleanConverter}}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            
+            <Label x:Name="labelCity" Content="Miasto" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="textCityName" HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="{Binding City,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="120" Height="20"/>
+            <Label x:Name="labelStreet" Content="Ulica" HorizontalAlignment="Left" Margin="140,10,0,10" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxStreet" HorizontalAlignment="Left" Margin="140,40,0,10" TextWrapping="Wrap" Text="{Binding Street,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="120" Height="20"/>
+            <Label x:Name="labelNumber" Content="Numer" HorizontalAlignment="Left" Margin="270,10,0,10" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxNumber" HorizontalAlignment="Left" Margin="270,40,0,10" TextWrapping="Wrap" Text="{Binding Number,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, StringFormat={} {0:00-000}}" VerticalAlignment="Top" Width="120" Height="20"/>
+
+            <Button x:Name="buttonSearch" Content="Szukaj" HorizontalAlignment="Right" Margin="0,30,10,30" VerticalAlignment="Top" Width="75" Height="20" Command="{Binding Search}"/>
+
+        </Grid>
     </Grid>
 </Window>

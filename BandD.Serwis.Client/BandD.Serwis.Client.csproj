@@ -82,11 +82,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dictionaries\Address\AddressDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionaries\Carriers\Carriers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dictionaries\Carriers\CarriersDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionaries\Client\Client.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionaries\Client\ClientDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,11 +138,20 @@
     <Compile Include="Dictionaries\Address\Address.xaml.cs">
       <DependentUpon>Address.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dictionaries\Address\AddressDetail.xaml.cs">
+      <DependentUpon>AddressDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dictionaries\Carriers\Carriers.xaml.cs">
       <DependentUpon>Carriers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dictionaries\Carriers\CarriersDetails.xaml.cs">
       <DependentUpon>CarriersDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionaries\Client\Client.xaml.cs">
+      <DependentUpon>Client.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionaries\Client\ClientDetail.xaml.cs">
+      <DependentUpon>ClientDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dictionaries\OrderStat\OrderStatsDetail.xaml.cs">
       <DependentUpon>OrderStatsDetail.xaml</DependentUpon>

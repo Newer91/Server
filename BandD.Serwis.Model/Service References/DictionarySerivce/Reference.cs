@@ -122,6 +122,30 @@ namespace BandD.Serwis.Model.DictionarySerivce {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToSlRole", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToSlRoleResponse")]
         System.Threading.Tasks.Task<bool> AddElementToSlRoleAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetDataFromAddress", ReplyAction="http://tempuri.org/IDictionariesService/GetDataFromAddressResponse")]
+        BandD.Serwis.ClassViewModel.Dictionaries.AddressesView[] GetDataFromAddress(string city, string street, string number);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/GetDataFromAddress", ReplyAction="http://tempuri.org/IDictionariesService/GetDataFromAddressResponse")]
+        System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.AddressesView[]> GetDataFromAddressAsync(string city, string street, string number);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromAddress", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromAddressResponse")]
+        bool RemoveElementFromAddress(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/RemoveElementFromAddress", ReplyAction="http://tempuri.org/IDictionariesService/RemoveElementFromAddressResponse")]
+        System.Threading.Tasks.Task<bool> RemoveElementFromAddressAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToAddress", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToAddressResponse")]
+        bool AddElementToAddress(BandD.Serwis.ClassViewModel.Dictionaries.AddressesView element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/AddElementToAddress", ReplyAction="http://tempuri.org/IDictionariesService/AddElementToAddressResponse")]
+        System.Threading.Tasks.Task<bool> AddElementToAddressAsync(BandD.Serwis.ClassViewModel.Dictionaries.AddressesView element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementAddress", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementAddressResponse")]
+        bool UpdateElementAddress(BandD.Serwis.ClassViewModel.Dictionaries.AddressesView element);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionariesService/UpdateElementAddress", ReplyAction="http://tempuri.org/IDictionariesService/UpdateElementAddressResponse")]
+        System.Threading.Tasks.Task<bool> UpdateElementAddressAsync(BandD.Serwis.ClassViewModel.Dictionaries.AddressesView element);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -293,6 +317,38 @@ namespace BandD.Serwis.Model.DictionarySerivce {
         
         public System.Threading.Tasks.Task<bool> AddElementToSlRoleAsync(BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView role) {
             return base.Channel.AddElementToSlRoleAsync(role);
+        }
+        
+        public BandD.Serwis.ClassViewModel.Dictionaries.AddressesView[] GetDataFromAddress(string city, string street, string number) {
+            return base.Channel.GetDataFromAddress(city, street, number);
+        }
+        
+        public System.Threading.Tasks.Task<BandD.Serwis.ClassViewModel.Dictionaries.AddressesView[]> GetDataFromAddressAsync(string city, string street, string number) {
+            return base.Channel.GetDataFromAddressAsync(city, street, number);
+        }
+        
+        public bool RemoveElementFromAddress(System.Guid id) {
+            return base.Channel.RemoveElementFromAddress(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveElementFromAddressAsync(System.Guid id) {
+            return base.Channel.RemoveElementFromAddressAsync(id);
+        }
+        
+        public bool AddElementToAddress(BandD.Serwis.ClassViewModel.Dictionaries.AddressesView element) {
+            return base.Channel.AddElementToAddress(element);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddElementToAddressAsync(BandD.Serwis.ClassViewModel.Dictionaries.AddressesView element) {
+            return base.Channel.AddElementToAddressAsync(element);
+        }
+        
+        public bool UpdateElementAddress(BandD.Serwis.ClassViewModel.Dictionaries.AddressesView element) {
+            return base.Channel.UpdateElementAddress(element);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateElementAddressAsync(BandD.Serwis.ClassViewModel.Dictionaries.AddressesView element) {
+            return base.Channel.UpdateElementAddressAsync(element);
         }
     }
 }

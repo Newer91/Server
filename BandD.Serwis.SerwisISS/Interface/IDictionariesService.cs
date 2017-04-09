@@ -1,4 +1,5 @@
 ﻿using BandD.Serwis.ClassViewModel.Dictionaries;
+using ClassViewModel.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -77,6 +78,32 @@ namespace BandD.Serwis.SerwisISS.Interface
 
         [OperationContract]
         bool AddElementToSlRole(SlRoleView role);
+
+        #endregion
+
+        #region Address
+
+        [OperationContract]
+        ObservableCollection<AddressesView> GetDataFromAddress(string city, string street, string number);
+
+        [OperationContract]
+        bool RemoveElementFromAddress(Guid id);
+
+        [OperationContract]
+        bool AddElementToAddress(AddressesView element);
+
+        [OperationContract]
+        bool UpdateElementAddress(AddressesView element);
+
+        #endregion
+
+        #region Client
+
+        [OperationContract]
+        ObservableCollection<ClientView> GetDataFromClient(string shortName, int nip, int regon, bool? value);
+
+        [OperationContract]
+        bool RemoveElementFromClient(Guid id);
 
         #endregion
     }

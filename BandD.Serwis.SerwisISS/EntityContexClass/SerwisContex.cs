@@ -14,11 +14,10 @@ namespace BandD.Serwis.SerwisISS.EntityContexClass
 
         public DbSet<User> Users { get; set; }
         public DbSet<SlOrderStat> SlOrdersStats { get; set; }
-
         public DbSet<SlCarrierStat> SlCarrierStats { get; set; }
         public DbSet<SlRole> SlRoles { get; set; }
-
         public DbSet<Address> Address { get; set; }
+        public DbSet<Client> Clients { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,6 +26,7 @@ namespace BandD.Serwis.SerwisISS.EntityContexClass
             modelBuilder.Configurations.Add(new SlRoleEntityConfiguration());
             modelBuilder.Configurations.Add(new SlCarrierStatEntityConfiuration());
             modelBuilder.Configurations.Add(new AddressEntityConfiguration());
+            modelBuilder.Configurations.Add(new ClientEntityConfiguration());
         }
     }
 }

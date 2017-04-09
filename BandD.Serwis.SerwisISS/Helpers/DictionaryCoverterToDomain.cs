@@ -1,5 +1,4 @@
-﻿using System;
-using BandD.Serwis.ClassViewModel.Dictionaries;
+﻿using BandD.Serwis.ClassViewModel.Dictionaries;
 using BandD.Serwis.Domain;
 using BandD.Serwis.Domain.Dictionaries;
 
@@ -62,6 +61,23 @@ namespace SerwisISS.Helpers
                 result.Active = role.Active;
                 result.Name = role.Name;
                 result.RoleId = role.RoleId.Value;
+            }
+            return result;
+        }
+
+        public static Address AddressToDomain(AddressesView address)
+        {
+            var result = new Address();
+
+            if (address != null)
+            {
+                result.AddressId = address.AddressId;
+                result.City = address.City; 
+                result.IsCompanyAddres = address.IsCompanyAddres; 
+                result.IsDeliveryAddres = address.IsDeliveryAddres; 
+                result.Number = address.Number; 
+                result.PostCode = address.PostCode.Value; 
+                result.Street = address.Street;
             }
             return result;
         }

@@ -5,6 +5,7 @@ using BandD.Serwis.Client.Dictionaries;
 using BandD.Serwis.Client.Dictionaries.User;
 using BandD.Serwis.Client.Dictionaries.Carriers;
 using BandD.Serwis.Client.Dictionaries.Role;
+using BandD.Serwis.Client.Dictionaries.Address;
 
 namespace BandD.Serwis.Client
 {
@@ -44,6 +45,12 @@ namespace BandD.Serwis.Client
         private void UserRole_Click(object sender, RoutedEventArgs e)
         {
             Role window = new Role();
+            window.ShowDialog();
+        }
+
+        private void Address_Click(object sender, RoutedEventArgs e)
+        {
+            Address window = new Address();
             window.ShowDialog();
         }
     }

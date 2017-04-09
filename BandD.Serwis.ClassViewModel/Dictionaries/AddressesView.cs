@@ -16,12 +16,10 @@ namespace BandD.Serwis.ClassViewModel.Dictionaries
         [DataMember]
         public string Number { get; set; }
         [DataMember]
-        public int PostCode { get; set; }
+        public int? PostCode { get; set; }
         [DataMember]
         public bool IsCompanyAddres { get; set; }
         [DataMember]
         public bool IsDeliveryAddres { get; set; }
-        [DataMember]
-        public string ClientName { get; set; } 
     }
 }

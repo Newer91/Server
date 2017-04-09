@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClassViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -41,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionaries\AddressModel.cs" />
     <Compile Include="Dictionaries\CarrierStatusModel.cs" />
+    <Compile Include="Dictionaries\ClientModel.cs" />
     <Compile Include="Dictionaries\OrderStatusModel.cs" />
     <Compile Include="Dictionaries\RolesModel.cs" />
     <Compile Include="Dictionaries\UserModel.cs" />
@@ -56,6 +59,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\BandD.Serwis.ClassViewModel.Dictionaries.AddressesView.datasource" />
     <None Include="Properties\DataSources\BandD.Serwis.ClassViewModel.Dictionaries.SlCarriersStatView.datasource" />
     <None Include="Properties\DataSources\BandD.Serwis.ClassViewModel.Dictionaries.SlOrderStatView.datasource" />
     <None Include="Properties\DataSources\BandD.Serwis.ClassViewModel.Dictionaries.SlRoleView.datasource" />

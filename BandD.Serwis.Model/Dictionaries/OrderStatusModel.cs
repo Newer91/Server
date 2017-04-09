@@ -8,7 +8,6 @@ namespace BandD.Serwis.Model.Dictionaries
 {
     public class OrderStatusModel
     {
-
         private DictionariesServiceClient service = new DictionariesServiceClient();
 
         public ObservableCollection<SlOrderStatView> getDataFromSlOrderStat(string name, bool? activity)

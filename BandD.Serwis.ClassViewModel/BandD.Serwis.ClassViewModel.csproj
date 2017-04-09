@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BaseClass.cs" />
     <Compile Include="Dictionaries\AddressesView.cs" />
+    <Compile Include="Dictionaries\ClientView.cs" />
     <Compile Include="Dictionaries\SlCarriersStatView.cs" />
     <Compile Include="Dictionaries\SlOrderStatView.cs" />
     <Compile Include="Dictionaries\SlRoleView.cs" />

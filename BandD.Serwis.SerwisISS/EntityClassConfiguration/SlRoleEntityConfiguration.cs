@@ -10,9 +10,9 @@ namespace SerwisISS.EntityClassConfiguration
         {
             this.HasKey<Guid>(k => k.RoleId);
 
-            this.HasMany(u => u.Users).
-                WithRequired(r => r.SlRole).
-                WillCascadeOnDelete(false);
+            this.HasMany(u => u.Users)
+                .WithRequired(r => r.SlRole)
+                .WillCascadeOnDelete(false);
         }
     }
 }

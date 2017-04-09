@@ -4,26 +4,22 @@ using BandD.Serwis.Tools.ClientTools;
 using BandD.Serwis.Tools.Extension;
 using BandD.Serwis.Tools.ServerTools.Extension;
 using BandD.Serwis.ViewModel.Class;
-using System;
 using System.Windows;
+using System;
 
-namespace BandD.Serwis.ViewModel.Dictionaries.Role
+namespace BandD.Serwis.ViewModel.Dictionaries.Adress
 {
-    public class RoleDetailViewModel: BaseViewClass
+    public class AddressDetailViewModel: BaseViewClass
     {
-        private RolesModel model;
-        private SlRoleView role;
+        private AddressModel model;
         private ViewType viewType;
+        private AddressesView address;
         private string title;
         private bool isReadOnly;
         private bool isEnable;
         private string cancelButtonName;
 
-        public SlRoleView Role
-        {
-            get { return role; }
-            set { role = value; OnPropertyChanged(); }
-        }
+        #region Public properties
 
         public ViewType ViewType
         {
@@ -49,17 +45,24 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Role
             set { title = value; OnPropertyChanged(); }
         }
 
+        public AddressesView Address
+        {
+            get { return address; }
+            set { address = value; OnPropertyChanged(); }
+        }
+
         public string CancelButtonName
         {
             get { return cancelButtonName; }
             set { cancelButtonName = value; OnPropertyChanged(); }
         }
+        #endregion
 
-        public RoleDetailViewModel(ViewType viewType)
+        public AddressDetailViewModel(ViewType viewType)
         {
             ViewType = viewType;
-            model = new RolesModel();
             SetViewMode(viewType);
+            model = new AddressModel();
         }
 
         private void SetViewMode(ViewType viewType)
@@ -75,27 +78,25 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Role
                 IsEnable = true;
                 IsReadOnly = false;
                 CancelButtonName = "Anuluj";
-            }
 
-            if (viewType == ViewType.New)
-                Role = new SlRoleView();
+            }
 
             Title = ClientTools.SetTitleToDetailView(viewType);
         }
 
         public bool SaveChange()
         {
-            bool result = true;
+            bool result = false;
             bool serverResult;
             var question = MessageBox.Show("Czy chcesz zapisać dane?", "Informacja", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (question == MessageBoxResult.Yes)
             {
-                if (ClientTools.ValidateProperty(role.Name))
+                if (ClientTools.ValidateProperty(address.City) && ClientTools.ValidateProperty(address.Street) && ClientTools.ValidateProperty(address.Number) && ClientTools.ValidateProperty(address.PostCode))
                 {
                     if (ViewType == ViewType.Edit)
-                        serverResult = model.SaveChange(Role);
+                        serverResult = result = model.SaveChange(address);
                     else
-                        serverResult = AddNewItem();
+                        serverResult = result = AddNewItem();
 
                     if (!serverResult)
                     {
@@ -105,7 +106,7 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Role
                 }
                 else
                 {
-                    MessageBox.Show("Pole nazwa nie może być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Pole miasto, ulica,numer i kod pocztowy nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                     result = false;
                 }
             }
@@ -115,13 +116,13 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Role
             if (result)
                 MessageBox.Show("Dane zapisano", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            return result;
+            return false;
         }
 
-        public bool AddNewItem()
+        private bool AddNewItem()
         {
-            role.RoleId = Guid.NewGuid();
-            return model.AddNewItem(role);
+            address.AddressId = Guid.NewGuid();
+            return model.AddNewItem(address);
         }
     }
 }

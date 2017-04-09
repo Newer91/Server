@@ -70,6 +70,5 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Role
         {
             Roles = model.GetDataFromRole(name, activity.Value);
         }
-
     }
 }

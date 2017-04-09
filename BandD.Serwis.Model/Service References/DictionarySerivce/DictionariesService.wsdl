@@ -273,6 +273,64 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="GetDataFromAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataFromAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="GetDataFromAddressResult" nillable="true" type="q19:ArrayOfAddressesView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveElementFromAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q20:guid" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveElementFromAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RemoveElementFromAddressResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddElementToAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="element" nillable="true" type="q21:AddressesView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddElementToAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddElementToAddressResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateElementAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/BandD.Serwis.ClassViewModel.Dictionaries" minOccurs="0" name="element" nillable="true" type="q22:AddressesView" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateElementAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateElementAddressResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="anyType" nillable="true" type="xs:anyType" />
@@ -381,6 +439,26 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfSlRoleView" nillable="true" type="tns:ArrayOfSlRoleView" />
+      <xs:complexType name="ArrayOfAddressesView">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressesView" nillable="true" type="tns:AddressesView" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAddressesView" nillable="true" type="tns:ArrayOfAddressesView" />
+      <xs:complexType name="AddressesView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressId" type="ser:guid" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsCompanyAddres" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeliveryAddres" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostCode" type="xs:int" />
+          <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute ref="ser:Id" />
+        <xs:attribute ref="ser:Ref" />
+      </xs:complexType>
+      <xs:element name="AddressesView" nillable="true" type="tns:AddressesView" />
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="IDictionariesService_Autorauthorization_InputMessage">
@@ -491,6 +569,30 @@
   <wsdl:message name="IDictionariesService_AddElementToSlRole_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddElementToSlRoleResponse" />
   </wsdl:message>
+  <wsdl:message name="IDictionariesService_GetDataFromAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataFromAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_GetDataFromAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataFromAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_RemoveElementFromAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveElementFromAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_RemoveElementFromAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveElementFromAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_AddElementToAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddElementToAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_AddElementToAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddElementToAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_UpdateElementAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateElementAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDictionariesService_UpdateElementAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateElementAddressResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDictionariesService">
     <wsdl:operation name="Autorauthorization">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/Autorauthorization" message="tns:IDictionariesService_Autorauthorization_InputMessage" />
@@ -563,6 +665,22 @@
     <wsdl:operation name="AddElementToSlRole">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/AddElementToSlRole" message="tns:IDictionariesService_AddElementToSlRole_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/AddElementToSlRoleResponse" message="tns:IDictionariesService_AddElementToSlRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/GetDataFromAddress" message="tns:IDictionariesService_GetDataFromAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/GetDataFromAddressResponse" message="tns:IDictionariesService_GetDataFromAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveElementFromAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/RemoveElementFromAddress" message="tns:IDictionariesService_RemoveElementFromAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/RemoveElementFromAddressResponse" message="tns:IDictionariesService_RemoveElementFromAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddElementToAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/AddElementToAddress" message="tns:IDictionariesService_AddElementToAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/AddElementToAddressResponse" message="tns:IDictionariesService_AddElementToAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElementAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionariesService/UpdateElementAddress" message="tns:IDictionariesService_UpdateElementAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionariesService/UpdateElementAddressResponse" message="tns:IDictionariesService_UpdateElementAddress_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IDictionariesService" type="tns:IDictionariesService">
@@ -723,6 +841,42 @@
     </wsdl:operation>
     <wsdl:operation name="AddElementToSlRole">
       <soap12:operation soapAction="http://tempuri.org/IDictionariesService/AddElementToSlRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromAddress">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/GetDataFromAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveElementFromAddress">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/RemoveElementFromAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElementToAddress">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/AddElementToAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElementAddress">
+      <soap12:operation soapAction="http://tempuri.org/IDictionariesService/UpdateElementAddress" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

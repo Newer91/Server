@@ -9,6 +9,9 @@ namespace BandD.Serwis.Tools.Extension
             var s = property as string;
             if (s != null && s != string.Empty)
                 return true;
+            var i = property as int?;
+            if (i != null)
+                return true;
 
             return false;
         }
