@@ -12,49 +12,14 @@ namespace BandD.Serwis.ViewModel.Dictionaries.OrderStatus
     public class OrderStatusDetailViewModel : BaseViewClass
     {
         private OrderStatusModel model;
-        private ViewType viewType;
         private SlOrderStatView stats;
-        private string title;
-        private bool isReadOnly;
-        private bool isEnable;
-        private string cancelButtonName;
 
         #region Public properties
-
-        public ViewType ViewType
-        {
-            get { return viewType; }
-            set { viewType = value; OnPropertyChanged(); }
-        }
-
-        public bool IsReadOnly
-        {
-            get { return isReadOnly; }
-            set { isReadOnly = value; OnPropertyChanged(); }
-        }
-
-        public bool IsEnable
-        {
-            get { return isEnable; }
-            set { isEnable = value; OnPropertyChanged(); }
-        }
-
-        public string Title
-        {
-            get { return title; }
-            set { title = value; OnPropertyChanged(); }
-        }
-
+                
         public SlOrderStatView Stats
         {
             get { return stats; }
             set { stats = value; OnPropertyChanged(); }
-        }
-
-        public string CancelButtonName
-        {
-            get { return cancelButtonName; }
-            set { cancelButtonName = value; OnPropertyChanged(); }
         }
 
         #endregion

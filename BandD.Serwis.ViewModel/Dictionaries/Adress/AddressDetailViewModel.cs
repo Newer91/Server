@@ -12,50 +12,17 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Adress
     public class AddressDetailViewModel: BaseViewClass
     {
         private AddressModel model;
-        private ViewType viewType;
+        
         private AddressesView address;
-        private string title;
-        private bool isReadOnly;
-        private bool isEnable;
-        private string cancelButtonName;
 
         #region Public properties
-
-        public ViewType ViewType
-        {
-            get { return viewType; }
-            set { viewType = value; OnPropertyChanged(); }
-        }
-
-        public bool IsReadOnly
-        {
-            get { return isReadOnly; }
-            set { isReadOnly = value; OnPropertyChanged(); }
-        }
-
-        public bool IsEnable
-        {
-            get { return isEnable; }
-            set { isEnable = value; OnPropertyChanged(); }
-        }
-
-        public string Title
-        {
-            get { return title; }
-            set { title = value; OnPropertyChanged(); }
-        }
 
         public AddressesView Address
         {
             get { return address; }
             set { address = value; OnPropertyChanged(); }
         }
-
-        public string CancelButtonName
-        {
-            get { return cancelButtonName; }
-            set { cancelButtonName = value; OnPropertyChanged(); }
-        }
+        
         #endregion
 
         public AddressDetailViewModel(ViewType viewType)

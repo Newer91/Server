@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseModel.cs" />
     <Compile Include="Dictionaries\AddressModel.cs" />
     <Compile Include="Dictionaries\CarrierStatusModel.cs" />
     <Compile Include="Dictionaries\ClientModel.cs" />

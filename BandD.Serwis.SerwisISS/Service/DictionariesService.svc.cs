@@ -547,6 +547,16 @@ namespace BandD.Serwis.SerwisISS.Service
             throw new NotImplementedException();
         }
 
+        public bool AddElementToClients(ClientView client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateElementClients(ClientView client)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

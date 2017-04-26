@@ -105,6 +105,12 @@ namespace BandD.Serwis.SerwisISS.Interface
         [OperationContract]
         bool RemoveElementFromClient(Guid id);
 
+        [OperationContract]
+        bool AddElementToClients(ClientView client);
+
+        [OperationContract]
+        bool UpdateElementClients(ClientView client);
+
         #endregion
     }
 }

@@ -17,39 +17,11 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
         private ViewType viewType;
         private UserView user;
         private SlRoleView role;
-        private string title;
-        private bool isReadOnly;
-        private bool isEnable;
-        private string cancelButtonName;
         private SecureString securePassword;
         private ObservableCollection<SlRoleView> aveilableRoles;
 
 
         #region Public propertis
-
-        public ViewType ViewType
-        {
-            get { return viewType; }
-            set { viewType = value; OnPropertyChanged(); }
-        }
-
-        public bool IsReadOnly
-        {
-            get { return isReadOnly; }
-            set { isReadOnly = value; OnPropertyChanged(); }
-        }
-
-        public bool IsEnable
-        {
-            get { return isEnable; }
-            set { isEnable = value; OnPropertyChanged(); }
-        }
-
-        public string Title
-        {
-            get { return title; }
-            set { title = value; OnPropertyChanged(); }
-        }
 
         public UserView User
         {
@@ -61,12 +33,6 @@ namespace BandD.Serwis.ViewModel.Dictionaries.User
         {
             get { return role; }
             set { role = value; OnPropertyChanged(); }
-        }
-
-        public string CancelButtonName
-        {
-            get { return cancelButtonName; }
-            set { cancelButtonName = value; OnPropertyChanged(); }
         }
 
         public SecureString SecurePassword

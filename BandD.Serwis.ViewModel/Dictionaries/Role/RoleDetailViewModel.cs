@@ -13,48 +13,13 @@ namespace BandD.Serwis.ViewModel.Dictionaries.Role
     {
         private RolesModel model;
         private SlRoleView role;
-        private ViewType viewType;
-        private string title;
-        private bool isReadOnly;
-        private bool isEnable;
-        private string cancelButtonName;
 
         public SlRoleView Role
         {
             get { return role; }
             set { role = value; OnPropertyChanged(); }
         }
-
-        public ViewType ViewType
-        {
-            get { return viewType; }
-            set { viewType = value; OnPropertyChanged(); }
-        }
-
-        public bool IsReadOnly
-        {
-            get { return isReadOnly; }
-            set { isReadOnly = value; OnPropertyChanged(); }
-        }
-
-        public bool IsEnable
-        {
-            get { return isEnable; }
-            set { isEnable = value; OnPropertyChanged(); }
-        }
-
-        public string Title
-        {
-            get { return title; }
-            set { title = value; OnPropertyChanged(); }
-        }
-
-        public string CancelButtonName
-        {
-            get { return cancelButtonName; }
-            set { cancelButtonName = value; OnPropertyChanged(); }
-        }
-
+               
         public RoleDetailViewModel(ViewType viewType)
         {
             ViewType = viewType;
